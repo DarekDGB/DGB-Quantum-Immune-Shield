@@ -2,37 +2,39 @@ from __future__ import annotations
 
 from typing import Any, Dict
 
-from .base_layer import ShieldLayer, ShieldEvent, LayerResult
+from .base_layer import BaseLayer, LayerResult
 from ..context import ShieldContext
 
 
-class ADNBridge(ShieldLayer):
+class ADNLayer(BaseLayer):
     """
-    Bridge for ADN v2.
+    Bridge for Autonomous Defense Node (ADN v2).
 
-    Uses 'node_stress' (0–1) to simulate local node stress / lockdown risk.
+    It reacts to escalating risk by modelling local node reflex behaviour.
     """
 
-    def __init__(self) -> None:
-        super().__init__(name="adn_v2")
+    def __init__(self, weight: float = 1.0) -> None:
+        super().__init__("adn_v2")
+        self.weight = weight
 
-    def process(self, event: ShieldEvent, ctx: ShieldContext) -> LayerResult:
-        payload: Dict[str, Any] = event.payload
-        node_stress = float(payload.get("node_stress", 0.0))
+    def process(self, event: Dict[str, Any], context: ShieldContext) -> LayerResult:
+        local_anomaly = float(event.get("local_anomaly", 0.0))
+        lockdown_triggered = bool(event.get("lockdown_triggered", False))
 
-        severity = max(0.0, min(node_stress, 1.0))
-        level = "LOW"
-        if severity > 0.85:
-            level = "CRITICAL"
-        elif severity > 0.6:
-            level = "HIGH"
-        elif severity > 0.35:
-            level = "ELEVATED"
+        base_score = local_anomaly
+        if lockdown_triggered:
+            base_score = max(base_score, 0.9)
+
+        score = max(0.0, min(1.0, base_score * self.weight))
+
+        context.log(f"[ADN] local_anomaly={local_anomaly}, "
+                    f"lockdown={lockdown_triggered}, score={score:.3f}")
 
         return LayerResult(
-            layer=self.name,
-            severity=severity,
-            level=level,
-            notes="Simulated ADN local node stress / lockdown tendency.",
-            metadata={"node_stress": node_stress},
+            name=self.name,
+            risk_score=score,
+            details={
+                "local_anomaly": local_anomaly,
+                "lockdown_triggered": lockdown_triggered,
+            },
         )
