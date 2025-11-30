@@ -1,40 +1,25 @@
+# src/shield_orchestrator/bridges/qwg_bridge.py
+
 from __future__ import annotations
 
 from typing import Any, Dict
 
-from .base_layer import BaseLayer, LayerResult
+from .base_layer import BaseLayerBridge, LayerResult
 from ..context import ShieldContext
 
 
-class QWGLayer(BaseLayer):
-    """
-    Bridge for Quantum Wallet Guard (QWG v2).
-
-    It turns quantum-style signature / key pattern hints into a risk score.
-    """
-
-    def __init__(self, weight: float = 1.0) -> None:
-        super().__init__("qwg_v2")
-        self.weight = weight
+class QWGBridge(BaseLayerBridge):
+    name = "qwg"
 
     def process(self, event: Dict[str, Any], context: ShieldContext) -> LayerResult:
-        quantum_hint = float(event.get("quantum_hint", 0.0))
-        key_reuse = bool(event.get("key_reuse_detected", False))
+        # Quantum-style risk – defaults a bit higher when quantum flags appear.
+        base = float(event.get("quantum_risk", 0.30))
+        if event.get("quantum_flag"):
+            base = min(1.0, base + 0.20)
 
-        base_score = quantum_hint
-        if key_reuse:
-            base_score = max(base_score, 0.8)
-
-        score = max(0.0, min(1.0, base_score * self.weight))
-
-        context.log(f"[QWG] quantum_hint={quantum_hint}, key_reuse={key_reuse}, "
-                    f"score={score:.3f}")
-
+        score = max(0.0, min(1.0, base))
         return LayerResult(
-            name=self.name,
-            risk_score=score,
-            details={
-                "quantum_hint": quantum_hint,
-                "key_reuse_detected": key_reuse,
-            },
+            self.name,
+            score,
+            {"source": "qwg", "raw": base, "quantum_flag": event.get("quantum_flag")},
         )
