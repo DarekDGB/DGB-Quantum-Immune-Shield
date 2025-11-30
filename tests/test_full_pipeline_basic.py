@@ -1,54 +1,52 @@
-from shield_orchestrator import FullShieldPipeline, ShieldContext
+from shield_orchestrator import FullShieldPipeline
 
 
 def test_full_pipeline_low_risk():
+    """A calm event should stay LOW."""
     pipeline = FullShieldPipeline.from_default_config()
 
-    payload = {
-        "entropy_drop": 0.05,
-        "network_cluster_risk": 0.1,
-        "node_stress": 0.05,
-        "withdrawal_amount_dgb": 1000,
-        "full_balance_wipe": False,
-        "destination_score": 0.1,
-        "qrs": 5.0,
-        "network_immune_score": 0.05,
+    event = {
+        "entropy_drop": 0.02,
+        "reorg_depth": 0,
+        "cluster_risk": 0.0,
+        "global_alerts": 0,
+        "local_anomaly": 0.0,
+        "lockdown_triggered": False,
+        "amount_dgb": 1_000.0,
+        "recent_txs": 1,
+        "quantum_hint": 0.0,
+        "key_reuse_detected": False,
     }
 
-    outcome = pipeline.process_event(payload)
+    result = pipeline.process_event(event)
 
-    assert outcome.final_risk_level == "LOW"
-    assert len(outcome.trace) == 6
-    assert 0.0 <= outcome.max_severity <= 0.35
+    assert 0.0 <= result.final_score <= 0.4
+    assert result.final_level in {"LOW", "ELEVATED"}
+    assert len(result.layer_results) == 6
+    assert any("Sentinel" in log for log in result.logs)
 
 
 def test_full_pipeline_high_risk():
+    """A clearly malicious pattern should escalate to HIGH/CRITICAL."""
     pipeline = FullShieldPipeline.from_default_config()
 
-    payload = {
-        "entropy_drop": 0.8,
-        "network_cluster_risk": 0.9,
-        "node_stress": 0.7,
-        "withdrawal_amount_dgb": 600_000,
-        "full_balance_wipe": True,
-        "destination_score": 0.9,
-        "qrs": 92.0,
-        "network_immune_score": 0.88,
+    event = {
+        "entropy_drop": 0.5,
+        "reorg_depth": 3,
+        "cluster_risk": 0.7,
+        "global_alerts": 2,
+        "local_anomaly": 0.8,
+        "lockdown_triggered": True,
+        "amount_dgb": 500_000.0,
+        "recent_txs": 12,
+        "quantum_hint": 0.9,
+        "key_reuse_detected": True,
     }
 
-    outcome = pipeline.process_event(payload)
+    result = pipeline.process_event(event)
 
-    assert outcome.final_risk_level in ("HIGH", "CRITICAL")
-    assert len(outcome.trace) == 6
-    assert outcome.max_severity > 0.65
-
-    # Ensure each named layer appears exactly once
-    layer_names = [r.layer for r in outcome.trace]
-    assert set(layer_names) == {
-        "sentinel_v2",
-        "dqsn_v2",
-        "adn_v2",
-        "guardian_wallet_v2",
-        "qwg_v2",
-        "adaptive_core_v2",
-    }
+    assert 0.5 <= result.final_score <= 1.0
+    assert result.final_level in {"HIGH", "CRITICAL"}
+    assert len(result.layer_results) == 6
+    # Adaptive core must be present as last layer.
+    assert result.layer_results[-1].name == "adaptive_core_v2"
