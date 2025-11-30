@@ -1,45 +1,27 @@
 from __future__ import annotations
 
-from abc import ABC, abstractmethod
 from dataclasses import dataclass
-from typing import Any, Dict, List
-
-from ..context import ShieldContext
-
-
-@dataclass
-class ShieldEvent:
-    """Generic event flowing through the shield."""
-
-    payload: Dict[str, Any]
+from typing import Any, Dict
 
 
 @dataclass
 class LayerResult:
-    """
-    Result produced by a single layer.
-
-    severity: 0.0–1.0  (local view of risk)
-    level: LOW / ELEVATED / HIGH / CRITICAL
-    notes: free-form diagnostic info
-    """
-
-    layer: str
-    severity: float
-    level: str
-    notes: str
-    metadata: Dict[str, Any]
-
-
-class ShieldLayer(ABC):
-    """Abstract base class for all layer bridges."""
-
+    """Normalized result for a single shield layer."""
     name: str
+    risk_score: float  # 0.0 – 1.0
+    details: Dict[str, Any]
+
+
+class BaseLayer:
+    """Common interface for all shield layers."""
 
     def __init__(self, name: str) -> None:
         self.name = name
 
-    @abstractmethod
-    def process(self, event: ShieldEvent, ctx: ShieldContext) -> LayerResult:
-        """Process an event and return this layer's risk viewpoint."""
-        raise NotImplementedError
+    def process(self, event: Dict[str, Any], context: "ShieldContext") -> LayerResult:
+        """
+        Process a generic event and return a normalized LayerResult.
+
+        Concrete subclasses MUST override this method.
+        """
+        raise NotImplementedError(f"{self.__class__.__name__}.process() not implemented")
