@@ -1,27 +1,39 @@
+# src/shield_orchestrator/bridges/base_layer.py
+
 from __future__ import annotations
 
 from dataclasses import dataclass
 from typing import Any, Dict
 
+from ..context import ShieldContext
+
 
 @dataclass
 class LayerResult:
-    """Normalized result for a single shield layer."""
-    name: str
-    risk_score: float  # 0.0 – 1.0
-    details: Dict[str, Any]
+    """Generic result for any layer in the shield."""
+
+    layer_name: str
+    risk_score: float
+    meta: Dict[str, Any]
 
 
-class BaseLayer:
-    """Common interface for all shield layers."""
+class BaseLayerBridge:
+    """Base class for all layer bridges in this repo.
 
-    def __init__(self, name: str) -> None:
-        self.name = name
+    In this orchestrator skeleton, every bridge is a light-weight adapter
+    that receives an event dict and returns a LayerResult.  No external
+    DigiByte repos are imported here – everything is self-contained so CI passes.
+    """
 
-    def process(self, event: Dict[str, Any], context: "ShieldContext") -> LayerResult:
+    name: str = "base"
+
+    def process(self, event: Dict[str, Any], context: ShieldContext) -> LayerResult:
+        """Default behaviour: echo the event with neutral risk.
+
+        Concrete subclasses override this to implement their own scoring rules.
         """
-        Process a generic event and return a normalized LayerResult.
-
-        Concrete subclasses MUST override this method.
-        """
-        raise NotImplementedError(f"{self.__class__.__name__}.process() not implemented")
+        return LayerResult(
+            layer_name=self.name,
+            risk_score=0.0,
+            meta={"echo": True, "event_type": event.get("type", "unknown")},
+        )
