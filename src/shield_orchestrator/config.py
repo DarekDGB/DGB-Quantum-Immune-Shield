@@ -1,3 +1,5 @@
+# src/shield_orchestrator/config.py
+
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -5,16 +7,13 @@ from dataclasses import dataclass
 
 @dataclass
 class ShieldConfig:
-    """
-    High-level weight configuration for the 6 layers.
+    """Very small config stub for now.
 
-    These weights are used to compute the final aggregate risk score.
-    They do NOT have to be perfect – they just keep the demo deterministic.
+    This keeps room for future options (testnet URLs, logging, etc.).
     """
 
-    sentinel_weight: float = 0.15
-    dqsn_weight: float = 0.20
-    adn_weight: float = 0.20
-    guardian_weight: float = 0.15
-    qwg_weight: float = 0.15
-    adaptive_weight: float = 0.15
+    name: str = "DigiByte Quantum Immune Shield v2"
+
+    @classmethod
+    def default(cls) -> "ShieldConfig":
+        return cls()
