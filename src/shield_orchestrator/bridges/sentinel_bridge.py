@@ -2,38 +2,36 @@ from __future__ import annotations
 
 from typing import Any, Dict
 
-from .base_layer import ShieldLayer, ShieldEvent, LayerResult
+from .base_layer import BaseLayer, LayerResult
 from ..context import ShieldContext
 
 
-class SentinelBridge(ShieldLayer):
+class SentinelLayer(BaseLayer):
     """
-    Lightweight bridge for Sentinel AI v2.
+    Lightweight Sentinel AI v2 bridge.
 
-    In this bundle we don't talk to a real node yet; instead we
-    simulate a simple "entropy-based" severity using the payload.
+    It turns entropy / anomaly hints in the event into a 0–1 risk score.
     """
 
-    def __init__(self) -> None:
-        super().__init__(name="sentinel_v2")
+    def __init__(self, weight: float = 1.0) -> None:
+        super().__init__("sentinel_ai_v2")
+        self.weight = weight
 
-    def process(self, event: ShieldEvent, ctx: ShieldContext) -> LayerResult:
-        payload: Dict[str, Any] = event.payload
-        entropy_drop = float(payload.get("entropy_drop", 0.0))
+    def process(self, event: Dict[str, Any], context: ShieldContext) -> LayerResult:
+        entropy_drop = float(event.get("entropy_drop", 0.0))
+        reorg_depth = int(event.get("reorg_depth", 0))
 
-        severity = max(0.0, min(entropy_drop, 1.0))
-        level = "LOW"
-        if severity > 0.75:
-            level = "CRITICAL"
-        elif severity > 0.5:
-            level = "HIGH"
-        elif severity > 0.25:
-            level = "ELEVATED"
+        base_score = max(0.0, min(1.0, entropy_drop + 0.05 * reorg_depth))
+        score = max(0.0, min(1.0, base_score * self.weight))
+
+        context.log(f"[Sentinel] entropy_drop={entropy_drop}, reorg_depth={reorg_depth}, "
+                    f"score={score:.3f}")
 
         return LayerResult(
-            layer=self.name,
-            severity=severity,
-            level=level,
-            notes="Simulated Sentinel entropy signal.",
-            metadata={"entropy_drop": entropy_drop},
+            name=self.name,
+            risk_score=score,
+            details={
+                "entropy_drop": entropy_drop,
+                "reorg_depth": reorg_depth,
+            },
         )
