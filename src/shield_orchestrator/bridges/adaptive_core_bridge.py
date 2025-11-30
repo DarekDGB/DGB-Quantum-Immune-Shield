@@ -1,42 +1,41 @@
+# src/shield_orchestrator/bridges/adaptive_core_bridge.py
+
 from __future__ import annotations
 
 from typing import Any, Dict, List
 
-from .base_layer import BaseLayer, LayerResult
+from .base_layer import BaseLayerBridge, LayerResult
 from ..context import ShieldContext
 
 
-class AdaptiveCoreLayer(BaseLayer):
-    """
-    Bridge for the Adaptive Core v2.
+class AdaptiveCoreBridge(BaseLayerBridge):
+    name = "adaptive_core"
 
-    It receives the *previous layer results* and produces a final immune score.
-    """
+    def process(self, event: Dict[str, Any], context: ShieldContext) -> LayerResult:
+        """Very small simulation of immune behaviour.
 
-    def __init__(self, weight: float = 1.0) -> None:
-        super().__init__("adaptive_core_v2")
-        self.weight = weight
+        - Looks at any *_risk fields on the event
+        - Computes an aggregate
+        - Slightly boosts the risk if multiple layers are high
+        """
+        risk_fields: List[float] = []
+        for key, value in event.items():
+            if key.endswith("_risk"):
+                try:
+                    risk_fields.append(float(value))
+                except (TypeError, ValueError):
+                    continue
 
-    def process(
-        self,
-        event: Dict[str, Any],
-        context: ShieldContext,
-        previous_results: List[LayerResult],
-    ) -> LayerResult:
-        if not previous_results:
-            score = 0.0
+        if not risk_fields:
+            base = float(event.get("immune_risk", 0.35))
         else:
-            avg_prev = sum(r.risk_score for r in previous_results) / len(previous_results)
-            # Adaptive core amplifies persistent high risk, dampens noise.
-            score = max(0.0, min(1.0, avg_prev * 1.1 * self.weight))
+            avg = sum(risk_fields) / len(risk_fields)
+            # If many layers are high, immune system responds stronger
+            base = min(1.0, avg + 0.10)
 
-        context.log(f"[AdaptiveCore] previous_avg={avg_prev if previous_results else 0.0:.3f}, "
-                    f"immune_score={score:.3f}")
-
+        score = max(0.0, min(1.0, base))
         return LayerResult(
-            name=self.name,
-            risk_score=score,
-            details={
-                "previous_layers": [r.name for r in previous_results],
-            },
+            self.name,
+            score,
+            {"source": "adaptive_core", "raw": base, "observed_layers": len(risk_fields)},
         )
