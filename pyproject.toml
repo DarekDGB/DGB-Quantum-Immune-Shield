@@ -31,7 +31,7 @@ package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
-include = ["orchestrator*"]
+include = ["shield_orchestrator*"]
 
 [tool.pytest.ini_options]
 addopts = "-ra"
@@ -39,7 +39,7 @@ testpaths = ["tests"]
 
 [tool.coverage.run]
 branch = true
-source = ["orchestrator"]
+source = ["shield_orchestrator"]
 
 [tool.coverage.report]
 show_missing = true
