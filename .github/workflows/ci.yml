@@ -32,4 +32,4 @@ jobs:
 
       - name: Run tests (coverage gate)
         run: |
-          pytest --cov=orchestrator.v3 --cov-report=term-missing --cov-fail-under=90 -q
+          pytest --cov=shield_orchestrator --cov-report=term-missing --cov-fail-under=90 -q
