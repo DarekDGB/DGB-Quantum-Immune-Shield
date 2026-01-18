@@ -82,7 +82,11 @@ def orchestrate(request: OrchestratorV3Request) -> OrchestratorV3Response:
             "trace": [asdict(t) for t in trace],
         }
 
-        context_hash = compute_context_hash(hash_material)
+        try:
+            context_hash = compute_context_hash(hash_material)
+        except (TypeError, ValueError) as e:
+            # Canonicalization/hashing is part of the contract → explicit reason id
+            raise TVAError(ReasonId.HASHING_FAILED.value, f"hashing failed: {e}") from e
 
         return OrchestratorV3Response.deny(
             context_hash=context_hash,
@@ -91,7 +95,7 @@ def orchestrate(request: OrchestratorV3Request) -> OrchestratorV3Response:
         )
 
     except TVAError as e:
-        # Deterministic DENY for validation errors
+        # Deterministic DENY for validation / hashing errors
         trace = (
             TraceEntry(
                 stage="input_validation",
@@ -108,7 +112,18 @@ def orchestrate(request: OrchestratorV3Request) -> OrchestratorV3Response:
             "trace": [asdict(t) for t in trace],
         }
 
-        context_hash = compute_context_hash(hash_material)
+        # This must not throw; if it does, we fall back to INTERNAL_ERROR below.
+        try:
+            context_hash = compute_context_hash(hash_material)
+        except Exception:
+            context_hash = compute_context_hash(
+                {
+                    "request": {"contract_version": request.contract_version},
+                    "outcome": "DENY",
+                    "reason_ids": [ReasonId.INTERNAL_ERROR.value],
+                    "trace": [{"stage": "input_validation", "component": "orchestrator", "status": "DENY"}],
+                }
+            )
 
         return OrchestratorV3Response.deny(
             context_hash=context_hash,
