@@ -24,8 +24,8 @@ def orchestrate(request: OrchestratorV3Request) -> OrchestratorV3Response:
     - strict request validation + contract_version gate
     - deterministic bridge calls in fixed order:
         Sentinel -> DQSN -> ADN -> Guardian Wallet -> QWG
-    - deny-by-default synthesis (until real allow/escalate logic is integrated)
-    - Adaptive Core is a read-only sink that must not affect outcome
+    - deny-by-default synthesis (DENY_BY_POLICY) until real allow/escalate logic is integrated
+    - Adaptive Core is a read-only sink and must not affect outcome
     - hashing/serialization failures map to HASHING_FAILED (fail-closed)
     """
     try:
@@ -43,12 +43,14 @@ def orchestrate(request: OrchestratorV3Request) -> OrchestratorV3Response:
             trace.append(GuardianWalletBridge().evaluate_v3(request))
             trace.append(QWGBridge().evaluate_v3(request))
         except TypeError as e:
-            # Typically "not JSON serializable" from canonical hashing.
+            # Most common: non-JSON-serializable payload encountered during hashing in a bridge stub.
             raise TVAError(ReasonId.HASHING_FAILED.value, "hashing failed") from e
+        except Exception as e:
+            raise TVAError(ReasonId.COMPONENT_ERROR.value, "component error") from e
 
-        # Phase 3 synthesis: deny-by-default (until real policy logic exists)
+        # Phase 3 synthesis: deny-by-default (contract reason id: DENY_BY_POLICY)
         outcome = "DENY"
-        reason_ids = (ReasonId.POLICY_DENY_BY_DEFAULT.value,)
+        reason_ids = (ReasonId.DENY_BY_POLICY.value,)
 
         trace.append(
             TraceEntry(
@@ -69,7 +71,7 @@ def orchestrate(request: OrchestratorV3Request) -> OrchestratorV3Response:
                 stage="adaptive_core",
                 component="adaptive_core",
                 status="ERROR",
-                reason_ids=(ReasonId.TELEMETRY_FAILED.value,),
+                reason_ids=(ReasonId.COMPONENT_ERROR.value,),
                 notes="phase3_sink_failed",
             )
 
