@@ -5,12 +5,20 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "dgb-quantum-shield-orchestrator"
 version = "3.0.0"
-description = "Shield Contract v3 orchestrator for the DigiByte Quantum Shield (deterministic aggregation + routing, fail-closed)."
+description = "Shield Contract v3 orchestrator for the DigiByte Quantum Shield (deterministic, fail-closed aggregation)."
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
 authors = [{ name = "DarekDGB" }]
-keywords = ["digibyte", "security", "shield", "orchestrator", "pqc", "deterministic", "fail-closed"]
+keywords = [
+  "digibyte",
+  "shield",
+  "orchestrator",
+  "security",
+  "deterministic",
+  "fail-closed",
+  "pqc"
+]
 classifiers = [
   "License :: OSI Approved :: MIT License",
   "Programming Language :: Python :: 3",
@@ -27,7 +35,7 @@ dev = [
 ]
 
 [tool.setuptools]
-package-dir = {"" = "src"}
+package-dir = { "" = "src" }
 
 [tool.setuptools.packages.find]
 where = ["src"]
