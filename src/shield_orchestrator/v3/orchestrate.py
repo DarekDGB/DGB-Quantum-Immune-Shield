@@ -24,29 +24,29 @@ def orchestrate(request: OrchestratorV3Request) -> OrchestratorV3Response:
     - strict request validation + contract_version gate
     - deterministic bridge calls in fixed order:
         Sentinel -> DQSN -> ADN -> Guardian Wallet -> QWG
-    - deny-by-default synthesis (no hidden allow paths yet)
+    - deny-by-default synthesis (until real allow/escalate logic is integrated)
     - Adaptive Core is a read-only sink that must not affect outcome
+    - hashing/serialization failures map to HASHING_FAILED (fail-closed)
     """
     try:
         _validate_request(request)
 
-        trace: list[TraceEntry] = []
-        trace.append(
-            TraceEntry(
-                stage="input_validation",
-                component="orchestrator",
-                status="OK",
-            )
-        )
+        trace: list[TraceEntry] = [
+            TraceEntry(stage="input_validation", component="orchestrator", status="OK")
+        ]
 
         # Fixed, deterministic bridge order (no order dependence)
-        trace.append(SentinelBridge().evaluate_v3(request))
-        trace.append(DQSNBridge().evaluate_v3(request))
-        trace.append(ADNBridge().evaluate_v3(request))
-        trace.append(GuardianWalletBridge().evaluate_v3(request))
-        trace.append(QWGBridge().evaluate_v3(request))
+        try:
+            trace.append(SentinelBridge().evaluate_v3(request))
+            trace.append(DQSNBridge().evaluate_v3(request))
+            trace.append(ADNBridge().evaluate_v3(request))
+            trace.append(GuardianWalletBridge().evaluate_v3(request))
+            trace.append(QWGBridge().evaluate_v3(request))
+        except TypeError as e:
+            # Typically "not JSON serializable" from canonical hashing.
+            raise TVAError(ReasonId.HASHING_FAILED.value, "hashing failed") from e
 
-        # Phase 3 synthesis: deny-by-default (until real allow/escalate logic is integrated)
+        # Phase 3 synthesis: deny-by-default (until real policy logic exists)
         outcome = "DENY"
         reason_ids = (ReasonId.POLICY_DENY_BY_DEFAULT.value,)
 
@@ -61,7 +61,9 @@ def orchestrate(request: OrchestratorV3Request) -> OrchestratorV3Response:
 
         # Adaptive Core sink (must not influence outcome)
         try:
-            sink_entry = AdaptiveCoreBridge().report_v3(request, outcome=outcome, reason_ids=reason_ids)
+            sink_entry = AdaptiveCoreBridge().report_v3(
+                request, outcome=outcome, reason_ids=reason_ids
+            )
         except Exception:
             sink_entry = TraceEntry(
                 stage="adaptive_core",
@@ -73,14 +75,17 @@ def orchestrate(request: OrchestratorV3Request) -> OrchestratorV3Response:
 
         full_trace = tuple(trace + [sink_entry])
 
-        hash_material = {
-            "request": asdict(request),
-            "outcome": outcome,
-            "reason_ids": list(reason_ids),
-            "trace": [asdict(t) for t in full_trace],
-        }
-
-        context_hash = compute_context_hash(hash_material)
+        # Hash the full request material (including payload). If it fails -> HASHING_FAILED.
+        try:
+            hash_material = {
+                "request": _request_for_hash(request, include_payload=True),
+                "outcome": outcome,
+                "reason_ids": list(reason_ids),
+                "trace": [asdict(t) for t in full_trace],
+            }
+            context_hash = compute_context_hash(hash_material)
+        except TypeError as e:
+            raise TVAError(ReasonId.HASHING_FAILED.value, "hashing failed") from e
 
         return OrchestratorV3Response(
             contract_version=CONTRACT_VERSION,
@@ -91,22 +96,24 @@ def orchestrate(request: OrchestratorV3Request) -> OrchestratorV3Response:
         )
 
     except TVAError as e:
+        # Build a deterministic DENY response without ever re-hashing the payload.
         trace = (
             TraceEntry(
-                stage="input_validation",
+                stage="fail_closed",
                 component="orchestrator",
                 status="DENY",
                 reason_ids=(e.reason_id,),
+                notes="tva_error",
             ),
         )
 
+        # Always omit payload in failure hashing to avoid recursive serialization errors.
         hash_material = {
-            "request": asdict(request),
+            "request": _request_for_hash(request, include_payload=False),
             "outcome": "DENY",
             "reason_ids": [e.reason_id],
             "trace": [asdict(t) for t in trace],
         }
-
         context_hash = compute_context_hash(hash_material)
 
         return OrchestratorV3Response(
@@ -128,12 +135,11 @@ def orchestrate(request: OrchestratorV3Request) -> OrchestratorV3Response:
         )
 
         hash_material = {
-            "request": asdict(request),
+            "request": _request_for_hash(request, include_payload=False),
             "outcome": "DENY",
             "reason_ids": [ReasonId.INTERNAL_ERROR.value],
             "trace": [asdict(t) for t in trace],
         }
-
         context_hash = compute_context_hash(hash_material)
 
         return OrchestratorV3Response(
@@ -143,6 +149,21 @@ def orchestrate(request: OrchestratorV3Request) -> OrchestratorV3Response:
             reason_ids=(ReasonId.INTERNAL_ERROR.value,),
             trace=trace,
         )
+
+
+def _request_for_hash(request: OrchestratorV3Request, *, include_payload: bool) -> dict:
+    """
+    Deterministic request material for hashing.
+
+    include_payload=True is the normal path.
+    include_payload=False is used for fail-closed responses to avoid
+    non-serializable payload causing recursive hashing failures.
+    """
+    d = asdict(request)
+    if not include_payload:
+        d = dict(d)
+        d["payload"] = None
+    return d
 
 
 def _validate_request(request: OrchestratorV3Request) -> None:
