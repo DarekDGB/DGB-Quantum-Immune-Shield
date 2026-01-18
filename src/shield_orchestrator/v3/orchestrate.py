@@ -24,16 +24,13 @@ def orchestrate(request: OrchestratorV3Request) -> OrchestratorV3Response:
     - strict request validation + contract_version gate
     - deterministic bridge calls in fixed order:
         Sentinel -> DQSN -> ADN -> Guardian Wallet -> QWG
-    - deny-by-default outcome synthesis (until real allow/deny logic is integrated)
-    - Adaptive Core is a read-only sink that receives the final v3 envelope
-      and emits a deterministic trace entry (must not affect outcome)
+    - deny-by-default synthesis (no hidden allow paths yet)
+    - Adaptive Core is a read-only sink that must not affect outcome
     """
     try:
         _validate_request(request)
 
         trace: list[TraceEntry] = []
-
-        # Stage 1: input validation
         trace.append(
             TraceEntry(
                 stage="input_validation",
@@ -49,8 +46,7 @@ def orchestrate(request: OrchestratorV3Request) -> OrchestratorV3Response:
         trace.append(GuardianWalletBridge().evaluate_v3(request))
         trace.append(QWGBridge().evaluate_v3(request))
 
-        # Phase 3 synthesis:
-        # For now, deny-by-default (no hidden allow paths).
+        # Phase 3 synthesis: deny-by-default (until real allow/escalate logic is integrated)
         outcome = "DENY"
         reason_ids = (ReasonId.POLICY_DENY_BY_DEFAULT.value,)
 
@@ -58,48 +54,41 @@ def orchestrate(request: OrchestratorV3Request) -> OrchestratorV3Response:
             TraceEntry(
                 stage="final_synthesis",
                 component="orchestrator",
-                status=outcome,
+                status="DENY",
                 reason_ids=reason_ids,
             )
         )
+
+        # Adaptive Core sink (must not influence outcome)
+        try:
+            sink_entry = AdaptiveCoreBridge().report_v3(request, outcome=outcome, reason_ids=reason_ids)
+        except Exception:
+            sink_entry = TraceEntry(
+                stage="adaptive_core",
+                component="adaptive_core",
+                status="ERROR",
+                reason_ids=(ReasonId.TELEMETRY_FAILED.value,),
+                notes="phase3_sink_failed",
+            )
+
+        full_trace = tuple(trace + [sink_entry])
 
         hash_material = {
             "request": asdict(request),
             "outcome": outcome,
             "reason_ids": list(reason_ids),
-            "trace": [asdict(t) for t in trace],
+            "trace": [asdict(t) for t in full_trace],
         }
 
         context_hash = compute_context_hash(hash_material)
 
-        final = OrchestratorV3Response(
+        return OrchestratorV3Response(
             contract_version=CONTRACT_VERSION,
             outcome=outcome,
             context_hash=context_hash,
             reason_ids=reason_ids,
-            trace=tuple(trace),
+            trace=full_trace,
         )
-
-        # Adaptive Core sink (must not influence outcome)
-        try:
-            trace_entry = AdaptiveCoreBridge().report_v3(request, final)
-            final.trace = tuple(list(final.trace) + [trace_entry])  # type: ignore[misc]
-        except Exception:
-            # sink failures must not change final outcome; record fail-closed telemetry
-            final.trace = tuple(
-                list(final.trace)
-                + [
-                    TraceEntry(
-                        stage="adaptive_core",
-                        component="adaptive_core",
-                        status="ERROR",
-                        reason_ids=(ReasonId.TELEMETRY_FAILED.value,),
-                        notes="phase3_sink_failed",
-                    )
-                ]
-            )  # type: ignore[misc]
-
-        return final
 
     except TVAError as e:
         trace = (
@@ -131,7 +120,7 @@ def orchestrate(request: OrchestratorV3Request) -> OrchestratorV3Response:
     except Exception:
         trace = (
             TraceEntry(
-                stage="input_validation",
+                stage="internal_error",
                 component="orchestrator",
                 status="DENY",
                 reason_ids=(ReasonId.INTERNAL_ERROR.value,),
@@ -158,31 +147,16 @@ def orchestrate(request: OrchestratorV3Request) -> OrchestratorV3Response:
 
 def _validate_request(request: OrchestratorV3Request) -> None:
     if request.contract_version != CONTRACT_VERSION:
-        raise TVAError(
-            ReasonId.INVALID_CONTRACT_VERSION.value,
-            "contract_version must be 3",
-        )
+        raise TVAError(ReasonId.INVALID_CONTRACT_VERSION.value, "contract_version must be 3")
 
     if not isinstance(request.wallet_id, str) or not request.wallet_id:
-        raise TVAError(
-            ReasonId.INVALID_REQUEST.value,
-            "wallet_id must be a non-empty string",
-        )
+        raise TVAError(ReasonId.INVALID_REQUEST.value, "wallet_id must be a non-empty string")
 
     if not isinstance(request.action, str) or not request.action:
-        raise TVAError(
-            ReasonId.INVALID_REQUEST.value,
-            "action must be a non-empty string",
-        )
+        raise TVAError(ReasonId.INVALID_REQUEST.value, "action must be a non-empty string")
 
     if not isinstance(request.nonce, str) or not request.nonce:
-        raise TVAError(
-            ReasonId.INVALID_REQUEST.value,
-            "nonce must be a non-empty string",
-        )
+        raise TVAError(ReasonId.INVALID_REQUEST.value, "nonce must be a non-empty string")
 
     if not isinstance(request.ttl_seconds, int) or request.ttl_seconds <= 0:
-        raise TVAError(
-            ReasonId.INVALID_REQUEST.value,
-            "ttl_seconds must be a positive integer",
-        )
+        raise TVAError(ReasonId.INVALID_REQUEST.value, "ttl_seconds must be a positive integer")
