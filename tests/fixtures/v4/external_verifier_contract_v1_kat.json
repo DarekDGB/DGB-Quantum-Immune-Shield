@@ -1,0 +1,1557 @@
+{
+  "author_attribution": "DarekDGB",
+  "canonicalization_profile": "shield-v4-canon.v1",
+  "contract_version": 1,
+  "expected_result": {
+    "accepted_as_evidence": true,
+    "dominant_reason_ids": [
+      "ORCH_OK_ALL_COMPONENTS_ALLOW"
+    ],
+    "final_approval": false,
+    "final_outcome": "ALLOW",
+    "handoff_allowed": true,
+    "reason_id": "EVIDENCE_OK",
+    "state": "VERIFIED_ALLOW_EVIDENCE_CONTINUE_CHECKS",
+    "verified": true
+  },
+  "inputs": {
+    "expected_context_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "expected_request_id": "req-v4h-e-fn-dsa-final",
+    "minimum_key_registry_version": 1,
+    "rejected_receipt_hashes": [],
+    "seen_request_ids": [],
+    "verification_time": "2026-06-21T00:02:00Z"
+  },
+  "kat_artifacts": [
+    {
+      "artifact_id": "adn",
+      "canonical_json_hex": "7b2263616e6f6e6963616c697a6174696f6e5f70726f66696c65223a22736869656c642d76342d63616e6f6e2e7631222c22636f6d706f6e656e745f6964223a2261646e222c22636f6e746578745f68617368223a2261616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161222c22636f6e74726163745f76657273696f6e223a342c226465636973696f6e223a22414c4c4f57222c2265766964656e63655f66616d696c696573223a5b22646566656e73655f7369676e616c225d2c2265766964656e63655f68617368223a2262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262222c226661696c5f636c6f736564223a747275652c2266726573686e6573735f6e6f6e6365223a226e6f6e63652d61646e222c226b65795f72656769737472795f76657273696f6e223a312c226d65746164617461223a7b22696e746567726174696f6e5f6861726e657373223a22736869656c642d76342e38682d66696e616c222c22736f75726365223a2261646e227d2c226e6f745f6166746572223a22323032362d30362d32315430303a30353a30305a222c226e6f745f6265666f7265223a22323032362d30362d32315430303a30303a30305a222c22726561736f6e5f696473223a5b2241444e5f4f4b5f434f4f5244494e4154494f4e5f414c4c4f57225d2c22726571756573745f6964223a227265712d7634682d652d666e2d6473612d66696e616c222c22736368656d615f76657273696f6e223a22736869656c642e766572646963742e7632222c227369676e61747572655f706f6c696379223a22706f6c6963792e7631227d",
+      "canonical_json_utf8": "{\"canonicalization_profile\":\"shield-v4-canon.v1\",\"component_id\":\"adn\",\"context_hash\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"contract_version\":4,\"decision\":\"ALLOW\",\"evidence_families\":[\"defense_signal\"],\"evidence_hash\":\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\",\"fail_closed\":true,\"freshness_nonce\":\"nonce-adn\",\"key_registry_version\":1,\"metadata\":{\"integration_harness\":\"shield-v4.8h-final\",\"source\":\"adn\"},\"not_after\":\"2026-06-21T00:05:00Z\",\"not_before\":\"2026-06-21T00:00:00Z\",\"reason_ids\":[\"ADN_OK_COORDINATION_ALLOW\"],\"request_id\":\"req-v4h-e-fn-dsa-final\",\"schema_version\":\"shield.verdict.v2\",\"signature_policy\":\"policy.v1\"}",
+      "domain_separated_payload_hex": "4447422d534849454c442d56342d5349474e45442d5041594c4f41440a4447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e76310a7b2263616e6f6e6963616c697a6174696f6e5f70726f66696c65223a22736869656c642d76342d63616e6f6e2e7631222c22636f6d706f6e656e745f6964223a2261646e222c22636f6e746578745f68617368223a2261616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161222c22636f6e74726163745f76657273696f6e223a342c226465636973696f6e223a22414c4c4f57222c2265766964656e63655f66616d696c696573223a5b22646566656e73655f7369676e616c225d2c2265766964656e63655f68617368223a2262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262222c226661696c5f636c6f736564223a747275652c2266726573686e6573735f6e6f6e6365223a226e6f6e63652d61646e222c226b65795f72656769737472795f76657273696f6e223a312c226d65746164617461223a7b22696e746567726174696f6e5f6861726e657373223a22736869656c642d76342e38682d66696e616c222c22736f75726365223a2261646e227d2c226e6f745f6166746572223a22323032362d30362d32315430303a30353a30305a222c226e6f745f6265666f7265223a22323032362d30362d32315430303a30303a30305a222c22726561736f6e5f696473223a5b2241444e5f4f4b5f434f4f5244494e4154494f4e5f414c4c4f57225d2c22726571756573745f6964223a227265712d7634682d652d666e2d6473612d66696e616c222c22736368656d615f76657273696f6e223a22736869656c642e766572646963742e7632222c227369676e61747572655f706f6c696379223a22706f6c6963792e7631227d",
+      "domain_separated_payload_utf8": "DGB-SHIELD-V4-SIGNED-PAYLOAD\nDGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\n{\"canonicalization_profile\":\"shield-v4-canon.v1\",\"component_id\":\"adn\",\"context_hash\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"contract_version\":4,\"decision\":\"ALLOW\",\"evidence_families\":[\"defense_signal\"],\"evidence_hash\":\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\",\"fail_closed\":true,\"freshness_nonce\":\"nonce-adn\",\"key_registry_version\":1,\"metadata\":{\"integration_harness\":\"shield-v4.8h-final\",\"source\":\"adn\"},\"not_after\":\"2026-06-21T00:05:00Z\",\"not_before\":\"2026-06-21T00:00:00Z\",\"reason_ids\":[\"ADN_OK_COORDINATION_ALLOW\"],\"request_id\":\"req-v4h-e-fn-dsa-final\",\"schema_version\":\"shield.verdict.v2\",\"signature_policy\":\"policy.v1\"}",
+      "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+      "role": "shield_component_adn",
+      "signature_inputs": [
+        {
+          "algorithm": "classical-ed25519",
+          "deterministic_signature": "2d3a8f16809fb5e1de8acff948be28d37f66422725e275b7d4276d0cd73241c3",
+          "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+          "key_id": "test-shield_component_adn-classical-ed25519-v1",
+          "key_version": 1,
+          "public_key_hex": "544553542d4f4e4c592d5055424c49432d736869656c645f636f6d706f6e656e745f61646e2d636c6173736963616c2d656432353531392d7631",
+          "public_key_utf8": "TEST-ONLY-PUBLIC-shield_component_adn-classical-ed25519-v1",
+          "real_crypto_signature_input_hex": "4447422d534849454c442d56342d5245414c2d43525950544f2d5349474e41545552452d494e5055540a4447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e76310a313536646635663664333933366134333434656331306261353063366630326562396330653432643635376134316237343364346437666362613133373631660a636c6173736963616c2d656432353531390a726663383033322d656432353531392d76310a746573742d736869656c645f636f6d706f6e656e745f61646e2d636c6173736963616c2d656432353531392d76310a31",
+          "real_crypto_signature_input_utf8": "DGB-SHIELD-V4-REAL-CRYPTO-SIGNATURE-INPUT\nDGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\n156df5f6d3936a4344ec10ba50c6f02eb9c0e42d657a41b743d4d7fcba13761f\nclassical-ed25519\nrfc8032-ed25519-v1\ntest-shield_component_adn-classical-ed25519-v1\n1",
+          "signed_payload_hash": "156df5f6d3936a4344ec10ba50c6f02eb9c0e42d657a41b743d4d7fcba13761f",
+          "standard_profile": "rfc8032-ed25519-v1",
+          "test_only_signature_input_hex": "544553542d4f4e4c592d41444e2d5349474e41545552450a544553542d4f4e4c592d5055424c49432d736869656c645f636f6d706f6e656e745f61646e2d636c6173736963616c2d656432353531392d76310a636c6173736963616c2d656432353531390a726663383033322d656432353531392d76310a31353664663566366433393336613433343465633130626135306336663032656239633065343264363537613431623734336434643766636261313337363166",
+          "test_only_signature_input_utf8": "TEST-ONLY-ADN-SIGNATURE\nTEST-ONLY-PUBLIC-shield_component_adn-classical-ed25519-v1\nclassical-ed25519\nrfc8032-ed25519-v1\n156df5f6d3936a4344ec10ba50c6f02eb9c0e42d657a41b743d4d7fcba13761f",
+          "test_only_signature_scheme": "sha256-test-contract-double"
+        },
+        {
+          "algorithm": "ml-dsa",
+          "deterministic_signature": "044c24c508a01fab7bb66d54df33040c9bab8767a76971b12454f43d80ff7ca6",
+          "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+          "key_id": "test-shield_component_adn-ml-dsa-v1",
+          "key_version": 1,
+          "public_key_hex": "544553542d4f4e4c592d5055424c49432d736869656c645f636f6d706f6e656e745f61646e2d6d6c2d6473612d7631",
+          "public_key_utf8": "TEST-ONLY-PUBLIC-shield_component_adn-ml-dsa-v1",
+          "real_crypto_signature_input_hex": "4447422d534849454c442d56342d5245414c2d43525950544f2d5349474e41545552452d494e5055540a4447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e76310a313536646635663664333933366134333434656331306261353063366630326562396330653432643635376134316237343364346437666362613133373631660a6d6c2d6473610a666970733230342d6d6c2d6473612d36352d76310a746573742d736869656c645f636f6d706f6e656e745f61646e2d6d6c2d6473612d76310a31",
+          "real_crypto_signature_input_utf8": "DGB-SHIELD-V4-REAL-CRYPTO-SIGNATURE-INPUT\nDGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\n156df5f6d3936a4344ec10ba50c6f02eb9c0e42d657a41b743d4d7fcba13761f\nml-dsa\nfips204-ml-dsa-65-v1\ntest-shield_component_adn-ml-dsa-v1\n1",
+          "signed_payload_hash": "156df5f6d3936a4344ec10ba50c6f02eb9c0e42d657a41b743d4d7fcba13761f",
+          "standard_profile": "fips204-ml-dsa-65-v1",
+          "test_only_signature_input_hex": "544553542d4f4e4c592d41444e2d5349474e41545552450a544553542d4f4e4c592d5055424c49432d736869656c645f636f6d706f6e656e745f61646e2d6d6c2d6473612d76310a6d6c2d6473610a666970733230342d6d6c2d6473612d36352d76310a31353664663566366433393336613433343465633130626135306336663032656239633065343264363537613431623734336434643766636261313337363166",
+          "test_only_signature_input_utf8": "TEST-ONLY-ADN-SIGNATURE\nTEST-ONLY-PUBLIC-shield_component_adn-ml-dsa-v1\nml-dsa\nfips204-ml-dsa-65-v1\n156df5f6d3936a4344ec10ba50c6f02eb9c0e42d657a41b743d4d7fcba13761f",
+          "test_only_signature_scheme": "sha256-test-contract-double"
+        },
+        {
+          "algorithm": "fn-dsa",
+          "deterministic_signature": "46530d1cabb578185b8cbcd4bd72490307fb11037b23cf9d82c03618cb6f0393",
+          "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+          "key_id": "test-shield_component_adn-fn-dsa-v1",
+          "key_version": 1,
+          "public_key_hex": "544553542d4f4e4c592d5055424c49432d736869656c645f636f6d706f6e656e745f61646e2d666e2d6473612d7631",
+          "public_key_utf8": "TEST-ONLY-PUBLIC-shield_component_adn-fn-dsa-v1",
+          "real_crypto_signature_input_hex": "4447422d534849454c442d56342d5245414c2d43525950544f2d5349474e41545552452d494e5055540a4447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e76310a313536646635663664333933366134333434656331306261353063366630326562396330653432643635376134316237343364346437666362613133373631660a666e2d6473610a666970733230362d64726166742d66616c636f6e313032342d76310a746573742d736869656c645f636f6d706f6e656e745f61646e2d666e2d6473612d76310a31",
+          "real_crypto_signature_input_utf8": "DGB-SHIELD-V4-REAL-CRYPTO-SIGNATURE-INPUT\nDGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\n156df5f6d3936a4344ec10ba50c6f02eb9c0e42d657a41b743d4d7fcba13761f\nfn-dsa\nfips206-draft-falcon1024-v1\ntest-shield_component_adn-fn-dsa-v1\n1",
+          "signed_payload_hash": "156df5f6d3936a4344ec10ba50c6f02eb9c0e42d657a41b743d4d7fcba13761f",
+          "standard_profile": "fips206-draft-falcon1024-v1",
+          "test_only_signature_input_hex": "544553542d4f4e4c592d41444e2d5349474e41545552450a544553542d4f4e4c592d5055424c49432d736869656c645f636f6d706f6e656e745f61646e2d666e2d6473612d76310a666e2d6473610a666970733230362d64726166742d66616c636f6e313032342d76310a31353664663566366433393336613433343465633130626135306336663032656239633065343264363537613431623734336434643766636261313337363166",
+          "test_only_signature_input_utf8": "TEST-ONLY-ADN-SIGNATURE\nTEST-ONLY-PUBLIC-shield_component_adn-fn-dsa-v1\nfn-dsa\nfips206-draft-falcon1024-v1\n156df5f6d3936a4344ec10ba50c6f02eb9c0e42d657a41b743d4d7fcba13761f",
+          "test_only_signature_scheme": "sha256-test-contract-double"
+        }
+      ],
+      "signed_payload_hash": "156df5f6d3936a4344ec10ba50c6f02eb9c0e42d657a41b743d4d7fcba13761f",
+      "unsigned_payload": {
+        "canonicalization_profile": "shield-v4-canon.v1",
+        "component_id": "adn",
+        "context_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "contract_version": 4,
+        "decision": "ALLOW",
+        "evidence_families": [
+          "defense_signal"
+        ],
+        "evidence_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "fail_closed": true,
+        "freshness_nonce": "nonce-adn",
+        "key_registry_version": 1,
+        "metadata": {
+          "integration_harness": "shield-v4.8h-final",
+          "source": "adn"
+        },
+        "not_after": "2026-06-21T00:05:00Z",
+        "not_before": "2026-06-21T00:00:00Z",
+        "reason_ids": [
+          "ADN_OK_COORDINATION_ALLOW"
+        ],
+        "request_id": "req-v4h-e-fn-dsa-final",
+        "schema_version": "shield.verdict.v2",
+        "signature_policy": "policy.v1"
+      },
+      "unsigned_payload_sha256": "038be06ceac9bbd899dedf29d514d568fd3f0ab680b7f9f19eb829fb377ab584"
+    },
+    {
+      "artifact_id": "dqsn",
+      "canonical_json_hex": "7b2263616e6f6e6963616c697a6174696f6e5f70726f66696c65223a22736869656c642d76342d63616e6f6e2e7631222c22636f6d706f6e656e745f6964223a226471736e222c22636f6e746578745f68617368223a2261616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161222c22636f6e74726163745f76657273696f6e223a342c226465636973696f6e223a22414c4c4f57222c2265766964656e63655f66616d696c696573223a5b226e6574776f726b5f6f62736572766174696f6e225d2c2265766964656e63655f68617368223a2262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262222c226661696c5f636c6f736564223a747275652c2266726573686e6573735f6e6f6e6365223a226e6f6e63652d6471736e222c226b65795f72656769737472795f76657273696f6e223a312c226d65746164617461223a7b22696e746567726174696f6e5f6861726e657373223a22736869656c642d76342e38682d66696e616c222c22736f75726365223a226471736e227d2c226e6f745f6166746572223a22323032362d30362d32315430303a30353a30305a222c226e6f745f6265666f7265223a22323032362d30362d32315430303a30303a30305a222c22726561736f6e5f696473223a5b224451534e5f4f4b5f4e4554574f524b5f414c4c4f57225d2c22726571756573745f6964223a227265712d7634682d652d666e2d6473612d66696e616c222c22736368656d615f76657273696f6e223a22736869656c642e766572646963742e7632222c227369676e61747572655f706f6c696379223a22706f6c6963792e7631227d",
+      "canonical_json_utf8": "{\"canonicalization_profile\":\"shield-v4-canon.v1\",\"component_id\":\"dqsn\",\"context_hash\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"contract_version\":4,\"decision\":\"ALLOW\",\"evidence_families\":[\"network_observation\"],\"evidence_hash\":\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\",\"fail_closed\":true,\"freshness_nonce\":\"nonce-dqsn\",\"key_registry_version\":1,\"metadata\":{\"integration_harness\":\"shield-v4.8h-final\",\"source\":\"dqsn\"},\"not_after\":\"2026-06-21T00:05:00Z\",\"not_before\":\"2026-06-21T00:00:00Z\",\"reason_ids\":[\"DQSN_OK_NETWORK_ALLOW\"],\"request_id\":\"req-v4h-e-fn-dsa-final\",\"schema_version\":\"shield.verdict.v2\",\"signature_policy\":\"policy.v1\"}",
+      "domain_separated_payload_hex": "4447422d534849454c442d56342d5349474e45442d5041594c4f41440a4447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e76310a7b2263616e6f6e6963616c697a6174696f6e5f70726f66696c65223a22736869656c642d76342d63616e6f6e2e7631222c22636f6d706f6e656e745f6964223a226471736e222c22636f6e746578745f68617368223a2261616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161222c22636f6e74726163745f76657273696f6e223a342c226465636973696f6e223a22414c4c4f57222c2265766964656e63655f66616d696c696573223a5b226e6574776f726b5f6f62736572766174696f6e225d2c2265766964656e63655f68617368223a2262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262222c226661696c5f636c6f736564223a747275652c2266726573686e6573735f6e6f6e6365223a226e6f6e63652d6471736e222c226b65795f72656769737472795f76657273696f6e223a312c226d65746164617461223a7b22696e746567726174696f6e5f6861726e657373223a22736869656c642d76342e38682d66696e616c222c22736f75726365223a226471736e227d2c226e6f745f6166746572223a22323032362d30362d32315430303a30353a30305a222c226e6f745f6265666f7265223a22323032362d30362d32315430303a30303a30305a222c22726561736f6e5f696473223a5b224451534e5f4f4b5f4e4554574f524b5f414c4c4f57225d2c22726571756573745f6964223a227265712d7634682d652d666e2d6473612d66696e616c222c22736368656d615f76657273696f6e223a22736869656c642e766572646963742e7632222c227369676e61747572655f706f6c696379223a22706f6c6963792e7631227d",
+      "domain_separated_payload_utf8": "DGB-SHIELD-V4-SIGNED-PAYLOAD\nDGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\n{\"canonicalization_profile\":\"shield-v4-canon.v1\",\"component_id\":\"dqsn\",\"context_hash\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"contract_version\":4,\"decision\":\"ALLOW\",\"evidence_families\":[\"network_observation\"],\"evidence_hash\":\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\",\"fail_closed\":true,\"freshness_nonce\":\"nonce-dqsn\",\"key_registry_version\":1,\"metadata\":{\"integration_harness\":\"shield-v4.8h-final\",\"source\":\"dqsn\"},\"not_after\":\"2026-06-21T00:05:00Z\",\"not_before\":\"2026-06-21T00:00:00Z\",\"reason_ids\":[\"DQSN_OK_NETWORK_ALLOW\"],\"request_id\":\"req-v4h-e-fn-dsa-final\",\"schema_version\":\"shield.verdict.v2\",\"signature_policy\":\"policy.v1\"}",
+      "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+      "role": "shield_component_dqsn",
+      "signature_inputs": [
+        {
+          "algorithm": "classical-ed25519",
+          "deterministic_signature": "67278c8f1518cfc9edcaf35985e91b7e31afee5fe50c7463d187d2944d3ed1b0",
+          "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+          "key_id": "test-shield_component_dqsn-classical-ed25519-v1",
+          "key_version": 1,
+          "public_key_hex": "544553542d4f4e4c592d5055424c49432d736869656c645f636f6d706f6e656e745f6471736e2d636c6173736963616c2d656432353531392d7631",
+          "public_key_utf8": "TEST-ONLY-PUBLIC-shield_component_dqsn-classical-ed25519-v1",
+          "real_crypto_signature_input_hex": "4447422d534849454c442d56342d5245414c2d43525950544f2d5349474e41545552452d494e5055540a4447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e76310a623130343863653037366163616433363834326664636366663962386163313665303938343632643031353931636532303461303730656661663030356664320a636c6173736963616c2d656432353531390a726663383033322d656432353531392d76310a746573742d736869656c645f636f6d706f6e656e745f6471736e2d636c6173736963616c2d656432353531392d76310a31",
+          "real_crypto_signature_input_utf8": "DGB-SHIELD-V4-REAL-CRYPTO-SIGNATURE-INPUT\nDGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\nb1048ce076acad36842fdccff9b8ac16e098462d01591ce204a070efaf005fd2\nclassical-ed25519\nrfc8032-ed25519-v1\ntest-shield_component_dqsn-classical-ed25519-v1\n1",
+          "signed_payload_hash": "b1048ce076acad36842fdccff9b8ac16e098462d01591ce204a070efaf005fd2",
+          "standard_profile": "rfc8032-ed25519-v1",
+          "test_only_signature_input_hex": "544553542d4f4e4c592d4451534e2d5349474e41545552450a544553542d4f4e4c592d5055424c49432d736869656c645f636f6d706f6e656e745f6471736e2d636c6173736963616c2d656432353531392d76310a636c6173736963616c2d656432353531390a726663383033322d656432353531392d76310a62313034386365303736616361643336383432666463636666396238616331366530393834363264303135393163653230346130373065666166303035666432",
+          "test_only_signature_input_utf8": "TEST-ONLY-DQSN-SIGNATURE\nTEST-ONLY-PUBLIC-shield_component_dqsn-classical-ed25519-v1\nclassical-ed25519\nrfc8032-ed25519-v1\nb1048ce076acad36842fdccff9b8ac16e098462d01591ce204a070efaf005fd2",
+          "test_only_signature_scheme": "sha256-test-contract-double"
+        },
+        {
+          "algorithm": "ml-dsa",
+          "deterministic_signature": "e266eda93ce638e46f6545e560d129aea4672d2539fad8ceab267ed58e784936",
+          "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+          "key_id": "test-shield_component_dqsn-ml-dsa-v1",
+          "key_version": 1,
+          "public_key_hex": "544553542d4f4e4c592d5055424c49432d736869656c645f636f6d706f6e656e745f6471736e2d6d6c2d6473612d7631",
+          "public_key_utf8": "TEST-ONLY-PUBLIC-shield_component_dqsn-ml-dsa-v1",
+          "real_crypto_signature_input_hex": "4447422d534849454c442d56342d5245414c2d43525950544f2d5349474e41545552452d494e5055540a4447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e76310a623130343863653037366163616433363834326664636366663962386163313665303938343632643031353931636532303461303730656661663030356664320a6d6c2d6473610a666970733230342d6d6c2d6473612d36352d76310a746573742d736869656c645f636f6d706f6e656e745f6471736e2d6d6c2d6473612d76310a31",
+          "real_crypto_signature_input_utf8": "DGB-SHIELD-V4-REAL-CRYPTO-SIGNATURE-INPUT\nDGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\nb1048ce076acad36842fdccff9b8ac16e098462d01591ce204a070efaf005fd2\nml-dsa\nfips204-ml-dsa-65-v1\ntest-shield_component_dqsn-ml-dsa-v1\n1",
+          "signed_payload_hash": "b1048ce076acad36842fdccff9b8ac16e098462d01591ce204a070efaf005fd2",
+          "standard_profile": "fips204-ml-dsa-65-v1",
+          "test_only_signature_input_hex": "544553542d4f4e4c592d4451534e2d5349474e41545552450a544553542d4f4e4c592d5055424c49432d736869656c645f636f6d706f6e656e745f6471736e2d6d6c2d6473612d76310a6d6c2d6473610a666970733230342d6d6c2d6473612d36352d76310a62313034386365303736616361643336383432666463636666396238616331366530393834363264303135393163653230346130373065666166303035666432",
+          "test_only_signature_input_utf8": "TEST-ONLY-DQSN-SIGNATURE\nTEST-ONLY-PUBLIC-shield_component_dqsn-ml-dsa-v1\nml-dsa\nfips204-ml-dsa-65-v1\nb1048ce076acad36842fdccff9b8ac16e098462d01591ce204a070efaf005fd2",
+          "test_only_signature_scheme": "sha256-test-contract-double"
+        },
+        {
+          "algorithm": "fn-dsa",
+          "deterministic_signature": "0f45f2513df56402b99f933485afd888d81ca24d6206f5fb301a445628a3b752",
+          "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+          "key_id": "test-shield_component_dqsn-fn-dsa-v1",
+          "key_version": 1,
+          "public_key_hex": "544553542d4f4e4c592d5055424c49432d736869656c645f636f6d706f6e656e745f6471736e2d666e2d6473612d7631",
+          "public_key_utf8": "TEST-ONLY-PUBLIC-shield_component_dqsn-fn-dsa-v1",
+          "real_crypto_signature_input_hex": "4447422d534849454c442d56342d5245414c2d43525950544f2d5349474e41545552452d494e5055540a4447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e76310a623130343863653037366163616433363834326664636366663962386163313665303938343632643031353931636532303461303730656661663030356664320a666e2d6473610a666970733230362d64726166742d66616c636f6e313032342d76310a746573742d736869656c645f636f6d706f6e656e745f6471736e2d666e2d6473612d76310a31",
+          "real_crypto_signature_input_utf8": "DGB-SHIELD-V4-REAL-CRYPTO-SIGNATURE-INPUT\nDGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\nb1048ce076acad36842fdccff9b8ac16e098462d01591ce204a070efaf005fd2\nfn-dsa\nfips206-draft-falcon1024-v1\ntest-shield_component_dqsn-fn-dsa-v1\n1",
+          "signed_payload_hash": "b1048ce076acad36842fdccff9b8ac16e098462d01591ce204a070efaf005fd2",
+          "standard_profile": "fips206-draft-falcon1024-v1",
+          "test_only_signature_input_hex": "544553542d4f4e4c592d4451534e2d5349474e41545552450a544553542d4f4e4c592d5055424c49432d736869656c645f636f6d706f6e656e745f6471736e2d666e2d6473612d76310a666e2d6473610a666970733230362d64726166742d66616c636f6e313032342d76310a62313034386365303736616361643336383432666463636666396238616331366530393834363264303135393163653230346130373065666166303035666432",
+          "test_only_signature_input_utf8": "TEST-ONLY-DQSN-SIGNATURE\nTEST-ONLY-PUBLIC-shield_component_dqsn-fn-dsa-v1\nfn-dsa\nfips206-draft-falcon1024-v1\nb1048ce076acad36842fdccff9b8ac16e098462d01591ce204a070efaf005fd2",
+          "test_only_signature_scheme": "sha256-test-contract-double"
+        }
+      ],
+      "signed_payload_hash": "b1048ce076acad36842fdccff9b8ac16e098462d01591ce204a070efaf005fd2",
+      "unsigned_payload": {
+        "canonicalization_profile": "shield-v4-canon.v1",
+        "component_id": "dqsn",
+        "context_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "contract_version": 4,
+        "decision": "ALLOW",
+        "evidence_families": [
+          "network_observation"
+        ],
+        "evidence_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "fail_closed": true,
+        "freshness_nonce": "nonce-dqsn",
+        "key_registry_version": 1,
+        "metadata": {
+          "integration_harness": "shield-v4.8h-final",
+          "source": "dqsn"
+        },
+        "not_after": "2026-06-21T00:05:00Z",
+        "not_before": "2026-06-21T00:00:00Z",
+        "reason_ids": [
+          "DQSN_OK_NETWORK_ALLOW"
+        ],
+        "request_id": "req-v4h-e-fn-dsa-final",
+        "schema_version": "shield.verdict.v2",
+        "signature_policy": "policy.v1"
+      },
+      "unsigned_payload_sha256": "a6c0e71ec2777fe70c1f5612a2c6079dca6347c4127af16b74200f61035854d4"
+    },
+    {
+      "artifact_id": "guardian_wallet",
+      "canonical_json_hex": "7b2263616e6f6e6963616c697a6174696f6e5f70726f66696c65223a22736869656c642d76342d63616e6f6e2e7631222c22636f6d706f6e656e745f6964223a22677561726469616e5f77616c6c6574222c22636f6e746578745f68617368223a2261616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161222c22636f6e74726163745f76657273696f6e223a342c226465636973696f6e223a22414c4c4f57222c2265766964656e63655f66616d696c696573223a5b2277616c6c65745f636f6e74657874225d2c2265766964656e63655f68617368223a2262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262222c226661696c5f636c6f736564223a747275652c2266726573686e6573735f6e6f6e6365223a226e6f6e63652d677561726469616e5f77616c6c6574222c226b65795f72656769737472795f76657273696f6e223a312c226d65746164617461223a7b22696e746567726174696f6e5f6861726e657373223a22736869656c642d76342e38682d66696e616c222c22736f75726365223a22677561726469616e5f77616c6c6574227d2c226e6f745f6166746572223a22323032362d30362d32315430303a30353a30305a222c226e6f745f6265666f7265223a22323032362d30362d32315430303a30303a30305a222c22726561736f6e5f696473223a5b2247575f4f4b5f4845414c5448595f414c4c4f57225d2c22726571756573745f6964223a227265712d7634682d652d666e2d6473612d66696e616c222c22736368656d615f76657273696f6e223a22736869656c642e766572646963742e7632222c227369676e61747572655f706f6c696379223a22706f6c6963792e7631227d",
+      "canonical_json_utf8": "{\"canonicalization_profile\":\"shield-v4-canon.v1\",\"component_id\":\"guardian_wallet\",\"context_hash\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"contract_version\":4,\"decision\":\"ALLOW\",\"evidence_families\":[\"wallet_context\"],\"evidence_hash\":\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\",\"fail_closed\":true,\"freshness_nonce\":\"nonce-guardian_wallet\",\"key_registry_version\":1,\"metadata\":{\"integration_harness\":\"shield-v4.8h-final\",\"source\":\"guardian_wallet\"},\"not_after\":\"2026-06-21T00:05:00Z\",\"not_before\":\"2026-06-21T00:00:00Z\",\"reason_ids\":[\"GW_OK_HEALTHY_ALLOW\"],\"request_id\":\"req-v4h-e-fn-dsa-final\",\"schema_version\":\"shield.verdict.v2\",\"signature_policy\":\"policy.v1\"}",
+      "domain_separated_payload_hex": "4447422d534849454c442d56342d5349474e45442d5041594c4f41440a4447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e76310a7b2263616e6f6e6963616c697a6174696f6e5f70726f66696c65223a22736869656c642d76342d63616e6f6e2e7631222c22636f6d706f6e656e745f6964223a22677561726469616e5f77616c6c6574222c22636f6e746578745f68617368223a2261616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161222c22636f6e74726163745f76657273696f6e223a342c226465636973696f6e223a22414c4c4f57222c2265766964656e63655f66616d696c696573223a5b2277616c6c65745f636f6e74657874225d2c2265766964656e63655f68617368223a2262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262222c226661696c5f636c6f736564223a747275652c2266726573686e6573735f6e6f6e6365223a226e6f6e63652d677561726469616e5f77616c6c6574222c226b65795f72656769737472795f76657273696f6e223a312c226d65746164617461223a7b22696e746567726174696f6e5f6861726e657373223a22736869656c642d76342e38682d66696e616c222c22736f75726365223a22677561726469616e5f77616c6c6574227d2c226e6f745f6166746572223a22323032362d30362d32315430303a30353a30305a222c226e6f745f6265666f7265223a22323032362d30362d32315430303a30303a30305a222c22726561736f6e5f696473223a5b2247575f4f4b5f4845414c5448595f414c4c4f57225d2c22726571756573745f6964223a227265712d7634682d652d666e2d6473612d66696e616c222c22736368656d615f76657273696f6e223a22736869656c642e766572646963742e7632222c227369676e61747572655f706f6c696379223a22706f6c6963792e7631227d",
+      "domain_separated_payload_utf8": "DGB-SHIELD-V4-SIGNED-PAYLOAD\nDGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\n{\"canonicalization_profile\":\"shield-v4-canon.v1\",\"component_id\":\"guardian_wallet\",\"context_hash\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"contract_version\":4,\"decision\":\"ALLOW\",\"evidence_families\":[\"wallet_context\"],\"evidence_hash\":\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\",\"fail_closed\":true,\"freshness_nonce\":\"nonce-guardian_wallet\",\"key_registry_version\":1,\"metadata\":{\"integration_harness\":\"shield-v4.8h-final\",\"source\":\"guardian_wallet\"},\"not_after\":\"2026-06-21T00:05:00Z\",\"not_before\":\"2026-06-21T00:00:00Z\",\"reason_ids\":[\"GW_OK_HEALTHY_ALLOW\"],\"request_id\":\"req-v4h-e-fn-dsa-final\",\"schema_version\":\"shield.verdict.v2\",\"signature_policy\":\"policy.v1\"}",
+      "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+      "role": "shield_component_guardian_wallet",
+      "signature_inputs": [
+        {
+          "algorithm": "classical-ed25519",
+          "deterministic_signature": "42f4284a5e53adbaf04c6339a962ef7e0bbc7e76041a427115ef9cfbcb078bb3",
+          "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+          "key_id": "test-shield_component_guardian_wallet-classical-ed25519-v1",
+          "key_version": 1,
+          "public_key_hex": "544553542d4f4e4c592d5055424c49432d736869656c645f636f6d706f6e656e745f677561726469616e5f77616c6c65742d636c6173736963616c2d656432353531392d7631",
+          "public_key_utf8": "TEST-ONLY-PUBLIC-shield_component_guardian_wallet-classical-ed25519-v1",
+          "real_crypto_signature_input_hex": "4447422d534849454c442d56342d5245414c2d43525950544f2d5349474e41545552452d494e5055540a4447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e76310a653839666338346462373166393735336362383263373638373066333364636534623165666365383463363963613939363537616464383733613561623236640a636c6173736963616c2d656432353531390a726663383033322d656432353531392d76310a746573742d736869656c645f636f6d706f6e656e745f677561726469616e5f77616c6c65742d636c6173736963616c2d656432353531392d76310a31",
+          "real_crypto_signature_input_utf8": "DGB-SHIELD-V4-REAL-CRYPTO-SIGNATURE-INPUT\nDGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\ne89fc84db71f9753cb82c76870f33dce4b1efce84c69ca99657add873a5ab26d\nclassical-ed25519\nrfc8032-ed25519-v1\ntest-shield_component_guardian_wallet-classical-ed25519-v1\n1",
+          "signed_payload_hash": "e89fc84db71f9753cb82c76870f33dce4b1efce84c69ca99657add873a5ab26d",
+          "standard_profile": "rfc8032-ed25519-v1",
+          "test_only_signature_input_hex": "544553542d4f4e4c592d475541524449414e2d57414c4c45542d5349474e41545552450a544553542d4f4e4c592d5055424c49432d736869656c645f636f6d706f6e656e745f677561726469616e5f77616c6c65742d636c6173736963616c2d656432353531392d76310a636c6173736963616c2d656432353531390a726663383033322d656432353531392d76310a65383966633834646237316639373533636238326337363837306633336463653462316566636538346336396361393936353761646438373361356162323664",
+          "test_only_signature_input_utf8": "TEST-ONLY-GUARDIAN-WALLET-SIGNATURE\nTEST-ONLY-PUBLIC-shield_component_guardian_wallet-classical-ed25519-v1\nclassical-ed25519\nrfc8032-ed25519-v1\ne89fc84db71f9753cb82c76870f33dce4b1efce84c69ca99657add873a5ab26d",
+          "test_only_signature_scheme": "sha256-test-contract-double"
+        },
+        {
+          "algorithm": "ml-dsa",
+          "deterministic_signature": "55a01e3018d843f9cc87867400788e49de0a8c90a7b2bf4b939d7d93677dbc20",
+          "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+          "key_id": "test-shield_component_guardian_wallet-ml-dsa-v1",
+          "key_version": 1,
+          "public_key_hex": "544553542d4f4e4c592d5055424c49432d736869656c645f636f6d706f6e656e745f677561726469616e5f77616c6c65742d6d6c2d6473612d7631",
+          "public_key_utf8": "TEST-ONLY-PUBLIC-shield_component_guardian_wallet-ml-dsa-v1",
+          "real_crypto_signature_input_hex": "4447422d534849454c442d56342d5245414c2d43525950544f2d5349474e41545552452d494e5055540a4447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e76310a653839666338346462373166393735336362383263373638373066333364636534623165666365383463363963613939363537616464383733613561623236640a6d6c2d6473610a666970733230342d6d6c2d6473612d36352d76310a746573742d736869656c645f636f6d706f6e656e745f677561726469616e5f77616c6c65742d6d6c2d6473612d76310a31",
+          "real_crypto_signature_input_utf8": "DGB-SHIELD-V4-REAL-CRYPTO-SIGNATURE-INPUT\nDGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\ne89fc84db71f9753cb82c76870f33dce4b1efce84c69ca99657add873a5ab26d\nml-dsa\nfips204-ml-dsa-65-v1\ntest-shield_component_guardian_wallet-ml-dsa-v1\n1",
+          "signed_payload_hash": "e89fc84db71f9753cb82c76870f33dce4b1efce84c69ca99657add873a5ab26d",
+          "standard_profile": "fips204-ml-dsa-65-v1",
+          "test_only_signature_input_hex": "544553542d4f4e4c592d475541524449414e2d57414c4c45542d5349474e41545552450a544553542d4f4e4c592d5055424c49432d736869656c645f636f6d706f6e656e745f677561726469616e5f77616c6c65742d6d6c2d6473612d76310a6d6c2d6473610a666970733230342d6d6c2d6473612d36352d76310a65383966633834646237316639373533636238326337363837306633336463653462316566636538346336396361393936353761646438373361356162323664",
+          "test_only_signature_input_utf8": "TEST-ONLY-GUARDIAN-WALLET-SIGNATURE\nTEST-ONLY-PUBLIC-shield_component_guardian_wallet-ml-dsa-v1\nml-dsa\nfips204-ml-dsa-65-v1\ne89fc84db71f9753cb82c76870f33dce4b1efce84c69ca99657add873a5ab26d",
+          "test_only_signature_scheme": "sha256-test-contract-double"
+        },
+        {
+          "algorithm": "fn-dsa",
+          "deterministic_signature": "6af22d6241d44aebd5addfcf1d6606e30db25cfe3f95719d8c5504ce992c68c9",
+          "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+          "key_id": "test-shield_component_guardian_wallet-fn-dsa-v1",
+          "key_version": 1,
+          "public_key_hex": "544553542d4f4e4c592d5055424c49432d736869656c645f636f6d706f6e656e745f677561726469616e5f77616c6c65742d666e2d6473612d7631",
+          "public_key_utf8": "TEST-ONLY-PUBLIC-shield_component_guardian_wallet-fn-dsa-v1",
+          "real_crypto_signature_input_hex": "4447422d534849454c442d56342d5245414c2d43525950544f2d5349474e41545552452d494e5055540a4447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e76310a653839666338346462373166393735336362383263373638373066333364636534623165666365383463363963613939363537616464383733613561623236640a666e2d6473610a666970733230362d64726166742d66616c636f6e313032342d76310a746573742d736869656c645f636f6d706f6e656e745f677561726469616e5f77616c6c65742d666e2d6473612d76310a31",
+          "real_crypto_signature_input_utf8": "DGB-SHIELD-V4-REAL-CRYPTO-SIGNATURE-INPUT\nDGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\ne89fc84db71f9753cb82c76870f33dce4b1efce84c69ca99657add873a5ab26d\nfn-dsa\nfips206-draft-falcon1024-v1\ntest-shield_component_guardian_wallet-fn-dsa-v1\n1",
+          "signed_payload_hash": "e89fc84db71f9753cb82c76870f33dce4b1efce84c69ca99657add873a5ab26d",
+          "standard_profile": "fips206-draft-falcon1024-v1",
+          "test_only_signature_input_hex": "544553542d4f4e4c592d475541524449414e2d57414c4c45542d5349474e41545552450a544553542d4f4e4c592d5055424c49432d736869656c645f636f6d706f6e656e745f677561726469616e5f77616c6c65742d666e2d6473612d76310a666e2d6473610a666970733230362d64726166742d66616c636f6e313032342d76310a65383966633834646237316639373533636238326337363837306633336463653462316566636538346336396361393936353761646438373361356162323664",
+          "test_only_signature_input_utf8": "TEST-ONLY-GUARDIAN-WALLET-SIGNATURE\nTEST-ONLY-PUBLIC-shield_component_guardian_wallet-fn-dsa-v1\nfn-dsa\nfips206-draft-falcon1024-v1\ne89fc84db71f9753cb82c76870f33dce4b1efce84c69ca99657add873a5ab26d",
+          "test_only_signature_scheme": "sha256-test-contract-double"
+        }
+      ],
+      "signed_payload_hash": "e89fc84db71f9753cb82c76870f33dce4b1efce84c69ca99657add873a5ab26d",
+      "unsigned_payload": {
+        "canonicalization_profile": "shield-v4-canon.v1",
+        "component_id": "guardian_wallet",
+        "context_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "contract_version": 4,
+        "decision": "ALLOW",
+        "evidence_families": [
+          "wallet_context"
+        ],
+        "evidence_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "fail_closed": true,
+        "freshness_nonce": "nonce-guardian_wallet",
+        "key_registry_version": 1,
+        "metadata": {
+          "integration_harness": "shield-v4.8h-final",
+          "source": "guardian_wallet"
+        },
+        "not_after": "2026-06-21T00:05:00Z",
+        "not_before": "2026-06-21T00:00:00Z",
+        "reason_ids": [
+          "GW_OK_HEALTHY_ALLOW"
+        ],
+        "request_id": "req-v4h-e-fn-dsa-final",
+        "schema_version": "shield.verdict.v2",
+        "signature_policy": "policy.v1"
+      },
+      "unsigned_payload_sha256": "2dceb7ce6b0ffdc79dcb0c8b5853301cb2e5ac66fc9e31a9069e9bf3879c7fac"
+    },
+    {
+      "artifact_id": "qwg",
+      "canonical_json_hex": "7b2263616e6f6e6963616c697a6174696f6e5f70726f66696c65223a22736869656c642d76342d63616e6f6e2e7631222c22636f6d706f6e656e745f6964223a22717767222c22636f6e746578745f68617368223a2261616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161222c22636f6e74726163745f76657273696f6e223a342c226465636973696f6e223a22414c4c4f57222c2265766964656e63655f66616d696c696573223a5b2277616c6c65745f706f7374757265225d2c2265766964656e63655f68617368223a2262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262222c226661696c5f636c6f736564223a747275652c2266726573686e6573735f6e6f6e6365223a226e6f6e63652d717767222c226b65795f72656769737472795f76657273696f6e223a312c226d65746164617461223a7b22696e746567726174696f6e5f6861726e657373223a22736869656c642d76342e38682d66696e616c222c22736f75726365223a22717767227d2c226e6f745f6166746572223a22323032362d30362d32315430303a30353a30305a222c226e6f745f6265666f7265223a22323032362d30362d32315430303a30303a30305a222c22726561736f6e5f696473223a5b225157475f4f4b5f504f53545552455f414c4c4f57225d2c22726571756573745f6964223a227265712d7634682d652d666e2d6473612d66696e616c222c22736368656d615f76657273696f6e223a22736869656c642e766572646963742e7632222c227369676e61747572655f706f6c696379223a22706f6c6963792e7631227d",
+      "canonical_json_utf8": "{\"canonicalization_profile\":\"shield-v4-canon.v1\",\"component_id\":\"qwg\",\"context_hash\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"contract_version\":4,\"decision\":\"ALLOW\",\"evidence_families\":[\"wallet_posture\"],\"evidence_hash\":\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\",\"fail_closed\":true,\"freshness_nonce\":\"nonce-qwg\",\"key_registry_version\":1,\"metadata\":{\"integration_harness\":\"shield-v4.8h-final\",\"source\":\"qwg\"},\"not_after\":\"2026-06-21T00:05:00Z\",\"not_before\":\"2026-06-21T00:00:00Z\",\"reason_ids\":[\"QWG_OK_POSTURE_ALLOW\"],\"request_id\":\"req-v4h-e-fn-dsa-final\",\"schema_version\":\"shield.verdict.v2\",\"signature_policy\":\"policy.v1\"}",
+      "domain_separated_payload_hex": "4447422d534849454c442d56342d5349474e45442d5041594c4f41440a4447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e76310a7b2263616e6f6e6963616c697a6174696f6e5f70726f66696c65223a22736869656c642d76342d63616e6f6e2e7631222c22636f6d706f6e656e745f6964223a22717767222c22636f6e746578745f68617368223a2261616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161222c22636f6e74726163745f76657273696f6e223a342c226465636973696f6e223a22414c4c4f57222c2265766964656e63655f66616d696c696573223a5b2277616c6c65745f706f7374757265225d2c2265766964656e63655f68617368223a2262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262222c226661696c5f636c6f736564223a747275652c2266726573686e6573735f6e6f6e6365223a226e6f6e63652d717767222c226b65795f72656769737472795f76657273696f6e223a312c226d65746164617461223a7b22696e746567726174696f6e5f6861726e657373223a22736869656c642d76342e38682d66696e616c222c22736f75726365223a22717767227d2c226e6f745f6166746572223a22323032362d30362d32315430303a30353a30305a222c226e6f745f6265666f7265223a22323032362d30362d32315430303a30303a30305a222c22726561736f6e5f696473223a5b225157475f4f4b5f504f53545552455f414c4c4f57225d2c22726571756573745f6964223a227265712d7634682d652d666e2d6473612d66696e616c222c22736368656d615f76657273696f6e223a22736869656c642e766572646963742e7632222c227369676e61747572655f706f6c696379223a22706f6c6963792e7631227d",
+      "domain_separated_payload_utf8": "DGB-SHIELD-V4-SIGNED-PAYLOAD\nDGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\n{\"canonicalization_profile\":\"shield-v4-canon.v1\",\"component_id\":\"qwg\",\"context_hash\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"contract_version\":4,\"decision\":\"ALLOW\",\"evidence_families\":[\"wallet_posture\"],\"evidence_hash\":\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\",\"fail_closed\":true,\"freshness_nonce\":\"nonce-qwg\",\"key_registry_version\":1,\"metadata\":{\"integration_harness\":\"shield-v4.8h-final\",\"source\":\"qwg\"},\"not_after\":\"2026-06-21T00:05:00Z\",\"not_before\":\"2026-06-21T00:00:00Z\",\"reason_ids\":[\"QWG_OK_POSTURE_ALLOW\"],\"request_id\":\"req-v4h-e-fn-dsa-final\",\"schema_version\":\"shield.verdict.v2\",\"signature_policy\":\"policy.v1\"}",
+      "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+      "role": "shield_component_qwg",
+      "signature_inputs": [
+        {
+          "algorithm": "classical-ed25519",
+          "deterministic_signature": "86d9c67efeead7e049ed5758dbbbf1e02023a7ef85f12306656e93c49185281c",
+          "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+          "key_id": "test-shield_component_qwg-classical-ed25519-v1",
+          "key_version": 1,
+          "public_key_hex": "544553542d4f4e4c592d5055424c49432d736869656c645f636f6d706f6e656e745f7177672d636c6173736963616c2d656432353531392d7631",
+          "public_key_utf8": "TEST-ONLY-PUBLIC-shield_component_qwg-classical-ed25519-v1",
+          "real_crypto_signature_input_hex": "4447422d534849454c442d56342d5245414c2d43525950544f2d5349474e41545552452d494e5055540a4447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e76310a396662656564623031336464626337656639316437613430316537333431353534613835393464653430663662633338623237646432393834343537363936370a636c6173736963616c2d656432353531390a726663383033322d656432353531392d76310a746573742d736869656c645f636f6d706f6e656e745f7177672d636c6173736963616c2d656432353531392d76310a31",
+          "real_crypto_signature_input_utf8": "DGB-SHIELD-V4-REAL-CRYPTO-SIGNATURE-INPUT\nDGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\n9fbeedb013ddbc7ef91d7a401e7341554a8594de40f6bc38b27dd29844576967\nclassical-ed25519\nrfc8032-ed25519-v1\ntest-shield_component_qwg-classical-ed25519-v1\n1",
+          "signed_payload_hash": "9fbeedb013ddbc7ef91d7a401e7341554a8594de40f6bc38b27dd29844576967",
+          "standard_profile": "rfc8032-ed25519-v1",
+          "test_only_signature_input_hex": "544553542d4f4e4c592d5157472d5349474e41545552450a544553542d4f4e4c592d5055424c49432d736869656c645f636f6d706f6e656e745f7177672d636c6173736963616c2d656432353531392d76310a636c6173736963616c2d656432353531390a726663383033322d656432353531392d76310a39666265656462303133646462633765663931643761343031653733343135353461383539346465343066366263333862323764643239383434353736393637",
+          "test_only_signature_input_utf8": "TEST-ONLY-QWG-SIGNATURE\nTEST-ONLY-PUBLIC-shield_component_qwg-classical-ed25519-v1\nclassical-ed25519\nrfc8032-ed25519-v1\n9fbeedb013ddbc7ef91d7a401e7341554a8594de40f6bc38b27dd29844576967",
+          "test_only_signature_scheme": "sha256-test-contract-double"
+        },
+        {
+          "algorithm": "ml-dsa",
+          "deterministic_signature": "d24ab6096f1dc926918058bba710121f3e5e637131aa3f588072527d005b6654",
+          "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+          "key_id": "test-shield_component_qwg-ml-dsa-v1",
+          "key_version": 1,
+          "public_key_hex": "544553542d4f4e4c592d5055424c49432d736869656c645f636f6d706f6e656e745f7177672d6d6c2d6473612d7631",
+          "public_key_utf8": "TEST-ONLY-PUBLIC-shield_component_qwg-ml-dsa-v1",
+          "real_crypto_signature_input_hex": "4447422d534849454c442d56342d5245414c2d43525950544f2d5349474e41545552452d494e5055540a4447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e76310a396662656564623031336464626337656639316437613430316537333431353534613835393464653430663662633338623237646432393834343537363936370a6d6c2d6473610a666970733230342d6d6c2d6473612d36352d76310a746573742d736869656c645f636f6d706f6e656e745f7177672d6d6c2d6473612d76310a31",
+          "real_crypto_signature_input_utf8": "DGB-SHIELD-V4-REAL-CRYPTO-SIGNATURE-INPUT\nDGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\n9fbeedb013ddbc7ef91d7a401e7341554a8594de40f6bc38b27dd29844576967\nml-dsa\nfips204-ml-dsa-65-v1\ntest-shield_component_qwg-ml-dsa-v1\n1",
+          "signed_payload_hash": "9fbeedb013ddbc7ef91d7a401e7341554a8594de40f6bc38b27dd29844576967",
+          "standard_profile": "fips204-ml-dsa-65-v1",
+          "test_only_signature_input_hex": "544553542d4f4e4c592d5157472d5349474e41545552450a544553542d4f4e4c592d5055424c49432d736869656c645f636f6d706f6e656e745f7177672d6d6c2d6473612d76310a6d6c2d6473610a666970733230342d6d6c2d6473612d36352d76310a39666265656462303133646462633765663931643761343031653733343135353461383539346465343066366263333862323764643239383434353736393637",
+          "test_only_signature_input_utf8": "TEST-ONLY-QWG-SIGNATURE\nTEST-ONLY-PUBLIC-shield_component_qwg-ml-dsa-v1\nml-dsa\nfips204-ml-dsa-65-v1\n9fbeedb013ddbc7ef91d7a401e7341554a8594de40f6bc38b27dd29844576967",
+          "test_only_signature_scheme": "sha256-test-contract-double"
+        },
+        {
+          "algorithm": "fn-dsa",
+          "deterministic_signature": "a6a98312f044148590085b5468c1e873d0ca03264acd08a393753fad3ecb0069",
+          "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+          "key_id": "test-shield_component_qwg-fn-dsa-v1",
+          "key_version": 1,
+          "public_key_hex": "544553542d4f4e4c592d5055424c49432d736869656c645f636f6d706f6e656e745f7177672d666e2d6473612d7631",
+          "public_key_utf8": "TEST-ONLY-PUBLIC-shield_component_qwg-fn-dsa-v1",
+          "real_crypto_signature_input_hex": "4447422d534849454c442d56342d5245414c2d43525950544f2d5349474e41545552452d494e5055540a4447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e76310a396662656564623031336464626337656639316437613430316537333431353534613835393464653430663662633338623237646432393834343537363936370a666e2d6473610a666970733230362d64726166742d66616c636f6e313032342d76310a746573742d736869656c645f636f6d706f6e656e745f7177672d666e2d6473612d76310a31",
+          "real_crypto_signature_input_utf8": "DGB-SHIELD-V4-REAL-CRYPTO-SIGNATURE-INPUT\nDGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\n9fbeedb013ddbc7ef91d7a401e7341554a8594de40f6bc38b27dd29844576967\nfn-dsa\nfips206-draft-falcon1024-v1\ntest-shield_component_qwg-fn-dsa-v1\n1",
+          "signed_payload_hash": "9fbeedb013ddbc7ef91d7a401e7341554a8594de40f6bc38b27dd29844576967",
+          "standard_profile": "fips206-draft-falcon1024-v1",
+          "test_only_signature_input_hex": "544553542d4f4e4c592d5157472d5349474e41545552450a544553542d4f4e4c592d5055424c49432d736869656c645f636f6d706f6e656e745f7177672d666e2d6473612d76310a666e2d6473610a666970733230362d64726166742d66616c636f6e313032342d76310a39666265656462303133646462633765663931643761343031653733343135353461383539346465343066366263333862323764643239383434353736393637",
+          "test_only_signature_input_utf8": "TEST-ONLY-QWG-SIGNATURE\nTEST-ONLY-PUBLIC-shield_component_qwg-fn-dsa-v1\nfn-dsa\nfips206-draft-falcon1024-v1\n9fbeedb013ddbc7ef91d7a401e7341554a8594de40f6bc38b27dd29844576967",
+          "test_only_signature_scheme": "sha256-test-contract-double"
+        }
+      ],
+      "signed_payload_hash": "9fbeedb013ddbc7ef91d7a401e7341554a8594de40f6bc38b27dd29844576967",
+      "unsigned_payload": {
+        "canonicalization_profile": "shield-v4-canon.v1",
+        "component_id": "qwg",
+        "context_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "contract_version": 4,
+        "decision": "ALLOW",
+        "evidence_families": [
+          "wallet_posture"
+        ],
+        "evidence_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "fail_closed": true,
+        "freshness_nonce": "nonce-qwg",
+        "key_registry_version": 1,
+        "metadata": {
+          "integration_harness": "shield-v4.8h-final",
+          "source": "qwg"
+        },
+        "not_after": "2026-06-21T00:05:00Z",
+        "not_before": "2026-06-21T00:00:00Z",
+        "reason_ids": [
+          "QWG_OK_POSTURE_ALLOW"
+        ],
+        "request_id": "req-v4h-e-fn-dsa-final",
+        "schema_version": "shield.verdict.v2",
+        "signature_policy": "policy.v1"
+      },
+      "unsigned_payload_sha256": "c519ade4fecef4edeb37dfef2ca8bf2c5d6e013641de9cef879dfdcf20f5f920"
+    },
+    {
+      "artifact_id": "sentinel_ai",
+      "canonical_json_hex": "7b2263616e6f6e6963616c697a6174696f6e5f70726f66696c65223a22736869656c642d76342d63616e6f6e2e7631222c22636f6d706f6e656e745f6964223a2273656e74696e656c5f6169222c22636f6e746578745f68617368223a2261616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161222c22636f6e74726163745f76657273696f6e223a342c226465636973696f6e223a22414c4c4f57222c2265766964656e63655f66616d696c696573223a5b2274656c656d65747279225d2c2265766964656e63655f68617368223a2262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262222c226661696c5f636c6f736564223a747275652c2266726573686e6573735f6e6f6e6365223a226e6f6e63652d73656e74696e656c5f6169222c226b65795f72656769737472795f76657273696f6e223a312c226d65746164617461223a7b22696e746567726174696f6e5f6861726e657373223a22736869656c642d76342e38682d66696e616c222c22736f75726365223a2273656e74696e656c5f6169227d2c226e6f745f6166746572223a22323032362d30362d32315430303a30353a30305a222c226e6f745f6265666f7265223a22323032362d30362d32315430303a30303a30305a222c22726561736f6e5f696473223a5b22534e544c5f4f4b5f54454c454d455452595f414c4c4f57225d2c22726571756573745f6964223a227265712d7634682d652d666e2d6473612d66696e616c222c22736368656d615f76657273696f6e223a22736869656c642e766572646963742e7632222c227369676e61747572655f706f6c696379223a22706f6c6963792e7631227d",
+      "canonical_json_utf8": "{\"canonicalization_profile\":\"shield-v4-canon.v1\",\"component_id\":\"sentinel_ai\",\"context_hash\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"contract_version\":4,\"decision\":\"ALLOW\",\"evidence_families\":[\"telemetry\"],\"evidence_hash\":\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\",\"fail_closed\":true,\"freshness_nonce\":\"nonce-sentinel_ai\",\"key_registry_version\":1,\"metadata\":{\"integration_harness\":\"shield-v4.8h-final\",\"source\":\"sentinel_ai\"},\"not_after\":\"2026-06-21T00:05:00Z\",\"not_before\":\"2026-06-21T00:00:00Z\",\"reason_ids\":[\"SNTL_OK_TELEMETRY_ALLOW\"],\"request_id\":\"req-v4h-e-fn-dsa-final\",\"schema_version\":\"shield.verdict.v2\",\"signature_policy\":\"policy.v1\"}",
+      "domain_separated_payload_hex": "4447422d534849454c442d56342d5349474e45442d5041594c4f41440a4447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e76310a7b2263616e6f6e6963616c697a6174696f6e5f70726f66696c65223a22736869656c642d76342d63616e6f6e2e7631222c22636f6d706f6e656e745f6964223a2273656e74696e656c5f6169222c22636f6e746578745f68617368223a2261616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161222c22636f6e74726163745f76657273696f6e223a342c226465636973696f6e223a22414c4c4f57222c2265766964656e63655f66616d696c696573223a5b2274656c656d65747279225d2c2265766964656e63655f68617368223a2262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262222c226661696c5f636c6f736564223a747275652c2266726573686e6573735f6e6f6e6365223a226e6f6e63652d73656e74696e656c5f6169222c226b65795f72656769737472795f76657273696f6e223a312c226d65746164617461223a7b22696e746567726174696f6e5f6861726e657373223a22736869656c642d76342e38682d66696e616c222c22736f75726365223a2273656e74696e656c5f6169227d2c226e6f745f6166746572223a22323032362d30362d32315430303a30353a30305a222c226e6f745f6265666f7265223a22323032362d30362d32315430303a30303a30305a222c22726561736f6e5f696473223a5b22534e544c5f4f4b5f54454c454d455452595f414c4c4f57225d2c22726571756573745f6964223a227265712d7634682d652d666e2d6473612d66696e616c222c22736368656d615f76657273696f6e223a22736869656c642e766572646963742e7632222c227369676e61747572655f706f6c696379223a22706f6c6963792e7631227d",
+      "domain_separated_payload_utf8": "DGB-SHIELD-V4-SIGNED-PAYLOAD\nDGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\n{\"canonicalization_profile\":\"shield-v4-canon.v1\",\"component_id\":\"sentinel_ai\",\"context_hash\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"contract_version\":4,\"decision\":\"ALLOW\",\"evidence_families\":[\"telemetry\"],\"evidence_hash\":\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\",\"fail_closed\":true,\"freshness_nonce\":\"nonce-sentinel_ai\",\"key_registry_version\":1,\"metadata\":{\"integration_harness\":\"shield-v4.8h-final\",\"source\":\"sentinel_ai\"},\"not_after\":\"2026-06-21T00:05:00Z\",\"not_before\":\"2026-06-21T00:00:00Z\",\"reason_ids\":[\"SNTL_OK_TELEMETRY_ALLOW\"],\"request_id\":\"req-v4h-e-fn-dsa-final\",\"schema_version\":\"shield.verdict.v2\",\"signature_policy\":\"policy.v1\"}",
+      "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+      "role": "shield_component_sentinel_ai",
+      "signature_inputs": [
+        {
+          "algorithm": "classical-ed25519",
+          "deterministic_signature": "5efec4e5789a6b144ce892a05970e07d9ab7d86fd39d2f472f2b4831d7a55a8f",
+          "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+          "key_id": "test-shield_component_sentinel_ai-classical-ed25519-v1",
+          "key_version": 1,
+          "public_key_hex": "544553542d4f4e4c592d5055424c49432d736869656c645f636f6d706f6e656e745f73656e74696e656c5f61692d636c6173736963616c2d656432353531392d7631",
+          "public_key_utf8": "TEST-ONLY-PUBLIC-shield_component_sentinel_ai-classical-ed25519-v1",
+          "real_crypto_signature_input_hex": "4447422d534849454c442d56342d5245414c2d43525950544f2d5349474e41545552452d494e5055540a4447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e76310a303537616264376334653136336461316631346335373265363630313133303035396333393366653163373665343334316538333562333137343337653630300a636c6173736963616c2d656432353531390a726663383033322d656432353531392d76310a746573742d736869656c645f636f6d706f6e656e745f73656e74696e656c5f61692d636c6173736963616c2d656432353531392d76310a31",
+          "real_crypto_signature_input_utf8": "DGB-SHIELD-V4-REAL-CRYPTO-SIGNATURE-INPUT\nDGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\n057abd7c4e163da1f14c572e6601130059c393fe1c76e4341e835b317437e600\nclassical-ed25519\nrfc8032-ed25519-v1\ntest-shield_component_sentinel_ai-classical-ed25519-v1\n1",
+          "signed_payload_hash": "057abd7c4e163da1f14c572e6601130059c393fe1c76e4341e835b317437e600",
+          "standard_profile": "rfc8032-ed25519-v1",
+          "test_only_signature_input_hex": "544553542d4f4e4c592d53454e54494e454c2d41492d5349474e41545552450a544553542d4f4e4c592d5055424c49432d736869656c645f636f6d706f6e656e745f73656e74696e656c5f61692d636c6173736963616c2d656432353531392d76310a636c6173736963616c2d656432353531390a726663383033322d656432353531392d76310a30353761626437633465313633646131663134633537326536363031313330303539633339336665316337366534333431653833356233313734333765363030",
+          "test_only_signature_input_utf8": "TEST-ONLY-SENTINEL-AI-SIGNATURE\nTEST-ONLY-PUBLIC-shield_component_sentinel_ai-classical-ed25519-v1\nclassical-ed25519\nrfc8032-ed25519-v1\n057abd7c4e163da1f14c572e6601130059c393fe1c76e4341e835b317437e600",
+          "test_only_signature_scheme": "sha256-test-contract-double"
+        },
+        {
+          "algorithm": "ml-dsa",
+          "deterministic_signature": "e54c596d23e2365bd5d2a932627d4675689904f0e1cd613a73cb1d5460bccb4a",
+          "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+          "key_id": "test-shield_component_sentinel_ai-ml-dsa-v1",
+          "key_version": 1,
+          "public_key_hex": "544553542d4f4e4c592d5055424c49432d736869656c645f636f6d706f6e656e745f73656e74696e656c5f61692d6d6c2d6473612d7631",
+          "public_key_utf8": "TEST-ONLY-PUBLIC-shield_component_sentinel_ai-ml-dsa-v1",
+          "real_crypto_signature_input_hex": "4447422d534849454c442d56342d5245414c2d43525950544f2d5349474e41545552452d494e5055540a4447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e76310a303537616264376334653136336461316631346335373265363630313133303035396333393366653163373665343334316538333562333137343337653630300a6d6c2d6473610a666970733230342d6d6c2d6473612d36352d76310a746573742d736869656c645f636f6d706f6e656e745f73656e74696e656c5f61692d6d6c2d6473612d76310a31",
+          "real_crypto_signature_input_utf8": "DGB-SHIELD-V4-REAL-CRYPTO-SIGNATURE-INPUT\nDGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\n057abd7c4e163da1f14c572e6601130059c393fe1c76e4341e835b317437e600\nml-dsa\nfips204-ml-dsa-65-v1\ntest-shield_component_sentinel_ai-ml-dsa-v1\n1",
+          "signed_payload_hash": "057abd7c4e163da1f14c572e6601130059c393fe1c76e4341e835b317437e600",
+          "standard_profile": "fips204-ml-dsa-65-v1",
+          "test_only_signature_input_hex": "544553542d4f4e4c592d53454e54494e454c2d41492d5349474e41545552450a544553542d4f4e4c592d5055424c49432d736869656c645f636f6d706f6e656e745f73656e74696e656c5f61692d6d6c2d6473612d76310a6d6c2d6473610a666970733230342d6d6c2d6473612d36352d76310a30353761626437633465313633646131663134633537326536363031313330303539633339336665316337366534333431653833356233313734333765363030",
+          "test_only_signature_input_utf8": "TEST-ONLY-SENTINEL-AI-SIGNATURE\nTEST-ONLY-PUBLIC-shield_component_sentinel_ai-ml-dsa-v1\nml-dsa\nfips204-ml-dsa-65-v1\n057abd7c4e163da1f14c572e6601130059c393fe1c76e4341e835b317437e600",
+          "test_only_signature_scheme": "sha256-test-contract-double"
+        },
+        {
+          "algorithm": "fn-dsa",
+          "deterministic_signature": "10abaac0188d821f993c90f0e73eeed16b2d7666270aa6f1b6ffcec1c7da72fd",
+          "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+          "key_id": "test-shield_component_sentinel_ai-fn-dsa-v1",
+          "key_version": 1,
+          "public_key_hex": "544553542d4f4e4c592d5055424c49432d736869656c645f636f6d706f6e656e745f73656e74696e656c5f61692d666e2d6473612d7631",
+          "public_key_utf8": "TEST-ONLY-PUBLIC-shield_component_sentinel_ai-fn-dsa-v1",
+          "real_crypto_signature_input_hex": "4447422d534849454c442d56342d5245414c2d43525950544f2d5349474e41545552452d494e5055540a4447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e76310a303537616264376334653136336461316631346335373265363630313133303035396333393366653163373665343334316538333562333137343337653630300a666e2d6473610a666970733230362d64726166742d66616c636f6e313032342d76310a746573742d736869656c645f636f6d706f6e656e745f73656e74696e656c5f61692d666e2d6473612d76310a31",
+          "real_crypto_signature_input_utf8": "DGB-SHIELD-V4-REAL-CRYPTO-SIGNATURE-INPUT\nDGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\n057abd7c4e163da1f14c572e6601130059c393fe1c76e4341e835b317437e600\nfn-dsa\nfips206-draft-falcon1024-v1\ntest-shield_component_sentinel_ai-fn-dsa-v1\n1",
+          "signed_payload_hash": "057abd7c4e163da1f14c572e6601130059c393fe1c76e4341e835b317437e600",
+          "standard_profile": "fips206-draft-falcon1024-v1",
+          "test_only_signature_input_hex": "544553542d4f4e4c592d53454e54494e454c2d41492d5349474e41545552450a544553542d4f4e4c592d5055424c49432d736869656c645f636f6d706f6e656e745f73656e74696e656c5f61692d666e2d6473612d76310a666e2d6473610a666970733230362d64726166742d66616c636f6e313032342d76310a30353761626437633465313633646131663134633537326536363031313330303539633339336665316337366534333431653833356233313734333765363030",
+          "test_only_signature_input_utf8": "TEST-ONLY-SENTINEL-AI-SIGNATURE\nTEST-ONLY-PUBLIC-shield_component_sentinel_ai-fn-dsa-v1\nfn-dsa\nfips206-draft-falcon1024-v1\n057abd7c4e163da1f14c572e6601130059c393fe1c76e4341e835b317437e600",
+          "test_only_signature_scheme": "sha256-test-contract-double"
+        }
+      ],
+      "signed_payload_hash": "057abd7c4e163da1f14c572e6601130059c393fe1c76e4341e835b317437e600",
+      "unsigned_payload": {
+        "canonicalization_profile": "shield-v4-canon.v1",
+        "component_id": "sentinel_ai",
+        "context_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "contract_version": 4,
+        "decision": "ALLOW",
+        "evidence_families": [
+          "telemetry"
+        ],
+        "evidence_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "fail_closed": true,
+        "freshness_nonce": "nonce-sentinel_ai",
+        "key_registry_version": 1,
+        "metadata": {
+          "integration_harness": "shield-v4.8h-final",
+          "source": "sentinel_ai"
+        },
+        "not_after": "2026-06-21T00:05:00Z",
+        "not_before": "2026-06-21T00:00:00Z",
+        "reason_ids": [
+          "SNTL_OK_TELEMETRY_ALLOW"
+        ],
+        "request_id": "req-v4h-e-fn-dsa-final",
+        "schema_version": "shield.verdict.v2",
+        "signature_policy": "policy.v1"
+      },
+      "unsigned_payload_sha256": "98d4c1ef7ec82d54f72e74ca2effeaeda5abc9e41bead7b1719351f2172240fa"
+    },
+    {
+      "artifact_id": "shield_orchestrator",
+      "canonical_json_hex": "7b226164616d616e74696e656f735f68616e646f6666223a7b2268616e646f66665f616c6c6f776564223a747275652c2268616e646f66665f726561736f6e223a224f5243485f4f4b5f414c4c5f434f4d504f4e454e54535f414c4c4f57227d2c2263616e6f6e6963616c697a6174696f6e5f70726f66696c65223a22736869656c642d76342d63616e6f6e2e7631222c22636f6d706f6e656e745f7369676e61747572655f726573756c7473223a5b7b22636f6d706f6e656e745f6964223a2261646e222c22636f6d706f6e656e745f726f6c65223a22736869656c645f636f6d706f6e656e745f61646e222c227369676e61747572655f706f6c696379223a22706f6c6963792e7631222c227665726966696564223a747275652c2276657269666965645f616c676f726974686d73223a5b22636c6173736963616c2d65643235353139222c226d6c2d647361222c22666e2d647361225d2c2276657269666965645f7374616e646172645f70726f66696c6573223a5b22726663383033322d656432353531392d7631222c22666970733230342d6d6c2d6473612d36352d7631222c22666970733230362d64726166742d66616c636f6e313032342d7631225d7d2c7b22636f6d706f6e656e745f6964223a226471736e222c22636f6d706f6e656e745f726f6c65223a22736869656c645f636f6d706f6e656e745f6471736e222c227369676e61747572655f706f6c696379223a22706f6c6963792e7631222c227665726966696564223a747275652c2276657269666965645f616c676f726974686d73223a5b22636c6173736963616c2d65643235353139222c226d6c2d647361222c22666e2d647361225d2c2276657269666965645f7374616e646172645f70726f66696c6573223a5b22726663383033322d656432353531392d7631222c22666970733230342d6d6c2d6473612d36352d7631222c22666970733230362d64726166742d66616c636f6e313032342d7631225d7d2c7b22636f6d706f6e656e745f6964223a22677561726469616e5f77616c6c6574222c22636f6d706f6e656e745f726f6c65223a22736869656c645f636f6d706f6e656e745f677561726469616e5f77616c6c6574222c227369676e61747572655f706f6c696379223a22706f6c6963792e7631222c227665726966696564223a747275652c2276657269666965645f616c676f726974686d73223a5b22636c6173736963616c2d65643235353139222c226d6c2d647361222c22666e2d647361225d2c2276657269666965645f7374616e646172645f70726f66696c6573223a5b22726663383033322d656432353531392d7631222c22666970733230342d6d6c2d6473612d36352d7631222c22666970733230362d64726166742d66616c636f6e313032342d7631225d7d2c7b22636f6d706f6e656e745f6964223a22717767222c22636f6d706f6e656e745f726f6c65223a22736869656c645f636f6d706f6e656e745f717767222c227369676e61747572655f706f6c696379223a22706f6c6963792e7631222c227665726966696564223a747275652c2276657269666965645f616c676f726974686d73223a5b22636c6173736963616c2d65643235353139222c226d6c2d647361222c22666e2d647361225d2c2276657269666965645f7374616e646172645f70726f66696c6573223a5b22726663383033322d656432353531392d7631222c22666970733230342d6d6c2d6473612d36352d7631222c22666970733230362d64726166742d66616c636f6e313032342d7631225d7d2c7b22636f6d706f6e656e745f6964223a2273656e74696e656c5f6169222c22636f6d706f6e656e745f726f6c65223a22736869656c645f636f6d706f6e656e745f73656e74696e656c5f6169222c227369676e61747572655f706f6c696379223a22706f6c6963792e7631222c227665726966696564223a747275652c2276657269666965645f616c676f726974686d73223a5b22636c6173736963616c2d65643235353139222c226d6c2d647361222c22666e2d647361225d2c2276657269666965645f7374616e646172645f70726f66696c6573223a5b22726663383033322d656432353531392d7631222c22666970733230342d6d6c2d6473612d36352d7631222c22666970733230362d64726166742d66616c636f6e313032342d7631225d7d5d2c22636f6d706f6e656e745f7665726469637473223a5b7b2263616e6f6e6963616c697a6174696f6e5f70726f66696c65223a22736869656c642d76342d63616e6f6e2e7631222c22636f6d706f6e656e745f6964223a2261646e222c22636f6e746578745f68617368223a2261616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161222c22636f6e74726163745f76657273696f6e223a342c226465636973696f6e223a22414c4c4f57222c2265766964656e63655f66616d696c696573223a5b22646566656e73655f7369676e616c225d2c2265766964656e63655f68617368223a2262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262222c226661696c5f636c6f736564223a747275652c2266726573686e6573735f6e6f6e6365223a226e6f6e63652d61646e222c226b65795f72656769737472795f76657273696f6e223a312c226d65746164617461223a7b22696e746567726174696f6e5f6861726e657373223a22736869656c642d76342e38682d66696e616c222c22736f75726365223a2261646e227d2c226e6f745f6166746572223a22323032362d30362d32315430303a30353a30305a222c226e6f745f6265666f7265223a22323032362d30362d32315430303a30303a30305a222c22726561736f6e5f696473223a5b2241444e5f4f4b5f434f4f5244494e4154494f4e5f414c4c4f57225d2c22726571756573745f6964223a227265712d7634682d652d666e2d6473612d66696e616c222c22736368656d615f76657273696f6e223a22736869656c642e766572646963742e7632222c227369676e61747572655f62756e646c65223a7b22706f6c6963795f76657273696f6e223a22706f6c6963792e7631222c22736368656d615f76657273696f6e223a22736869656c642e7369676e61747572655f62756e646c652e7631222c227369676e617475726573223a5b7b22616c676f726974686d223a22636c6173736963616c2d65643235353139222c22646f6d61696e5f746167223a224447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e7631222c226b65795f6964223a22746573742d736869656c645f636f6d706f6e656e745f61646e2d636c6173736963616c2d656432353531392d7631222c226b65795f76657273696f6e223a312c227369676e6174757265223a2232643361386631363830396662356531646538616366663934386265323864333766363634323237323565323735623764343237366430636437333234316333222c227369676e65645f7061796c6f61645f68617368223a2231353664663566366433393336613433343465633130626135306336663032656239633065343264363537613431623734336434643766636261313337363166222c227374616e646172645f70726f66696c65223a22726663383033322d656432353531392d7631227d2c7b22616c676f726974686d223a226d6c2d647361222c22646f6d61696e5f746167223a224447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e7631222c226b65795f6964223a22746573742d736869656c645f636f6d706f6e656e745f61646e2d6d6c2d6473612d7631222c226b65795f76657273696f6e223a312c227369676e6174757265223a2230343463323463353038613031666162376262363664353464663333303430633962616238373637613736393731623132343534663433643830666637636136222c227369676e65645f7061796c6f61645f68617368223a2231353664663566366433393336613433343465633130626135306336663032656239633065343264363537613431623734336434643766636261313337363166222c227374616e646172645f70726f66696c65223a22666970733230342d6d6c2d6473612d36352d7631227d2c7b22616c676f726974686d223a22666e2d647361222c22646f6d61696e5f746167223a224447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e7631222c226b65795f6964223a22746573742d736869656c645f636f6d706f6e656e745f61646e2d666e2d6473612d7631222c226b65795f76657273696f6e223a312c227369676e6174757265223a2234363533306431636162623537383138356238636263643462643732343930333037666231313033376232336366396438326330333631386362366630333933222c227369676e65645f7061796c6f61645f68617368223a2231353664663566366433393336613433343465633130626135306336663032656239633065343264363537613431623734336434643766636261313337363166222c227374616e646172645f70726f66696c65223a22666970733230362d64726166742d66616c636f6e313032342d7631227d5d7d2c227369676e61747572655f706f6c696379223a22706f6c6963792e7631222c227369676e65645f7061796c6f61645f68617368223a2231353664663566366433393336613433343465633130626135306336663032656239633065343264363537613431623734336434643766636261313337363166227d2c7b2263616e6f6e6963616c697a6174696f6e5f70726f66696c65223a22736869656c642d76342d63616e6f6e2e7631222c22636f6d706f6e656e745f6964223a226471736e222c22636f6e746578745f68617368223a2261616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161222c22636f6e74726163745f76657273696f6e223a342c226465636973696f6e223a22414c4c4f57222c2265766964656e63655f66616d696c696573223a5b226e6574776f726b5f6f62736572766174696f6e225d2c2265766964656e63655f68617368223a2262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262222c226661696c5f636c6f736564223a747275652c2266726573686e6573735f6e6f6e6365223a226e6f6e63652d6471736e222c226b65795f72656769737472795f76657273696f6e223a312c226d65746164617461223a7b22696e746567726174696f6e5f6861726e657373223a22736869656c642d76342e38682d66696e616c222c22736f75726365223a226471736e227d2c226e6f745f6166746572223a22323032362d30362d32315430303a30353a30305a222c226e6f745f6265666f7265223a22323032362d30362d32315430303a30303a30305a222c22726561736f6e5f696473223a5b224451534e5f4f4b5f4e4554574f524b5f414c4c4f57225d2c22726571756573745f6964223a227265712d7634682d652d666e2d6473612d66696e616c222c22736368656d615f76657273696f6e223a22736869656c642e766572646963742e7632222c227369676e61747572655f62756e646c65223a7b22706f6c6963795f76657273696f6e223a22706f6c6963792e7631222c22736368656d615f76657273696f6e223a22736869656c642e7369676e61747572655f62756e646c652e7631222c227369676e617475726573223a5b7b22616c676f726974686d223a22636c6173736963616c2d65643235353139222c22646f6d61696e5f746167223a224447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e7631222c226b65795f6964223a22746573742d736869656c645f636f6d706f6e656e745f6471736e2d636c6173736963616c2d656432353531392d7631222c226b65795f76657273696f6e223a312c227369676e6174757265223a2236373237386338663135313863666339656463616633353938356539316237653331616665653566653530633734363364313837643239343464336564316230222c227369676e65645f7061796c6f61645f68617368223a2262313034386365303736616361643336383432666463636666396238616331366530393834363264303135393163653230346130373065666166303035666432222c227374616e646172645f70726f66696c65223a22726663383033322d656432353531392d7631227d2c7b22616c676f726974686d223a226d6c2d647361222c22646f6d61696e5f746167223a224447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e7631222c226b65795f6964223a22746573742d736869656c645f636f6d706f6e656e745f6471736e2d6d6c2d6473612d7631222c226b65795f76657273696f6e223a312c227369676e6174757265223a2265323636656461393363653633386534366636353435653536306431323961656134363732643235333966616438636561623236376564353865373834393336222c227369676e65645f7061796c6f61645f68617368223a2262313034386365303736616361643336383432666463636666396238616331366530393834363264303135393163653230346130373065666166303035666432222c227374616e646172645f70726f66696c65223a22666970733230342d6d6c2d6473612d36352d7631227d2c7b22616c676f726974686d223a22666e2d647361222c22646f6d61696e5f746167223a224447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e7631222c226b65795f6964223a22746573742d736869656c645f636f6d706f6e656e745f6471736e2d666e2d6473612d7631222c226b65795f76657273696f6e223a312c227369676e6174757265223a2230663435663235313364663536343032623939663933333438356166643838386438316361323464363230366635666233303161343435363238613362373532222c227369676e65645f7061796c6f61645f68617368223a2262313034386365303736616361643336383432666463636666396238616331366530393834363264303135393163653230346130373065666166303035666432222c227374616e646172645f70726f66696c65223a22666970733230362d64726166742d66616c636f6e313032342d7631227d5d7d2c227369676e61747572655f706f6c696379223a22706f6c6963792e7631222c227369676e65645f7061796c6f61645f68617368223a2262313034386365303736616361643336383432666463636666396238616331366530393834363264303135393163653230346130373065666166303035666432227d2c7b2263616e6f6e6963616c697a6174696f6e5f70726f66696c65223a22736869656c642d76342d63616e6f6e2e7631222c22636f6d706f6e656e745f6964223a22677561726469616e5f77616c6c6574222c22636f6e746578745f68617368223a2261616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161222c22636f6e74726163745f76657273696f6e223a342c226465636973696f6e223a22414c4c4f57222c2265766964656e63655f66616d696c696573223a5b2277616c6c65745f636f6e74657874225d2c2265766964656e63655f68617368223a2262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262222c226661696c5f636c6f736564223a747275652c2266726573686e6573735f6e6f6e6365223a226e6f6e63652d677561726469616e5f77616c6c6574222c226b65795f72656769737472795f76657273696f6e223a312c226d65746164617461223a7b22696e746567726174696f6e5f6861726e657373223a22736869656c642d76342e38682d66696e616c222c22736f75726365223a22677561726469616e5f77616c6c6574227d2c226e6f745f6166746572223a22323032362d30362d32315430303a30353a30305a222c226e6f745f6265666f7265223a22323032362d30362d32315430303a30303a30305a222c22726561736f6e5f696473223a5b2247575f4f4b5f4845414c5448595f414c4c4f57225d2c22726571756573745f6964223a227265712d7634682d652d666e2d6473612d66696e616c222c22736368656d615f76657273696f6e223a22736869656c642e766572646963742e7632222c227369676e61747572655f62756e646c65223a7b22706f6c6963795f76657273696f6e223a22706f6c6963792e7631222c22736368656d615f76657273696f6e223a22736869656c642e7369676e61747572655f62756e646c652e7631222c227369676e617475726573223a5b7b22616c676f726974686d223a22636c6173736963616c2d65643235353139222c22646f6d61696e5f746167223a224447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e7631222c226b65795f6964223a22746573742d736869656c645f636f6d706f6e656e745f677561726469616e5f77616c6c65742d636c6173736963616c2d656432353531392d7631222c226b65795f76657273696f6e223a312c227369676e6174757265223a2234326634323834613565353361646261663034633633333961393632656637653062626337653736303431613432373131356566396366626362303738626233222c227369676e65645f7061796c6f61645f68617368223a2265383966633834646237316639373533636238326337363837306633336463653462316566636538346336396361393936353761646438373361356162323664222c227374616e646172645f70726f66696c65223a22726663383033322d656432353531392d7631227d2c7b22616c676f726974686d223a226d6c2d647361222c22646f6d61696e5f746167223a224447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e7631222c226b65795f6964223a22746573742d736869656c645f636f6d706f6e656e745f677561726469616e5f77616c6c65742d6d6c2d6473612d7631222c226b65795f76657273696f6e223a312c227369676e6174757265223a2235356130316533303138643834336639636338373836373430303738386534396465306138633930613762326266346239333964376439333637376462633230222c227369676e65645f7061796c6f61645f68617368223a2265383966633834646237316639373533636238326337363837306633336463653462316566636538346336396361393936353761646438373361356162323664222c227374616e646172645f70726f66696c65223a22666970733230342d6d6c2d6473612d36352d7631227d2c7b22616c676f726974686d223a22666e2d647361222c22646f6d61696e5f746167223a224447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e7631222c226b65795f6964223a22746573742d736869656c645f636f6d706f6e656e745f677561726469616e5f77616c6c65742d666e2d6473612d7631222c226b65795f76657273696f6e223a312c227369676e6174757265223a2236616632326436323431643434616562643561646466636631643636303665333064623235636665336639353731396438633535303463653939326336386339222c227369676e65645f7061796c6f61645f68617368223a2265383966633834646237316639373533636238326337363837306633336463653462316566636538346336396361393936353761646438373361356162323664222c227374616e646172645f70726f66696c65223a22666970733230362d64726166742d66616c636f6e313032342d7631227d5d7d2c227369676e61747572655f706f6c696379223a22706f6c6963792e7631222c227369676e65645f7061796c6f61645f68617368223a2265383966633834646237316639373533636238326337363837306633336463653462316566636538346336396361393936353761646438373361356162323664227d2c7b2263616e6f6e6963616c697a6174696f6e5f70726f66696c65223a22736869656c642d76342d63616e6f6e2e7631222c22636f6d706f6e656e745f6964223a22717767222c22636f6e746578745f68617368223a2261616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161222c22636f6e74726163745f76657273696f6e223a342c226465636973696f6e223a22414c4c4f57222c2265766964656e63655f66616d696c696573223a5b2277616c6c65745f706f7374757265225d2c2265766964656e63655f68617368223a2262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262222c226661696c5f636c6f736564223a747275652c2266726573686e6573735f6e6f6e6365223a226e6f6e63652d717767222c226b65795f72656769737472795f76657273696f6e223a312c226d65746164617461223a7b22696e746567726174696f6e5f6861726e657373223a22736869656c642d76342e38682d66696e616c222c22736f75726365223a22717767227d2c226e6f745f6166746572223a22323032362d30362d32315430303a30353a30305a222c226e6f745f6265666f7265223a22323032362d30362d32315430303a30303a30305a222c22726561736f6e5f696473223a5b225157475f4f4b5f504f53545552455f414c4c4f57225d2c22726571756573745f6964223a227265712d7634682d652d666e2d6473612d66696e616c222c22736368656d615f76657273696f6e223a22736869656c642e766572646963742e7632222c227369676e61747572655f62756e646c65223a7b22706f6c6963795f76657273696f6e223a22706f6c6963792e7631222c22736368656d615f76657273696f6e223a22736869656c642e7369676e61747572655f62756e646c652e7631222c227369676e617475726573223a5b7b22616c676f726974686d223a22636c6173736963616c2d65643235353139222c22646f6d61696e5f746167223a224447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e7631222c226b65795f6964223a22746573742d736869656c645f636f6d706f6e656e745f7177672d636c6173736963616c2d656432353531392d7631222c226b65795f76657273696f6e223a312c227369676e6174757265223a2238366439633637656665656164376530343965643537353864626262663165303230323361376566383566313233303636353665393363343931383532383163222c227369676e65645f7061796c6f61645f68617368223a2239666265656462303133646462633765663931643761343031653733343135353461383539346465343066366263333862323764643239383434353736393637222c227374616e646172645f70726f66696c65223a22726663383033322d656432353531392d7631227d2c7b22616c676f726974686d223a226d6c2d647361222c22646f6d61696e5f746167223a224447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e7631222c226b65795f6964223a22746573742d736869656c645f636f6d706f6e656e745f7177672d6d6c2d6473612d7631222c226b65795f76657273696f6e223a312c227369676e6174757265223a2264323461623630393666316463393236393138303538626261373130313231663365356536333731333161613366353838303732353237643030356236363534222c227369676e65645f7061796c6f61645f68617368223a2239666265656462303133646462633765663931643761343031653733343135353461383539346465343066366263333862323764643239383434353736393637222c227374616e646172645f70726f66696c65223a22666970733230342d6d6c2d6473612d36352d7631227d2c7b22616c676f726974686d223a22666e2d647361222c22646f6d61696e5f746167223a224447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e7631222c226b65795f6964223a22746573742d736869656c645f636f6d706f6e656e745f7177672d666e2d6473612d7631222c226b65795f76657273696f6e223a312c227369676e6174757265223a2261366139383331326630343431343835393030383562353436386331653837336430636130333236346163643038613339333735336661643365636230303639222c227369676e65645f7061796c6f61645f68617368223a2239666265656462303133646462633765663931643761343031653733343135353461383539346465343066366263333862323764643239383434353736393637222c227374616e646172645f70726f66696c65223a22666970733230362d64726166742d66616c636f6e313032342d7631227d5d7d2c227369676e61747572655f706f6c696379223a22706f6c6963792e7631222c227369676e65645f7061796c6f61645f68617368223a2239666265656462303133646462633765663931643761343031653733343135353461383539346465343066366263333862323764643239383434353736393637227d2c7b2263616e6f6e6963616c697a6174696f6e5f70726f66696c65223a22736869656c642d76342d63616e6f6e2e7631222c22636f6d706f6e656e745f6964223a2273656e74696e656c5f6169222c22636f6e746578745f68617368223a2261616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161222c22636f6e74726163745f76657273696f6e223a342c226465636973696f6e223a22414c4c4f57222c2265766964656e63655f66616d696c696573223a5b2274656c656d65747279225d2c2265766964656e63655f68617368223a2262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262222c226661696c5f636c6f736564223a747275652c2266726573686e6573735f6e6f6e6365223a226e6f6e63652d73656e74696e656c5f6169222c226b65795f72656769737472795f76657273696f6e223a312c226d65746164617461223a7b22696e746567726174696f6e5f6861726e657373223a22736869656c642d76342e38682d66696e616c222c22736f75726365223a2273656e74696e656c5f6169227d2c226e6f745f6166746572223a22323032362d30362d32315430303a30353a30305a222c226e6f745f6265666f7265223a22323032362d30362d32315430303a30303a30305a222c22726561736f6e5f696473223a5b22534e544c5f4f4b5f54454c454d455452595f414c4c4f57225d2c22726571756573745f6964223a227265712d7634682d652d666e2d6473612d66696e616c222c22736368656d615f76657273696f6e223a22736869656c642e766572646963742e7632222c227369676e61747572655f62756e646c65223a7b22706f6c6963795f76657273696f6e223a22706f6c6963792e7631222c22736368656d615f76657273696f6e223a22736869656c642e7369676e61747572655f62756e646c652e7631222c227369676e617475726573223a5b7b22616c676f726974686d223a22636c6173736963616c2d65643235353139222c22646f6d61696e5f746167223a224447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e7631222c226b65795f6964223a22746573742d736869656c645f636f6d706f6e656e745f73656e74696e656c5f61692d636c6173736963616c2d656432353531392d7631222c226b65795f76657273696f6e223a312c227369676e6174757265223a2235656665633465353738396136623134346365383932613035393730653037643961623764383666643339643266343732663262343833316437613535613866222c227369676e65645f7061796c6f61645f68617368223a2230353761626437633465313633646131663134633537326536363031313330303539633339336665316337366534333431653833356233313734333765363030222c227374616e646172645f70726f66696c65223a22726663383033322d656432353531392d7631227d2c7b22616c676f726974686d223a226d6c2d647361222c22646f6d61696e5f746167223a224447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e7631222c226b65795f6964223a22746573742d736869656c645f636f6d706f6e656e745f73656e74696e656c5f61692d6d6c2d6473612d7631222c226b65795f76657273696f6e223a312c227369676e6174757265223a2265353463353936643233653233363562643564326139333236323764343637353638393930346630653163643631336137336362316435343630626363623461222c227369676e65645f7061796c6f61645f68617368223a2230353761626437633465313633646131663134633537326536363031313330303539633339336665316337366534333431653833356233313734333765363030222c227374616e646172645f70726f66696c65223a22666970733230342d6d6c2d6473612d36352d7631227d2c7b22616c676f726974686d223a22666e2d647361222c22646f6d61696e5f746167223a224447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e7631222c226b65795f6964223a22746573742d736869656c645f636f6d706f6e656e745f73656e74696e656c5f61692d666e2d6473612d7631222c226b65795f76657273696f6e223a312c227369676e6174757265223a2231306162616163303138386438323166393933633930663065373365656564313662326437363636323730616136663162366666636563316337646137326664222c227369676e65645f7061796c6f61645f68617368223a2230353761626437633465313633646131663134633537326536363031313330303539633339336665316337366534333431653833356233313734333765363030222c227374616e646172645f70726f66696c65223a22666970733230362d64726166742d66616c636f6e313032342d7631227d5d7d2c227369676e61747572655f706f6c696379223a22706f6c6963792e7631222c227369676e65645f7061796c6f61645f68617368223a2230353761626437633465313633646131663134633537326536363031313330303539633339336665316337366534333431653833356233313734333765363030227d5d2c22636f6e746578745f68617368223a2261616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161222c22636f6e74726163745f76657273696f6e223a342c22646f6d696e616e745f726561736f6e5f696473223a5b224f5243485f4f4b5f414c4c5f434f4d504f4e454e54535f414c4c4f57225d2c226661696c5f636c6f736564223a747275652c2266696e616c5f6f7574636f6d65223a22414c4c4f57222c2266726573686e6573735f6e6f6e6365223a226e6f6e63652d66696e616c2d666e2d647361222c226b65795f72656769737472795f76657273696f6e223a312c226e6f745f6166746572223a22323032362d30362d32315430303a30353a30305a222c226e6f745f6265666f7265223a22323032362d30362d32315430303a30303a30305a222c22726571756573745f6964223a227265712d7634682d652d666e2d6473612d66696e616c222c22736368656d615f76657273696f6e223a22736869656c642e726563656970742e7632222c227369676e61747572655f706f6c696379223a22706f6c6963792e7631227d",
+      "canonical_json_utf8": "{\"adamantineos_handoff\":{\"handoff_allowed\":true,\"handoff_reason\":\"ORCH_OK_ALL_COMPONENTS_ALLOW\"},\"canonicalization_profile\":\"shield-v4-canon.v1\",\"component_signature_results\":[{\"component_id\":\"adn\",\"component_role\":\"shield_component_adn\",\"signature_policy\":\"policy.v1\",\"verified\":true,\"verified_algorithms\":[\"classical-ed25519\",\"ml-dsa\",\"fn-dsa\"],\"verified_standard_profiles\":[\"rfc8032-ed25519-v1\",\"fips204-ml-dsa-65-v1\",\"fips206-draft-falcon1024-v1\"]},{\"component_id\":\"dqsn\",\"component_role\":\"shield_component_dqsn\",\"signature_policy\":\"policy.v1\",\"verified\":true,\"verified_algorithms\":[\"classical-ed25519\",\"ml-dsa\",\"fn-dsa\"],\"verified_standard_profiles\":[\"rfc8032-ed25519-v1\",\"fips204-ml-dsa-65-v1\",\"fips206-draft-falcon1024-v1\"]},{\"component_id\":\"guardian_wallet\",\"component_role\":\"shield_component_guardian_wallet\",\"signature_policy\":\"policy.v1\",\"verified\":true,\"verified_algorithms\":[\"classical-ed25519\",\"ml-dsa\",\"fn-dsa\"],\"verified_standard_profiles\":[\"rfc8032-ed25519-v1\",\"fips204-ml-dsa-65-v1\",\"fips206-draft-falcon1024-v1\"]},{\"component_id\":\"qwg\",\"component_role\":\"shield_component_qwg\",\"signature_policy\":\"policy.v1\",\"verified\":true,\"verified_algorithms\":[\"classical-ed25519\",\"ml-dsa\",\"fn-dsa\"],\"verified_standard_profiles\":[\"rfc8032-ed25519-v1\",\"fips204-ml-dsa-65-v1\",\"fips206-draft-falcon1024-v1\"]},{\"component_id\":\"sentinel_ai\",\"component_role\":\"shield_component_sentinel_ai\",\"signature_policy\":\"policy.v1\",\"verified\":true,\"verified_algorithms\":[\"classical-ed25519\",\"ml-dsa\",\"fn-dsa\"],\"verified_standard_profiles\":[\"rfc8032-ed25519-v1\",\"fips204-ml-dsa-65-v1\",\"fips206-draft-falcon1024-v1\"]}],\"component_verdicts\":[{\"canonicalization_profile\":\"shield-v4-canon.v1\",\"component_id\":\"adn\",\"context_hash\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"contract_version\":4,\"decision\":\"ALLOW\",\"evidence_families\":[\"defense_signal\"],\"evidence_hash\":\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\",\"fail_closed\":true,\"freshness_nonce\":\"nonce-adn\",\"key_registry_version\":1,\"metadata\":{\"integration_harness\":\"shield-v4.8h-final\",\"source\":\"adn\"},\"not_after\":\"2026-06-21T00:05:00Z\",\"not_before\":\"2026-06-21T00:00:00Z\",\"reason_ids\":[\"ADN_OK_COORDINATION_ALLOW\"],\"request_id\":\"req-v4h-e-fn-dsa-final\",\"schema_version\":\"shield.verdict.v2\",\"signature_bundle\":{\"policy_version\":\"policy.v1\",\"schema_version\":\"shield.signature_bundle.v1\",\"signatures\":[{\"algorithm\":\"classical-ed25519\",\"domain_tag\":\"DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\",\"key_id\":\"test-shield_component_adn-classical-ed25519-v1\",\"key_version\":1,\"signature\":\"2d3a8f16809fb5e1de8acff948be28d37f66422725e275b7d4276d0cd73241c3\",\"signed_payload_hash\":\"156df5f6d3936a4344ec10ba50c6f02eb9c0e42d657a41b743d4d7fcba13761f\",\"standard_profile\":\"rfc8032-ed25519-v1\"},{\"algorithm\":\"ml-dsa\",\"domain_tag\":\"DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\",\"key_id\":\"test-shield_component_adn-ml-dsa-v1\",\"key_version\":1,\"signature\":\"044c24c508a01fab7bb66d54df33040c9bab8767a76971b12454f43d80ff7ca6\",\"signed_payload_hash\":\"156df5f6d3936a4344ec10ba50c6f02eb9c0e42d657a41b743d4d7fcba13761f\",\"standard_profile\":\"fips204-ml-dsa-65-v1\"},{\"algorithm\":\"fn-dsa\",\"domain_tag\":\"DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\",\"key_id\":\"test-shield_component_adn-fn-dsa-v1\",\"key_version\":1,\"signature\":\"46530d1cabb578185b8cbcd4bd72490307fb11037b23cf9d82c03618cb6f0393\",\"signed_payload_hash\":\"156df5f6d3936a4344ec10ba50c6f02eb9c0e42d657a41b743d4d7fcba13761f\",\"standard_profile\":\"fips206-draft-falcon1024-v1\"}]},\"signature_policy\":\"policy.v1\",\"signed_payload_hash\":\"156df5f6d3936a4344ec10ba50c6f02eb9c0e42d657a41b743d4d7fcba13761f\"},{\"canonicalization_profile\":\"shield-v4-canon.v1\",\"component_id\":\"dqsn\",\"context_hash\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"contract_version\":4,\"decision\":\"ALLOW\",\"evidence_families\":[\"network_observation\"],\"evidence_hash\":\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\",\"fail_closed\":true,\"freshness_nonce\":\"nonce-dqsn\",\"key_registry_version\":1,\"metadata\":{\"integration_harness\":\"shield-v4.8h-final\",\"source\":\"dqsn\"},\"not_after\":\"2026-06-21T00:05:00Z\",\"not_before\":\"2026-06-21T00:00:00Z\",\"reason_ids\":[\"DQSN_OK_NETWORK_ALLOW\"],\"request_id\":\"req-v4h-e-fn-dsa-final\",\"schema_version\":\"shield.verdict.v2\",\"signature_bundle\":{\"policy_version\":\"policy.v1\",\"schema_version\":\"shield.signature_bundle.v1\",\"signatures\":[{\"algorithm\":\"classical-ed25519\",\"domain_tag\":\"DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\",\"key_id\":\"test-shield_component_dqsn-classical-ed25519-v1\",\"key_version\":1,\"signature\":\"67278c8f1518cfc9edcaf35985e91b7e31afee5fe50c7463d187d2944d3ed1b0\",\"signed_payload_hash\":\"b1048ce076acad36842fdccff9b8ac16e098462d01591ce204a070efaf005fd2\",\"standard_profile\":\"rfc8032-ed25519-v1\"},{\"algorithm\":\"ml-dsa\",\"domain_tag\":\"DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\",\"key_id\":\"test-shield_component_dqsn-ml-dsa-v1\",\"key_version\":1,\"signature\":\"e266eda93ce638e46f6545e560d129aea4672d2539fad8ceab267ed58e784936\",\"signed_payload_hash\":\"b1048ce076acad36842fdccff9b8ac16e098462d01591ce204a070efaf005fd2\",\"standard_profile\":\"fips204-ml-dsa-65-v1\"},{\"algorithm\":\"fn-dsa\",\"domain_tag\":\"DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\",\"key_id\":\"test-shield_component_dqsn-fn-dsa-v1\",\"key_version\":1,\"signature\":\"0f45f2513df56402b99f933485afd888d81ca24d6206f5fb301a445628a3b752\",\"signed_payload_hash\":\"b1048ce076acad36842fdccff9b8ac16e098462d01591ce204a070efaf005fd2\",\"standard_profile\":\"fips206-draft-falcon1024-v1\"}]},\"signature_policy\":\"policy.v1\",\"signed_payload_hash\":\"b1048ce076acad36842fdccff9b8ac16e098462d01591ce204a070efaf005fd2\"},{\"canonicalization_profile\":\"shield-v4-canon.v1\",\"component_id\":\"guardian_wallet\",\"context_hash\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"contract_version\":4,\"decision\":\"ALLOW\",\"evidence_families\":[\"wallet_context\"],\"evidence_hash\":\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\",\"fail_closed\":true,\"freshness_nonce\":\"nonce-guardian_wallet\",\"key_registry_version\":1,\"metadata\":{\"integration_harness\":\"shield-v4.8h-final\",\"source\":\"guardian_wallet\"},\"not_after\":\"2026-06-21T00:05:00Z\",\"not_before\":\"2026-06-21T00:00:00Z\",\"reason_ids\":[\"GW_OK_HEALTHY_ALLOW\"],\"request_id\":\"req-v4h-e-fn-dsa-final\",\"schema_version\":\"shield.verdict.v2\",\"signature_bundle\":{\"policy_version\":\"policy.v1\",\"schema_version\":\"shield.signature_bundle.v1\",\"signatures\":[{\"algorithm\":\"classical-ed25519\",\"domain_tag\":\"DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\",\"key_id\":\"test-shield_component_guardian_wallet-classical-ed25519-v1\",\"key_version\":1,\"signature\":\"42f4284a5e53adbaf04c6339a962ef7e0bbc7e76041a427115ef9cfbcb078bb3\",\"signed_payload_hash\":\"e89fc84db71f9753cb82c76870f33dce4b1efce84c69ca99657add873a5ab26d\",\"standard_profile\":\"rfc8032-ed25519-v1\"},{\"algorithm\":\"ml-dsa\",\"domain_tag\":\"DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\",\"key_id\":\"test-shield_component_guardian_wallet-ml-dsa-v1\",\"key_version\":1,\"signature\":\"55a01e3018d843f9cc87867400788e49de0a8c90a7b2bf4b939d7d93677dbc20\",\"signed_payload_hash\":\"e89fc84db71f9753cb82c76870f33dce4b1efce84c69ca99657add873a5ab26d\",\"standard_profile\":\"fips204-ml-dsa-65-v1\"},{\"algorithm\":\"fn-dsa\",\"domain_tag\":\"DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\",\"key_id\":\"test-shield_component_guardian_wallet-fn-dsa-v1\",\"key_version\":1,\"signature\":\"6af22d6241d44aebd5addfcf1d6606e30db25cfe3f95719d8c5504ce992c68c9\",\"signed_payload_hash\":\"e89fc84db71f9753cb82c76870f33dce4b1efce84c69ca99657add873a5ab26d\",\"standard_profile\":\"fips206-draft-falcon1024-v1\"}]},\"signature_policy\":\"policy.v1\",\"signed_payload_hash\":\"e89fc84db71f9753cb82c76870f33dce4b1efce84c69ca99657add873a5ab26d\"},{\"canonicalization_profile\":\"shield-v4-canon.v1\",\"component_id\":\"qwg\",\"context_hash\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"contract_version\":4,\"decision\":\"ALLOW\",\"evidence_families\":[\"wallet_posture\"],\"evidence_hash\":\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\",\"fail_closed\":true,\"freshness_nonce\":\"nonce-qwg\",\"key_registry_version\":1,\"metadata\":{\"integration_harness\":\"shield-v4.8h-final\",\"source\":\"qwg\"},\"not_after\":\"2026-06-21T00:05:00Z\",\"not_before\":\"2026-06-21T00:00:00Z\",\"reason_ids\":[\"QWG_OK_POSTURE_ALLOW\"],\"request_id\":\"req-v4h-e-fn-dsa-final\",\"schema_version\":\"shield.verdict.v2\",\"signature_bundle\":{\"policy_version\":\"policy.v1\",\"schema_version\":\"shield.signature_bundle.v1\",\"signatures\":[{\"algorithm\":\"classical-ed25519\",\"domain_tag\":\"DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\",\"key_id\":\"test-shield_component_qwg-classical-ed25519-v1\",\"key_version\":1,\"signature\":\"86d9c67efeead7e049ed5758dbbbf1e02023a7ef85f12306656e93c49185281c\",\"signed_payload_hash\":\"9fbeedb013ddbc7ef91d7a401e7341554a8594de40f6bc38b27dd29844576967\",\"standard_profile\":\"rfc8032-ed25519-v1\"},{\"algorithm\":\"ml-dsa\",\"domain_tag\":\"DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\",\"key_id\":\"test-shield_component_qwg-ml-dsa-v1\",\"key_version\":1,\"signature\":\"d24ab6096f1dc926918058bba710121f3e5e637131aa3f588072527d005b6654\",\"signed_payload_hash\":\"9fbeedb013ddbc7ef91d7a401e7341554a8594de40f6bc38b27dd29844576967\",\"standard_profile\":\"fips204-ml-dsa-65-v1\"},{\"algorithm\":\"fn-dsa\",\"domain_tag\":\"DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\",\"key_id\":\"test-shield_component_qwg-fn-dsa-v1\",\"key_version\":1,\"signature\":\"a6a98312f044148590085b5468c1e873d0ca03264acd08a393753fad3ecb0069\",\"signed_payload_hash\":\"9fbeedb013ddbc7ef91d7a401e7341554a8594de40f6bc38b27dd29844576967\",\"standard_profile\":\"fips206-draft-falcon1024-v1\"}]},\"signature_policy\":\"policy.v1\",\"signed_payload_hash\":\"9fbeedb013ddbc7ef91d7a401e7341554a8594de40f6bc38b27dd29844576967\"},{\"canonicalization_profile\":\"shield-v4-canon.v1\",\"component_id\":\"sentinel_ai\",\"context_hash\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"contract_version\":4,\"decision\":\"ALLOW\",\"evidence_families\":[\"telemetry\"],\"evidence_hash\":\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\",\"fail_closed\":true,\"freshness_nonce\":\"nonce-sentinel_ai\",\"key_registry_version\":1,\"metadata\":{\"integration_harness\":\"shield-v4.8h-final\",\"source\":\"sentinel_ai\"},\"not_after\":\"2026-06-21T00:05:00Z\",\"not_before\":\"2026-06-21T00:00:00Z\",\"reason_ids\":[\"SNTL_OK_TELEMETRY_ALLOW\"],\"request_id\":\"req-v4h-e-fn-dsa-final\",\"schema_version\":\"shield.verdict.v2\",\"signature_bundle\":{\"policy_version\":\"policy.v1\",\"schema_version\":\"shield.signature_bundle.v1\",\"signatures\":[{\"algorithm\":\"classical-ed25519\",\"domain_tag\":\"DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\",\"key_id\":\"test-shield_component_sentinel_ai-classical-ed25519-v1\",\"key_version\":1,\"signature\":\"5efec4e5789a6b144ce892a05970e07d9ab7d86fd39d2f472f2b4831d7a55a8f\",\"signed_payload_hash\":\"057abd7c4e163da1f14c572e6601130059c393fe1c76e4341e835b317437e600\",\"standard_profile\":\"rfc8032-ed25519-v1\"},{\"algorithm\":\"ml-dsa\",\"domain_tag\":\"DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\",\"key_id\":\"test-shield_component_sentinel_ai-ml-dsa-v1\",\"key_version\":1,\"signature\":\"e54c596d23e2365bd5d2a932627d4675689904f0e1cd613a73cb1d5460bccb4a\",\"signed_payload_hash\":\"057abd7c4e163da1f14c572e6601130059c393fe1c76e4341e835b317437e600\",\"standard_profile\":\"fips204-ml-dsa-65-v1\"},{\"algorithm\":\"fn-dsa\",\"domain_tag\":\"DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\",\"key_id\":\"test-shield_component_sentinel_ai-fn-dsa-v1\",\"key_version\":1,\"signature\":\"10abaac0188d821f993c90f0e73eeed16b2d7666270aa6f1b6ffcec1c7da72fd\",\"signed_payload_hash\":\"057abd7c4e163da1f14c572e6601130059c393fe1c76e4341e835b317437e600\",\"standard_profile\":\"fips206-draft-falcon1024-v1\"}]},\"signature_policy\":\"policy.v1\",\"signed_payload_hash\":\"057abd7c4e163da1f14c572e6601130059c393fe1c76e4341e835b317437e600\"}],\"context_hash\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"contract_version\":4,\"dominant_reason_ids\":[\"ORCH_OK_ALL_COMPONENTS_ALLOW\"],\"fail_closed\":true,\"final_outcome\":\"ALLOW\",\"freshness_nonce\":\"nonce-final-fn-dsa\",\"key_registry_version\":1,\"not_after\":\"2026-06-21T00:05:00Z\",\"not_before\":\"2026-06-21T00:00:00Z\",\"request_id\":\"req-v4h-e-fn-dsa-final\",\"schema_version\":\"shield.receipt.v2\",\"signature_policy\":\"policy.v1\"}",
+      "domain_separated_payload_hex": "4447422d534849454c442d56342d5349474e45442d5041594c4f41440a4447422d534849454c442d56342d4f5243482d524543454950543a736869656c642e726563656970742e76323a706f6c6963792e76310a7b226164616d616e74696e656f735f68616e646f6666223a7b2268616e646f66665f616c6c6f776564223a747275652c2268616e646f66665f726561736f6e223a224f5243485f4f4b5f414c4c5f434f4d504f4e454e54535f414c4c4f57227d2c2263616e6f6e6963616c697a6174696f6e5f70726f66696c65223a22736869656c642d76342d63616e6f6e2e7631222c22636f6d706f6e656e745f7369676e61747572655f726573756c7473223a5b7b22636f6d706f6e656e745f6964223a2261646e222c22636f6d706f6e656e745f726f6c65223a22736869656c645f636f6d706f6e656e745f61646e222c227369676e61747572655f706f6c696379223a22706f6c6963792e7631222c227665726966696564223a747275652c2276657269666965645f616c676f726974686d73223a5b22636c6173736963616c2d65643235353139222c226d6c2d647361222c22666e2d647361225d2c2276657269666965645f7374616e646172645f70726f66696c6573223a5b22726663383033322d656432353531392d7631222c22666970733230342d6d6c2d6473612d36352d7631222c22666970733230362d64726166742d66616c636f6e313032342d7631225d7d2c7b22636f6d706f6e656e745f6964223a226471736e222c22636f6d706f6e656e745f726f6c65223a22736869656c645f636f6d706f6e656e745f6471736e222c227369676e61747572655f706f6c696379223a22706f6c6963792e7631222c227665726966696564223a747275652c2276657269666965645f616c676f726974686d73223a5b22636c6173736963616c2d65643235353139222c226d6c2d647361222c22666e2d647361225d2c2276657269666965645f7374616e646172645f70726f66696c6573223a5b22726663383033322d656432353531392d7631222c22666970733230342d6d6c2d6473612d36352d7631222c22666970733230362d64726166742d66616c636f6e313032342d7631225d7d2c7b22636f6d706f6e656e745f6964223a22677561726469616e5f77616c6c6574222c22636f6d706f6e656e745f726f6c65223a22736869656c645f636f6d706f6e656e745f677561726469616e5f77616c6c6574222c227369676e61747572655f706f6c696379223a22706f6c6963792e7631222c227665726966696564223a747275652c2276657269666965645f616c676f726974686d73223a5b22636c6173736963616c2d65643235353139222c226d6c2d647361222c22666e2d647361225d2c2276657269666965645f7374616e646172645f70726f66696c6573223a5b22726663383033322d656432353531392d7631222c22666970733230342d6d6c2d6473612d36352d7631222c22666970733230362d64726166742d66616c636f6e313032342d7631225d7d2c7b22636f6d706f6e656e745f6964223a22717767222c22636f6d706f6e656e745f726f6c65223a22736869656c645f636f6d706f6e656e745f717767222c227369676e61747572655f706f6c696379223a22706f6c6963792e7631222c227665726966696564223a747275652c2276657269666965645f616c676f726974686d73223a5b22636c6173736963616c2d65643235353139222c226d6c2d647361222c22666e2d647361225d2c2276657269666965645f7374616e646172645f70726f66696c6573223a5b22726663383033322d656432353531392d7631222c22666970733230342d6d6c2d6473612d36352d7631222c22666970733230362d64726166742d66616c636f6e313032342d7631225d7d2c7b22636f6d706f6e656e745f6964223a2273656e74696e656c5f6169222c22636f6d706f6e656e745f726f6c65223a22736869656c645f636f6d706f6e656e745f73656e74696e656c5f6169222c227369676e61747572655f706f6c696379223a22706f6c6963792e7631222c227665726966696564223a747275652c2276657269666965645f616c676f726974686d73223a5b22636c6173736963616c2d65643235353139222c226d6c2d647361222c22666e2d647361225d2c2276657269666965645f7374616e646172645f70726f66696c6573223a5b22726663383033322d656432353531392d7631222c22666970733230342d6d6c2d6473612d36352d7631222c22666970733230362d64726166742d66616c636f6e313032342d7631225d7d5d2c22636f6d706f6e656e745f7665726469637473223a5b7b2263616e6f6e6963616c697a6174696f6e5f70726f66696c65223a22736869656c642d76342d63616e6f6e2e7631222c22636f6d706f6e656e745f6964223a2261646e222c22636f6e746578745f68617368223a2261616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161222c22636f6e74726163745f76657273696f6e223a342c226465636973696f6e223a22414c4c4f57222c2265766964656e63655f66616d696c696573223a5b22646566656e73655f7369676e616c225d2c2265766964656e63655f68617368223a2262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262222c226661696c5f636c6f736564223a747275652c2266726573686e6573735f6e6f6e6365223a226e6f6e63652d61646e222c226b65795f72656769737472795f76657273696f6e223a312c226d65746164617461223a7b22696e746567726174696f6e5f6861726e657373223a22736869656c642d76342e38682d66696e616c222c22736f75726365223a2261646e227d2c226e6f745f6166746572223a22323032362d30362d32315430303a30353a30305a222c226e6f745f6265666f7265223a22323032362d30362d32315430303a30303a30305a222c22726561736f6e5f696473223a5b2241444e5f4f4b5f434f4f5244494e4154494f4e5f414c4c4f57225d2c22726571756573745f6964223a227265712d7634682d652d666e2d6473612d66696e616c222c22736368656d615f76657273696f6e223a22736869656c642e766572646963742e7632222c227369676e61747572655f62756e646c65223a7b22706f6c6963795f76657273696f6e223a22706f6c6963792e7631222c22736368656d615f76657273696f6e223a22736869656c642e7369676e61747572655f62756e646c652e7631222c227369676e617475726573223a5b7b22616c676f726974686d223a22636c6173736963616c2d65643235353139222c22646f6d61696e5f746167223a224447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e7631222c226b65795f6964223a22746573742d736869656c645f636f6d706f6e656e745f61646e2d636c6173736963616c2d656432353531392d7631222c226b65795f76657273696f6e223a312c227369676e6174757265223a2232643361386631363830396662356531646538616366663934386265323864333766363634323237323565323735623764343237366430636437333234316333222c227369676e65645f7061796c6f61645f68617368223a2231353664663566366433393336613433343465633130626135306336663032656239633065343264363537613431623734336434643766636261313337363166222c227374616e646172645f70726f66696c65223a22726663383033322d656432353531392d7631227d2c7b22616c676f726974686d223a226d6c2d647361222c22646f6d61696e5f746167223a224447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e7631222c226b65795f6964223a22746573742d736869656c645f636f6d706f6e656e745f61646e2d6d6c2d6473612d7631222c226b65795f76657273696f6e223a312c227369676e6174757265223a2230343463323463353038613031666162376262363664353464663333303430633962616238373637613736393731623132343534663433643830666637636136222c227369676e65645f7061796c6f61645f68617368223a2231353664663566366433393336613433343465633130626135306336663032656239633065343264363537613431623734336434643766636261313337363166222c227374616e646172645f70726f66696c65223a22666970733230342d6d6c2d6473612d36352d7631227d2c7b22616c676f726974686d223a22666e2d647361222c22646f6d61696e5f746167223a224447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e7631222c226b65795f6964223a22746573742d736869656c645f636f6d706f6e656e745f61646e2d666e2d6473612d7631222c226b65795f76657273696f6e223a312c227369676e6174757265223a2234363533306431636162623537383138356238636263643462643732343930333037666231313033376232336366396438326330333631386362366630333933222c227369676e65645f7061796c6f61645f68617368223a2231353664663566366433393336613433343465633130626135306336663032656239633065343264363537613431623734336434643766636261313337363166222c227374616e646172645f70726f66696c65223a22666970733230362d64726166742d66616c636f6e313032342d7631227d5d7d2c227369676e61747572655f706f6c696379223a22706f6c6963792e7631222c227369676e65645f7061796c6f61645f68617368223a2231353664663566366433393336613433343465633130626135306336663032656239633065343264363537613431623734336434643766636261313337363166227d2c7b2263616e6f6e6963616c697a6174696f6e5f70726f66696c65223a22736869656c642d76342d63616e6f6e2e7631222c22636f6d706f6e656e745f6964223a226471736e222c22636f6e746578745f68617368223a2261616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161222c22636f6e74726163745f76657273696f6e223a342c226465636973696f6e223a22414c4c4f57222c2265766964656e63655f66616d696c696573223a5b226e6574776f726b5f6f62736572766174696f6e225d2c2265766964656e63655f68617368223a2262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262222c226661696c5f636c6f736564223a747275652c2266726573686e6573735f6e6f6e6365223a226e6f6e63652d6471736e222c226b65795f72656769737472795f76657273696f6e223a312c226d65746164617461223a7b22696e746567726174696f6e5f6861726e657373223a22736869656c642d76342e38682d66696e616c222c22736f75726365223a226471736e227d2c226e6f745f6166746572223a22323032362d30362d32315430303a30353a30305a222c226e6f745f6265666f7265223a22323032362d30362d32315430303a30303a30305a222c22726561736f6e5f696473223a5b224451534e5f4f4b5f4e4554574f524b5f414c4c4f57225d2c22726571756573745f6964223a227265712d7634682d652d666e2d6473612d66696e616c222c22736368656d615f76657273696f6e223a22736869656c642e766572646963742e7632222c227369676e61747572655f62756e646c65223a7b22706f6c6963795f76657273696f6e223a22706f6c6963792e7631222c22736368656d615f76657273696f6e223a22736869656c642e7369676e61747572655f62756e646c652e7631222c227369676e617475726573223a5b7b22616c676f726974686d223a22636c6173736963616c2d65643235353139222c22646f6d61696e5f746167223a224447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e7631222c226b65795f6964223a22746573742d736869656c645f636f6d706f6e656e745f6471736e2d636c6173736963616c2d656432353531392d7631222c226b65795f76657273696f6e223a312c227369676e6174757265223a2236373237386338663135313863666339656463616633353938356539316237653331616665653566653530633734363364313837643239343464336564316230222c227369676e65645f7061796c6f61645f68617368223a2262313034386365303736616361643336383432666463636666396238616331366530393834363264303135393163653230346130373065666166303035666432222c227374616e646172645f70726f66696c65223a22726663383033322d656432353531392d7631227d2c7b22616c676f726974686d223a226d6c2d647361222c22646f6d61696e5f746167223a224447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e7631222c226b65795f6964223a22746573742d736869656c645f636f6d706f6e656e745f6471736e2d6d6c2d6473612d7631222c226b65795f76657273696f6e223a312c227369676e6174757265223a2265323636656461393363653633386534366636353435653536306431323961656134363732643235333966616438636561623236376564353865373834393336222c227369676e65645f7061796c6f61645f68617368223a2262313034386365303736616361643336383432666463636666396238616331366530393834363264303135393163653230346130373065666166303035666432222c227374616e646172645f70726f66696c65223a22666970733230342d6d6c2d6473612d36352d7631227d2c7b22616c676f726974686d223a22666e2d647361222c22646f6d61696e5f746167223a224447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e7631222c226b65795f6964223a22746573742d736869656c645f636f6d706f6e656e745f6471736e2d666e2d6473612d7631222c226b65795f76657273696f6e223a312c227369676e6174757265223a2230663435663235313364663536343032623939663933333438356166643838386438316361323464363230366635666233303161343435363238613362373532222c227369676e65645f7061796c6f61645f68617368223a2262313034386365303736616361643336383432666463636666396238616331366530393834363264303135393163653230346130373065666166303035666432222c227374616e646172645f70726f66696c65223a22666970733230362d64726166742d66616c636f6e313032342d7631227d5d7d2c227369676e61747572655f706f6c696379223a22706f6c6963792e7631222c227369676e65645f7061796c6f61645f68617368223a2262313034386365303736616361643336383432666463636666396238616331366530393834363264303135393163653230346130373065666166303035666432227d2c7b2263616e6f6e6963616c697a6174696f6e5f70726f66696c65223a22736869656c642d76342d63616e6f6e2e7631222c22636f6d706f6e656e745f6964223a22677561726469616e5f77616c6c6574222c22636f6e746578745f68617368223a2261616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161222c22636f6e74726163745f76657273696f6e223a342c226465636973696f6e223a22414c4c4f57222c2265766964656e63655f66616d696c696573223a5b2277616c6c65745f636f6e74657874225d2c2265766964656e63655f68617368223a2262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262222c226661696c5f636c6f736564223a747275652c2266726573686e6573735f6e6f6e6365223a226e6f6e63652d677561726469616e5f77616c6c6574222c226b65795f72656769737472795f76657273696f6e223a312c226d65746164617461223a7b22696e746567726174696f6e5f6861726e657373223a22736869656c642d76342e38682d66696e616c222c22736f75726365223a22677561726469616e5f77616c6c6574227d2c226e6f745f6166746572223a22323032362d30362d32315430303a30353a30305a222c226e6f745f6265666f7265223a22323032362d30362d32315430303a30303a30305a222c22726561736f6e5f696473223a5b2247575f4f4b5f4845414c5448595f414c4c4f57225d2c22726571756573745f6964223a227265712d7634682d652d666e2d6473612d66696e616c222c22736368656d615f76657273696f6e223a22736869656c642e766572646963742e7632222c227369676e61747572655f62756e646c65223a7b22706f6c6963795f76657273696f6e223a22706f6c6963792e7631222c22736368656d615f76657273696f6e223a22736869656c642e7369676e61747572655f62756e646c652e7631222c227369676e617475726573223a5b7b22616c676f726974686d223a22636c6173736963616c2d65643235353139222c22646f6d61696e5f746167223a224447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e7631222c226b65795f6964223a22746573742d736869656c645f636f6d706f6e656e745f677561726469616e5f77616c6c65742d636c6173736963616c2d656432353531392d7631222c226b65795f76657273696f6e223a312c227369676e6174757265223a2234326634323834613565353361646261663034633633333961393632656637653062626337653736303431613432373131356566396366626362303738626233222c227369676e65645f7061796c6f61645f68617368223a2265383966633834646237316639373533636238326337363837306633336463653462316566636538346336396361393936353761646438373361356162323664222c227374616e646172645f70726f66696c65223a22726663383033322d656432353531392d7631227d2c7b22616c676f726974686d223a226d6c2d647361222c22646f6d61696e5f746167223a224447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e7631222c226b65795f6964223a22746573742d736869656c645f636f6d706f6e656e745f677561726469616e5f77616c6c65742d6d6c2d6473612d7631222c226b65795f76657273696f6e223a312c227369676e6174757265223a2235356130316533303138643834336639636338373836373430303738386534396465306138633930613762326266346239333964376439333637376462633230222c227369676e65645f7061796c6f61645f68617368223a2265383966633834646237316639373533636238326337363837306633336463653462316566636538346336396361393936353761646438373361356162323664222c227374616e646172645f70726f66696c65223a22666970733230342d6d6c2d6473612d36352d7631227d2c7b22616c676f726974686d223a22666e2d647361222c22646f6d61696e5f746167223a224447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e7631222c226b65795f6964223a22746573742d736869656c645f636f6d706f6e656e745f677561726469616e5f77616c6c65742d666e2d6473612d7631222c226b65795f76657273696f6e223a312c227369676e6174757265223a2236616632326436323431643434616562643561646466636631643636303665333064623235636665336639353731396438633535303463653939326336386339222c227369676e65645f7061796c6f61645f68617368223a2265383966633834646237316639373533636238326337363837306633336463653462316566636538346336396361393936353761646438373361356162323664222c227374616e646172645f70726f66696c65223a22666970733230362d64726166742d66616c636f6e313032342d7631227d5d7d2c227369676e61747572655f706f6c696379223a22706f6c6963792e7631222c227369676e65645f7061796c6f61645f68617368223a2265383966633834646237316639373533636238326337363837306633336463653462316566636538346336396361393936353761646438373361356162323664227d2c7b2263616e6f6e6963616c697a6174696f6e5f70726f66696c65223a22736869656c642d76342d63616e6f6e2e7631222c22636f6d706f6e656e745f6964223a22717767222c22636f6e746578745f68617368223a2261616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161222c22636f6e74726163745f76657273696f6e223a342c226465636973696f6e223a22414c4c4f57222c2265766964656e63655f66616d696c696573223a5b2277616c6c65745f706f7374757265225d2c2265766964656e63655f68617368223a2262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262222c226661696c5f636c6f736564223a747275652c2266726573686e6573735f6e6f6e6365223a226e6f6e63652d717767222c226b65795f72656769737472795f76657273696f6e223a312c226d65746164617461223a7b22696e746567726174696f6e5f6861726e657373223a22736869656c642d76342e38682d66696e616c222c22736f75726365223a22717767227d2c226e6f745f6166746572223a22323032362d30362d32315430303a30353a30305a222c226e6f745f6265666f7265223a22323032362d30362d32315430303a30303a30305a222c22726561736f6e5f696473223a5b225157475f4f4b5f504f53545552455f414c4c4f57225d2c22726571756573745f6964223a227265712d7634682d652d666e2d6473612d66696e616c222c22736368656d615f76657273696f6e223a22736869656c642e766572646963742e7632222c227369676e61747572655f62756e646c65223a7b22706f6c6963795f76657273696f6e223a22706f6c6963792e7631222c22736368656d615f76657273696f6e223a22736869656c642e7369676e61747572655f62756e646c652e7631222c227369676e617475726573223a5b7b22616c676f726974686d223a22636c6173736963616c2d65643235353139222c22646f6d61696e5f746167223a224447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e7631222c226b65795f6964223a22746573742d736869656c645f636f6d706f6e656e745f7177672d636c6173736963616c2d656432353531392d7631222c226b65795f76657273696f6e223a312c227369676e6174757265223a2238366439633637656665656164376530343965643537353864626262663165303230323361376566383566313233303636353665393363343931383532383163222c227369676e65645f7061796c6f61645f68617368223a2239666265656462303133646462633765663931643761343031653733343135353461383539346465343066366263333862323764643239383434353736393637222c227374616e646172645f70726f66696c65223a22726663383033322d656432353531392d7631227d2c7b22616c676f726974686d223a226d6c2d647361222c22646f6d61696e5f746167223a224447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e7631222c226b65795f6964223a22746573742d736869656c645f636f6d706f6e656e745f7177672d6d6c2d6473612d7631222c226b65795f76657273696f6e223a312c227369676e6174757265223a2264323461623630393666316463393236393138303538626261373130313231663365356536333731333161613366353838303732353237643030356236363534222c227369676e65645f7061796c6f61645f68617368223a2239666265656462303133646462633765663931643761343031653733343135353461383539346465343066366263333862323764643239383434353736393637222c227374616e646172645f70726f66696c65223a22666970733230342d6d6c2d6473612d36352d7631227d2c7b22616c676f726974686d223a22666e2d647361222c22646f6d61696e5f746167223a224447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e7631222c226b65795f6964223a22746573742d736869656c645f636f6d706f6e656e745f7177672d666e2d6473612d7631222c226b65795f76657273696f6e223a312c227369676e6174757265223a2261366139383331326630343431343835393030383562353436386331653837336430636130333236346163643038613339333735336661643365636230303639222c227369676e65645f7061796c6f61645f68617368223a2239666265656462303133646462633765663931643761343031653733343135353461383539346465343066366263333862323764643239383434353736393637222c227374616e646172645f70726f66696c65223a22666970733230362d64726166742d66616c636f6e313032342d7631227d5d7d2c227369676e61747572655f706f6c696379223a22706f6c6963792e7631222c227369676e65645f7061796c6f61645f68617368223a2239666265656462303133646462633765663931643761343031653733343135353461383539346465343066366263333862323764643239383434353736393637227d2c7b2263616e6f6e6963616c697a6174696f6e5f70726f66696c65223a22736869656c642d76342d63616e6f6e2e7631222c22636f6d706f6e656e745f6964223a2273656e74696e656c5f6169222c22636f6e746578745f68617368223a2261616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161222c22636f6e74726163745f76657273696f6e223a342c226465636973696f6e223a22414c4c4f57222c2265766964656e63655f66616d696c696573223a5b2274656c656d65747279225d2c2265766964656e63655f68617368223a2262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262626262222c226661696c5f636c6f736564223a747275652c2266726573686e6573735f6e6f6e6365223a226e6f6e63652d73656e74696e656c5f6169222c226b65795f72656769737472795f76657273696f6e223a312c226d65746164617461223a7b22696e746567726174696f6e5f6861726e657373223a22736869656c642d76342e38682d66696e616c222c22736f75726365223a2273656e74696e656c5f6169227d2c226e6f745f6166746572223a22323032362d30362d32315430303a30353a30305a222c226e6f745f6265666f7265223a22323032362d30362d32315430303a30303a30305a222c22726561736f6e5f696473223a5b22534e544c5f4f4b5f54454c454d455452595f414c4c4f57225d2c22726571756573745f6964223a227265712d7634682d652d666e2d6473612d66696e616c222c22736368656d615f76657273696f6e223a22736869656c642e766572646963742e7632222c227369676e61747572655f62756e646c65223a7b22706f6c6963795f76657273696f6e223a22706f6c6963792e7631222c22736368656d615f76657273696f6e223a22736869656c642e7369676e61747572655f62756e646c652e7631222c227369676e617475726573223a5b7b22616c676f726974686d223a22636c6173736963616c2d65643235353139222c22646f6d61696e5f746167223a224447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e7631222c226b65795f6964223a22746573742d736869656c645f636f6d706f6e656e745f73656e74696e656c5f61692d636c6173736963616c2d656432353531392d7631222c226b65795f76657273696f6e223a312c227369676e6174757265223a2235656665633465353738396136623134346365383932613035393730653037643961623764383666643339643266343732663262343833316437613535613866222c227369676e65645f7061796c6f61645f68617368223a2230353761626437633465313633646131663134633537326536363031313330303539633339336665316337366534333431653833356233313734333765363030222c227374616e646172645f70726f66696c65223a22726663383033322d656432353531392d7631227d2c7b22616c676f726974686d223a226d6c2d647361222c22646f6d61696e5f746167223a224447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e7631222c226b65795f6964223a22746573742d736869656c645f636f6d706f6e656e745f73656e74696e656c5f61692d6d6c2d6473612d7631222c226b65795f76657273696f6e223a312c227369676e6174757265223a2265353463353936643233653233363562643564326139333236323764343637353638393930346630653163643631336137336362316435343630626363623461222c227369676e65645f7061796c6f61645f68617368223a2230353761626437633465313633646131663134633537326536363031313330303539633339336665316337366534333431653833356233313734333765363030222c227374616e646172645f70726f66696c65223a22666970733230342d6d6c2d6473612d36352d7631227d2c7b22616c676f726974686d223a22666e2d647361222c22646f6d61696e5f746167223a224447422d534849454c442d56342d434f4d504f4e454e542d564552444943543a736869656c642e766572646963742e76323a706f6c6963792e7631222c226b65795f6964223a22746573742d736869656c645f636f6d706f6e656e745f73656e74696e656c5f61692d666e2d6473612d7631222c226b65795f76657273696f6e223a312c227369676e6174757265223a2231306162616163303138386438323166393933633930663065373365656564313662326437363636323730616136663162366666636563316337646137326664222c227369676e65645f7061796c6f61645f68617368223a2230353761626437633465313633646131663134633537326536363031313330303539633339336665316337366534333431653833356233313734333765363030222c227374616e646172645f70726f66696c65223a22666970733230362d64726166742d66616c636f6e313032342d7631227d5d7d2c227369676e61747572655f706f6c696379223a22706f6c6963792e7631222c227369676e65645f7061796c6f61645f68617368223a2230353761626437633465313633646131663134633537326536363031313330303539633339336665316337366534333431653833356233313734333765363030227d5d2c22636f6e746578745f68617368223a2261616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161616161222c22636f6e74726163745f76657273696f6e223a342c22646f6d696e616e745f726561736f6e5f696473223a5b224f5243485f4f4b5f414c4c5f434f4d504f4e454e54535f414c4c4f57225d2c226661696c5f636c6f736564223a747275652c2266696e616c5f6f7574636f6d65223a22414c4c4f57222c2266726573686e6573735f6e6f6e6365223a226e6f6e63652d66696e616c2d666e2d647361222c226b65795f72656769737472795f76657273696f6e223a312c226e6f745f6166746572223a22323032362d30362d32315430303a30353a30305a222c226e6f745f6265666f7265223a22323032362d30362d32315430303a30303a30305a222c22726571756573745f6964223a227265712d7634682d652d666e2d6473612d66696e616c222c22736368656d615f76657273696f6e223a22736869656c642e726563656970742e7632222c227369676e61747572655f706f6c696379223a22706f6c6963792e7631227d",
+      "domain_separated_payload_utf8": "DGB-SHIELD-V4-SIGNED-PAYLOAD\nDGB-SHIELD-V4-ORCH-RECEIPT:shield.receipt.v2:policy.v1\n{\"adamantineos_handoff\":{\"handoff_allowed\":true,\"handoff_reason\":\"ORCH_OK_ALL_COMPONENTS_ALLOW\"},\"canonicalization_profile\":\"shield-v4-canon.v1\",\"component_signature_results\":[{\"component_id\":\"adn\",\"component_role\":\"shield_component_adn\",\"signature_policy\":\"policy.v1\",\"verified\":true,\"verified_algorithms\":[\"classical-ed25519\",\"ml-dsa\",\"fn-dsa\"],\"verified_standard_profiles\":[\"rfc8032-ed25519-v1\",\"fips204-ml-dsa-65-v1\",\"fips206-draft-falcon1024-v1\"]},{\"component_id\":\"dqsn\",\"component_role\":\"shield_component_dqsn\",\"signature_policy\":\"policy.v1\",\"verified\":true,\"verified_algorithms\":[\"classical-ed25519\",\"ml-dsa\",\"fn-dsa\"],\"verified_standard_profiles\":[\"rfc8032-ed25519-v1\",\"fips204-ml-dsa-65-v1\",\"fips206-draft-falcon1024-v1\"]},{\"component_id\":\"guardian_wallet\",\"component_role\":\"shield_component_guardian_wallet\",\"signature_policy\":\"policy.v1\",\"verified\":true,\"verified_algorithms\":[\"classical-ed25519\",\"ml-dsa\",\"fn-dsa\"],\"verified_standard_profiles\":[\"rfc8032-ed25519-v1\",\"fips204-ml-dsa-65-v1\",\"fips206-draft-falcon1024-v1\"]},{\"component_id\":\"qwg\",\"component_role\":\"shield_component_qwg\",\"signature_policy\":\"policy.v1\",\"verified\":true,\"verified_algorithms\":[\"classical-ed25519\",\"ml-dsa\",\"fn-dsa\"],\"verified_standard_profiles\":[\"rfc8032-ed25519-v1\",\"fips204-ml-dsa-65-v1\",\"fips206-draft-falcon1024-v1\"]},{\"component_id\":\"sentinel_ai\",\"component_role\":\"shield_component_sentinel_ai\",\"signature_policy\":\"policy.v1\",\"verified\":true,\"verified_algorithms\":[\"classical-ed25519\",\"ml-dsa\",\"fn-dsa\"],\"verified_standard_profiles\":[\"rfc8032-ed25519-v1\",\"fips204-ml-dsa-65-v1\",\"fips206-draft-falcon1024-v1\"]}],\"component_verdicts\":[{\"canonicalization_profile\":\"shield-v4-canon.v1\",\"component_id\":\"adn\",\"context_hash\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"contract_version\":4,\"decision\":\"ALLOW\",\"evidence_families\":[\"defense_signal\"],\"evidence_hash\":\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\",\"fail_closed\":true,\"freshness_nonce\":\"nonce-adn\",\"key_registry_version\":1,\"metadata\":{\"integration_harness\":\"shield-v4.8h-final\",\"source\":\"adn\"},\"not_after\":\"2026-06-21T00:05:00Z\",\"not_before\":\"2026-06-21T00:00:00Z\",\"reason_ids\":[\"ADN_OK_COORDINATION_ALLOW\"],\"request_id\":\"req-v4h-e-fn-dsa-final\",\"schema_version\":\"shield.verdict.v2\",\"signature_bundle\":{\"policy_version\":\"policy.v1\",\"schema_version\":\"shield.signature_bundle.v1\",\"signatures\":[{\"algorithm\":\"classical-ed25519\",\"domain_tag\":\"DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\",\"key_id\":\"test-shield_component_adn-classical-ed25519-v1\",\"key_version\":1,\"signature\":\"2d3a8f16809fb5e1de8acff948be28d37f66422725e275b7d4276d0cd73241c3\",\"signed_payload_hash\":\"156df5f6d3936a4344ec10ba50c6f02eb9c0e42d657a41b743d4d7fcba13761f\",\"standard_profile\":\"rfc8032-ed25519-v1\"},{\"algorithm\":\"ml-dsa\",\"domain_tag\":\"DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\",\"key_id\":\"test-shield_component_adn-ml-dsa-v1\",\"key_version\":1,\"signature\":\"044c24c508a01fab7bb66d54df33040c9bab8767a76971b12454f43d80ff7ca6\",\"signed_payload_hash\":\"156df5f6d3936a4344ec10ba50c6f02eb9c0e42d657a41b743d4d7fcba13761f\",\"standard_profile\":\"fips204-ml-dsa-65-v1\"},{\"algorithm\":\"fn-dsa\",\"domain_tag\":\"DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\",\"key_id\":\"test-shield_component_adn-fn-dsa-v1\",\"key_version\":1,\"signature\":\"46530d1cabb578185b8cbcd4bd72490307fb11037b23cf9d82c03618cb6f0393\",\"signed_payload_hash\":\"156df5f6d3936a4344ec10ba50c6f02eb9c0e42d657a41b743d4d7fcba13761f\",\"standard_profile\":\"fips206-draft-falcon1024-v1\"}]},\"signature_policy\":\"policy.v1\",\"signed_payload_hash\":\"156df5f6d3936a4344ec10ba50c6f02eb9c0e42d657a41b743d4d7fcba13761f\"},{\"canonicalization_profile\":\"shield-v4-canon.v1\",\"component_id\":\"dqsn\",\"context_hash\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"contract_version\":4,\"decision\":\"ALLOW\",\"evidence_families\":[\"network_observation\"],\"evidence_hash\":\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\",\"fail_closed\":true,\"freshness_nonce\":\"nonce-dqsn\",\"key_registry_version\":1,\"metadata\":{\"integration_harness\":\"shield-v4.8h-final\",\"source\":\"dqsn\"},\"not_after\":\"2026-06-21T00:05:00Z\",\"not_before\":\"2026-06-21T00:00:00Z\",\"reason_ids\":[\"DQSN_OK_NETWORK_ALLOW\"],\"request_id\":\"req-v4h-e-fn-dsa-final\",\"schema_version\":\"shield.verdict.v2\",\"signature_bundle\":{\"policy_version\":\"policy.v1\",\"schema_version\":\"shield.signature_bundle.v1\",\"signatures\":[{\"algorithm\":\"classical-ed25519\",\"domain_tag\":\"DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\",\"key_id\":\"test-shield_component_dqsn-classical-ed25519-v1\",\"key_version\":1,\"signature\":\"67278c8f1518cfc9edcaf35985e91b7e31afee5fe50c7463d187d2944d3ed1b0\",\"signed_payload_hash\":\"b1048ce076acad36842fdccff9b8ac16e098462d01591ce204a070efaf005fd2\",\"standard_profile\":\"rfc8032-ed25519-v1\"},{\"algorithm\":\"ml-dsa\",\"domain_tag\":\"DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\",\"key_id\":\"test-shield_component_dqsn-ml-dsa-v1\",\"key_version\":1,\"signature\":\"e266eda93ce638e46f6545e560d129aea4672d2539fad8ceab267ed58e784936\",\"signed_payload_hash\":\"b1048ce076acad36842fdccff9b8ac16e098462d01591ce204a070efaf005fd2\",\"standard_profile\":\"fips204-ml-dsa-65-v1\"},{\"algorithm\":\"fn-dsa\",\"domain_tag\":\"DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\",\"key_id\":\"test-shield_component_dqsn-fn-dsa-v1\",\"key_version\":1,\"signature\":\"0f45f2513df56402b99f933485afd888d81ca24d6206f5fb301a445628a3b752\",\"signed_payload_hash\":\"b1048ce076acad36842fdccff9b8ac16e098462d01591ce204a070efaf005fd2\",\"standard_profile\":\"fips206-draft-falcon1024-v1\"}]},\"signature_policy\":\"policy.v1\",\"signed_payload_hash\":\"b1048ce076acad36842fdccff9b8ac16e098462d01591ce204a070efaf005fd2\"},{\"canonicalization_profile\":\"shield-v4-canon.v1\",\"component_id\":\"guardian_wallet\",\"context_hash\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"contract_version\":4,\"decision\":\"ALLOW\",\"evidence_families\":[\"wallet_context\"],\"evidence_hash\":\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\",\"fail_closed\":true,\"freshness_nonce\":\"nonce-guardian_wallet\",\"key_registry_version\":1,\"metadata\":{\"integration_harness\":\"shield-v4.8h-final\",\"source\":\"guardian_wallet\"},\"not_after\":\"2026-06-21T00:05:00Z\",\"not_before\":\"2026-06-21T00:00:00Z\",\"reason_ids\":[\"GW_OK_HEALTHY_ALLOW\"],\"request_id\":\"req-v4h-e-fn-dsa-final\",\"schema_version\":\"shield.verdict.v2\",\"signature_bundle\":{\"policy_version\":\"policy.v1\",\"schema_version\":\"shield.signature_bundle.v1\",\"signatures\":[{\"algorithm\":\"classical-ed25519\",\"domain_tag\":\"DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\",\"key_id\":\"test-shield_component_guardian_wallet-classical-ed25519-v1\",\"key_version\":1,\"signature\":\"42f4284a5e53adbaf04c6339a962ef7e0bbc7e76041a427115ef9cfbcb078bb3\",\"signed_payload_hash\":\"e89fc84db71f9753cb82c76870f33dce4b1efce84c69ca99657add873a5ab26d\",\"standard_profile\":\"rfc8032-ed25519-v1\"},{\"algorithm\":\"ml-dsa\",\"domain_tag\":\"DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\",\"key_id\":\"test-shield_component_guardian_wallet-ml-dsa-v1\",\"key_version\":1,\"signature\":\"55a01e3018d843f9cc87867400788e49de0a8c90a7b2bf4b939d7d93677dbc20\",\"signed_payload_hash\":\"e89fc84db71f9753cb82c76870f33dce4b1efce84c69ca99657add873a5ab26d\",\"standard_profile\":\"fips204-ml-dsa-65-v1\"},{\"algorithm\":\"fn-dsa\",\"domain_tag\":\"DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\",\"key_id\":\"test-shield_component_guardian_wallet-fn-dsa-v1\",\"key_version\":1,\"signature\":\"6af22d6241d44aebd5addfcf1d6606e30db25cfe3f95719d8c5504ce992c68c9\",\"signed_payload_hash\":\"e89fc84db71f9753cb82c76870f33dce4b1efce84c69ca99657add873a5ab26d\",\"standard_profile\":\"fips206-draft-falcon1024-v1\"}]},\"signature_policy\":\"policy.v1\",\"signed_payload_hash\":\"e89fc84db71f9753cb82c76870f33dce4b1efce84c69ca99657add873a5ab26d\"},{\"canonicalization_profile\":\"shield-v4-canon.v1\",\"component_id\":\"qwg\",\"context_hash\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"contract_version\":4,\"decision\":\"ALLOW\",\"evidence_families\":[\"wallet_posture\"],\"evidence_hash\":\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\",\"fail_closed\":true,\"freshness_nonce\":\"nonce-qwg\",\"key_registry_version\":1,\"metadata\":{\"integration_harness\":\"shield-v4.8h-final\",\"source\":\"qwg\"},\"not_after\":\"2026-06-21T00:05:00Z\",\"not_before\":\"2026-06-21T00:00:00Z\",\"reason_ids\":[\"QWG_OK_POSTURE_ALLOW\"],\"request_id\":\"req-v4h-e-fn-dsa-final\",\"schema_version\":\"shield.verdict.v2\",\"signature_bundle\":{\"policy_version\":\"policy.v1\",\"schema_version\":\"shield.signature_bundle.v1\",\"signatures\":[{\"algorithm\":\"classical-ed25519\",\"domain_tag\":\"DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\",\"key_id\":\"test-shield_component_qwg-classical-ed25519-v1\",\"key_version\":1,\"signature\":\"86d9c67efeead7e049ed5758dbbbf1e02023a7ef85f12306656e93c49185281c\",\"signed_payload_hash\":\"9fbeedb013ddbc7ef91d7a401e7341554a8594de40f6bc38b27dd29844576967\",\"standard_profile\":\"rfc8032-ed25519-v1\"},{\"algorithm\":\"ml-dsa\",\"domain_tag\":\"DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\",\"key_id\":\"test-shield_component_qwg-ml-dsa-v1\",\"key_version\":1,\"signature\":\"d24ab6096f1dc926918058bba710121f3e5e637131aa3f588072527d005b6654\",\"signed_payload_hash\":\"9fbeedb013ddbc7ef91d7a401e7341554a8594de40f6bc38b27dd29844576967\",\"standard_profile\":\"fips204-ml-dsa-65-v1\"},{\"algorithm\":\"fn-dsa\",\"domain_tag\":\"DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\",\"key_id\":\"test-shield_component_qwg-fn-dsa-v1\",\"key_version\":1,\"signature\":\"a6a98312f044148590085b5468c1e873d0ca03264acd08a393753fad3ecb0069\",\"signed_payload_hash\":\"9fbeedb013ddbc7ef91d7a401e7341554a8594de40f6bc38b27dd29844576967\",\"standard_profile\":\"fips206-draft-falcon1024-v1\"}]},\"signature_policy\":\"policy.v1\",\"signed_payload_hash\":\"9fbeedb013ddbc7ef91d7a401e7341554a8594de40f6bc38b27dd29844576967\"},{\"canonicalization_profile\":\"shield-v4-canon.v1\",\"component_id\":\"sentinel_ai\",\"context_hash\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"contract_version\":4,\"decision\":\"ALLOW\",\"evidence_families\":[\"telemetry\"],\"evidence_hash\":\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\",\"fail_closed\":true,\"freshness_nonce\":\"nonce-sentinel_ai\",\"key_registry_version\":1,\"metadata\":{\"integration_harness\":\"shield-v4.8h-final\",\"source\":\"sentinel_ai\"},\"not_after\":\"2026-06-21T00:05:00Z\",\"not_before\":\"2026-06-21T00:00:00Z\",\"reason_ids\":[\"SNTL_OK_TELEMETRY_ALLOW\"],\"request_id\":\"req-v4h-e-fn-dsa-final\",\"schema_version\":\"shield.verdict.v2\",\"signature_bundle\":{\"policy_version\":\"policy.v1\",\"schema_version\":\"shield.signature_bundle.v1\",\"signatures\":[{\"algorithm\":\"classical-ed25519\",\"domain_tag\":\"DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\",\"key_id\":\"test-shield_component_sentinel_ai-classical-ed25519-v1\",\"key_version\":1,\"signature\":\"5efec4e5789a6b144ce892a05970e07d9ab7d86fd39d2f472f2b4831d7a55a8f\",\"signed_payload_hash\":\"057abd7c4e163da1f14c572e6601130059c393fe1c76e4341e835b317437e600\",\"standard_profile\":\"rfc8032-ed25519-v1\"},{\"algorithm\":\"ml-dsa\",\"domain_tag\":\"DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\",\"key_id\":\"test-shield_component_sentinel_ai-ml-dsa-v1\",\"key_version\":1,\"signature\":\"e54c596d23e2365bd5d2a932627d4675689904f0e1cd613a73cb1d5460bccb4a\",\"signed_payload_hash\":\"057abd7c4e163da1f14c572e6601130059c393fe1c76e4341e835b317437e600\",\"standard_profile\":\"fips204-ml-dsa-65-v1\"},{\"algorithm\":\"fn-dsa\",\"domain_tag\":\"DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1\",\"key_id\":\"test-shield_component_sentinel_ai-fn-dsa-v1\",\"key_version\":1,\"signature\":\"10abaac0188d821f993c90f0e73eeed16b2d7666270aa6f1b6ffcec1c7da72fd\",\"signed_payload_hash\":\"057abd7c4e163da1f14c572e6601130059c393fe1c76e4341e835b317437e600\",\"standard_profile\":\"fips206-draft-falcon1024-v1\"}]},\"signature_policy\":\"policy.v1\",\"signed_payload_hash\":\"057abd7c4e163da1f14c572e6601130059c393fe1c76e4341e835b317437e600\"}],\"context_hash\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"contract_version\":4,\"dominant_reason_ids\":[\"ORCH_OK_ALL_COMPONENTS_ALLOW\"],\"fail_closed\":true,\"final_outcome\":\"ALLOW\",\"freshness_nonce\":\"nonce-final-fn-dsa\",\"key_registry_version\":1,\"not_after\":\"2026-06-21T00:05:00Z\",\"not_before\":\"2026-06-21T00:00:00Z\",\"request_id\":\"req-v4h-e-fn-dsa-final\",\"schema_version\":\"shield.receipt.v2\",\"signature_policy\":\"policy.v1\"}",
+      "domain_tag": "DGB-SHIELD-V4-ORCH-RECEIPT:shield.receipt.v2:policy.v1",
+      "role": "shield_orchestrator",
+      "signature_inputs": [
+        {
+          "algorithm": "classical-ed25519",
+          "deterministic_signature": "9d15dac60b0fdba8d2f822d22529d2229304a4c579f2d94834a8f4a7ae7b3d2e",
+          "domain_tag": "DGB-SHIELD-V4-ORCH-RECEIPT:shield.receipt.v2:policy.v1",
+          "key_id": "test-shield_orchestrator-classical-ed25519-v1",
+          "key_version": 1,
+          "public_key_hex": "544553542d4f4e4c592d5055424c49432d736869656c645f6f7263686573747261746f722d636c6173736963616c2d656432353531392d7631",
+          "public_key_utf8": "TEST-ONLY-PUBLIC-shield_orchestrator-classical-ed25519-v1",
+          "real_crypto_signature_input_hex": "4447422d534849454c442d56342d5245414c2d43525950544f2d5349474e41545552452d494e5055540a4447422d534849454c442d56342d4f5243482d524543454950543a736869656c642e726563656970742e76323a706f6c6963792e76310a396336366539363037626435386639623431663665383835623439653434663135363662643436623562373334666138333635343434643830353438663032360a636c6173736963616c2d656432353531390a726663383033322d656432353531392d76310a746573742d736869656c645f6f7263686573747261746f722d636c6173736963616c2d656432353531392d76310a31",
+          "real_crypto_signature_input_utf8": "DGB-SHIELD-V4-REAL-CRYPTO-SIGNATURE-INPUT\nDGB-SHIELD-V4-ORCH-RECEIPT:shield.receipt.v2:policy.v1\n9c66e9607bd58f9b41f6e885b49e44f1566bd46b5b734fa8365444d80548f026\nclassical-ed25519\nrfc8032-ed25519-v1\ntest-shield_orchestrator-classical-ed25519-v1\n1",
+          "signed_payload_hash": "9c66e9607bd58f9b41f6e885b49e44f1566bd46b5b734fa8365444d80548f026",
+          "standard_profile": "rfc8032-ed25519-v1",
+          "test_only_signature_input_hex": "4447422d534849454c442d56342d4f5243482d524543454950543a736869656c642e726563656970742e76323a706f6c6963792e76317c396336366539363037626435386639623431663665383835623439653434663135363662643436623562373334666138333635343434643830353438663032367c636c6173736963616c2d656432353531397c726663383033322d656432353531392d76317c746573742d736869656c645f6f7263686573747261746f722d636c6173736963616c2d656432353531392d76317c31",
+          "test_only_signature_input_utf8": "DGB-SHIELD-V4-ORCH-RECEIPT:shield.receipt.v2:policy.v1|9c66e9607bd58f9b41f6e885b49e44f1566bd46b5b734fa8365444d80548f026|classical-ed25519|rfc8032-ed25519-v1|test-shield_orchestrator-classical-ed25519-v1|1",
+          "test_only_signature_scheme": "hmac-sha256-test-contract-double"
+        },
+        {
+          "algorithm": "ml-dsa",
+          "deterministic_signature": "b64bb4da50596e4b14b3acb19c66a360a61c9157ab11a970ec36641addfa8cb2",
+          "domain_tag": "DGB-SHIELD-V4-ORCH-RECEIPT:shield.receipt.v2:policy.v1",
+          "key_id": "test-shield_orchestrator-ml-dsa-v1",
+          "key_version": 1,
+          "public_key_hex": "544553542d4f4e4c592d5055424c49432d736869656c645f6f7263686573747261746f722d6d6c2d6473612d7631",
+          "public_key_utf8": "TEST-ONLY-PUBLIC-shield_orchestrator-ml-dsa-v1",
+          "real_crypto_signature_input_hex": "4447422d534849454c442d56342d5245414c2d43525950544f2d5349474e41545552452d494e5055540a4447422d534849454c442d56342d4f5243482d524543454950543a736869656c642e726563656970742e76323a706f6c6963792e76310a396336366539363037626435386639623431663665383835623439653434663135363662643436623562373334666138333635343434643830353438663032360a6d6c2d6473610a666970733230342d6d6c2d6473612d36352d76310a746573742d736869656c645f6f7263686573747261746f722d6d6c2d6473612d76310a31",
+          "real_crypto_signature_input_utf8": "DGB-SHIELD-V4-REAL-CRYPTO-SIGNATURE-INPUT\nDGB-SHIELD-V4-ORCH-RECEIPT:shield.receipt.v2:policy.v1\n9c66e9607bd58f9b41f6e885b49e44f1566bd46b5b734fa8365444d80548f026\nml-dsa\nfips204-ml-dsa-65-v1\ntest-shield_orchestrator-ml-dsa-v1\n1",
+          "signed_payload_hash": "9c66e9607bd58f9b41f6e885b49e44f1566bd46b5b734fa8365444d80548f026",
+          "standard_profile": "fips204-ml-dsa-65-v1",
+          "test_only_signature_input_hex": "4447422d534849454c442d56342d4f5243482d524543454950543a736869656c642e726563656970742e76323a706f6c6963792e76317c396336366539363037626435386639623431663665383835623439653434663135363662643436623562373334666138333635343434643830353438663032367c6d6c2d6473617c666970733230342d6d6c2d6473612d36352d76317c746573742d736869656c645f6f7263686573747261746f722d6d6c2d6473612d76317c31",
+          "test_only_signature_input_utf8": "DGB-SHIELD-V4-ORCH-RECEIPT:shield.receipt.v2:policy.v1|9c66e9607bd58f9b41f6e885b49e44f1566bd46b5b734fa8365444d80548f026|ml-dsa|fips204-ml-dsa-65-v1|test-shield_orchestrator-ml-dsa-v1|1",
+          "test_only_signature_scheme": "hmac-sha256-test-contract-double"
+        },
+        {
+          "algorithm": "fn-dsa",
+          "deterministic_signature": "c28e04bad9d9bcbd729c448ee30eef4836208d588e255b9bd85d007dda3ac904",
+          "domain_tag": "DGB-SHIELD-V4-ORCH-RECEIPT:shield.receipt.v2:policy.v1",
+          "key_id": "test-shield_orchestrator-fn-dsa-v1",
+          "key_version": 1,
+          "public_key_hex": "544553542d4f4e4c592d5055424c49432d736869656c645f6f7263686573747261746f722d666e2d6473612d7631",
+          "public_key_utf8": "TEST-ONLY-PUBLIC-shield_orchestrator-fn-dsa-v1",
+          "real_crypto_signature_input_hex": "4447422d534849454c442d56342d5245414c2d43525950544f2d5349474e41545552452d494e5055540a4447422d534849454c442d56342d4f5243482d524543454950543a736869656c642e726563656970742e76323a706f6c6963792e76310a396336366539363037626435386639623431663665383835623439653434663135363662643436623562373334666138333635343434643830353438663032360a666e2d6473610a666970733230362d64726166742d66616c636f6e313032342d76310a746573742d736869656c645f6f7263686573747261746f722d666e2d6473612d76310a31",
+          "real_crypto_signature_input_utf8": "DGB-SHIELD-V4-REAL-CRYPTO-SIGNATURE-INPUT\nDGB-SHIELD-V4-ORCH-RECEIPT:shield.receipt.v2:policy.v1\n9c66e9607bd58f9b41f6e885b49e44f1566bd46b5b734fa8365444d80548f026\nfn-dsa\nfips206-draft-falcon1024-v1\ntest-shield_orchestrator-fn-dsa-v1\n1",
+          "signed_payload_hash": "9c66e9607bd58f9b41f6e885b49e44f1566bd46b5b734fa8365444d80548f026",
+          "standard_profile": "fips206-draft-falcon1024-v1",
+          "test_only_signature_input_hex": "4447422d534849454c442d56342d4f5243482d524543454950543a736869656c642e726563656970742e76323a706f6c6963792e76317c396336366539363037626435386639623431663665383835623439653434663135363662643436623562373334666138333635343434643830353438663032367c666e2d6473617c666970733230362d64726166742d66616c636f6e313032342d76317c746573742d736869656c645f6f7263686573747261746f722d666e2d6473612d76317c31",
+          "test_only_signature_input_utf8": "DGB-SHIELD-V4-ORCH-RECEIPT:shield.receipt.v2:policy.v1|9c66e9607bd58f9b41f6e885b49e44f1566bd46b5b734fa8365444d80548f026|fn-dsa|fips206-draft-falcon1024-v1|test-shield_orchestrator-fn-dsa-v1|1",
+          "test_only_signature_scheme": "hmac-sha256-test-contract-double"
+        }
+      ],
+      "signed_payload_hash": "9c66e9607bd58f9b41f6e885b49e44f1566bd46b5b734fa8365444d80548f026",
+      "unsigned_payload": {
+        "adamantineos_handoff": {
+          "handoff_allowed": true,
+          "handoff_reason": "ORCH_OK_ALL_COMPONENTS_ALLOW"
+        },
+        "canonicalization_profile": "shield-v4-canon.v1",
+        "component_signature_results": [
+          {
+            "component_id": "adn",
+            "component_role": "shield_component_adn",
+            "signature_policy": "policy.v1",
+            "verified": true,
+            "verified_algorithms": [
+              "classical-ed25519",
+              "ml-dsa",
+              "fn-dsa"
+            ],
+            "verified_standard_profiles": [
+              "rfc8032-ed25519-v1",
+              "fips204-ml-dsa-65-v1",
+              "fips206-draft-falcon1024-v1"
+            ]
+          },
+          {
+            "component_id": "dqsn",
+            "component_role": "shield_component_dqsn",
+            "signature_policy": "policy.v1",
+            "verified": true,
+            "verified_algorithms": [
+              "classical-ed25519",
+              "ml-dsa",
+              "fn-dsa"
+            ],
+            "verified_standard_profiles": [
+              "rfc8032-ed25519-v1",
+              "fips204-ml-dsa-65-v1",
+              "fips206-draft-falcon1024-v1"
+            ]
+          },
+          {
+            "component_id": "guardian_wallet",
+            "component_role": "shield_component_guardian_wallet",
+            "signature_policy": "policy.v1",
+            "verified": true,
+            "verified_algorithms": [
+              "classical-ed25519",
+              "ml-dsa",
+              "fn-dsa"
+            ],
+            "verified_standard_profiles": [
+              "rfc8032-ed25519-v1",
+              "fips204-ml-dsa-65-v1",
+              "fips206-draft-falcon1024-v1"
+            ]
+          },
+          {
+            "component_id": "qwg",
+            "component_role": "shield_component_qwg",
+            "signature_policy": "policy.v1",
+            "verified": true,
+            "verified_algorithms": [
+              "classical-ed25519",
+              "ml-dsa",
+              "fn-dsa"
+            ],
+            "verified_standard_profiles": [
+              "rfc8032-ed25519-v1",
+              "fips204-ml-dsa-65-v1",
+              "fips206-draft-falcon1024-v1"
+            ]
+          },
+          {
+            "component_id": "sentinel_ai",
+            "component_role": "shield_component_sentinel_ai",
+            "signature_policy": "policy.v1",
+            "verified": true,
+            "verified_algorithms": [
+              "classical-ed25519",
+              "ml-dsa",
+              "fn-dsa"
+            ],
+            "verified_standard_profiles": [
+              "rfc8032-ed25519-v1",
+              "fips204-ml-dsa-65-v1",
+              "fips206-draft-falcon1024-v1"
+            ]
+          }
+        ],
+        "component_verdicts": [
+          {
+            "canonicalization_profile": "shield-v4-canon.v1",
+            "component_id": "adn",
+            "context_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "contract_version": 4,
+            "decision": "ALLOW",
+            "evidence_families": [
+              "defense_signal"
+            ],
+            "evidence_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "fail_closed": true,
+            "freshness_nonce": "nonce-adn",
+            "key_registry_version": 1,
+            "metadata": {
+              "integration_harness": "shield-v4.8h-final",
+              "source": "adn"
+            },
+            "not_after": "2026-06-21T00:05:00Z",
+            "not_before": "2026-06-21T00:00:00Z",
+            "reason_ids": [
+              "ADN_OK_COORDINATION_ALLOW"
+            ],
+            "request_id": "req-v4h-e-fn-dsa-final",
+            "schema_version": "shield.verdict.v2",
+            "signature_bundle": {
+              "policy_version": "policy.v1",
+              "schema_version": "shield.signature_bundle.v1",
+              "signatures": [
+                {
+                  "algorithm": "classical-ed25519",
+                  "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+                  "key_id": "test-shield_component_adn-classical-ed25519-v1",
+                  "key_version": 1,
+                  "signature": "2d3a8f16809fb5e1de8acff948be28d37f66422725e275b7d4276d0cd73241c3",
+                  "signed_payload_hash": "156df5f6d3936a4344ec10ba50c6f02eb9c0e42d657a41b743d4d7fcba13761f",
+                  "standard_profile": "rfc8032-ed25519-v1"
+                },
+                {
+                  "algorithm": "ml-dsa",
+                  "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+                  "key_id": "test-shield_component_adn-ml-dsa-v1",
+                  "key_version": 1,
+                  "signature": "044c24c508a01fab7bb66d54df33040c9bab8767a76971b12454f43d80ff7ca6",
+                  "signed_payload_hash": "156df5f6d3936a4344ec10ba50c6f02eb9c0e42d657a41b743d4d7fcba13761f",
+                  "standard_profile": "fips204-ml-dsa-65-v1"
+                },
+                {
+                  "algorithm": "fn-dsa",
+                  "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+                  "key_id": "test-shield_component_adn-fn-dsa-v1",
+                  "key_version": 1,
+                  "signature": "46530d1cabb578185b8cbcd4bd72490307fb11037b23cf9d82c03618cb6f0393",
+                  "signed_payload_hash": "156df5f6d3936a4344ec10ba50c6f02eb9c0e42d657a41b743d4d7fcba13761f",
+                  "standard_profile": "fips206-draft-falcon1024-v1"
+                }
+              ]
+            },
+            "signature_policy": "policy.v1",
+            "signed_payload_hash": "156df5f6d3936a4344ec10ba50c6f02eb9c0e42d657a41b743d4d7fcba13761f"
+          },
+          {
+            "canonicalization_profile": "shield-v4-canon.v1",
+            "component_id": "dqsn",
+            "context_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "contract_version": 4,
+            "decision": "ALLOW",
+            "evidence_families": [
+              "network_observation"
+            ],
+            "evidence_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "fail_closed": true,
+            "freshness_nonce": "nonce-dqsn",
+            "key_registry_version": 1,
+            "metadata": {
+              "integration_harness": "shield-v4.8h-final",
+              "source": "dqsn"
+            },
+            "not_after": "2026-06-21T00:05:00Z",
+            "not_before": "2026-06-21T00:00:00Z",
+            "reason_ids": [
+              "DQSN_OK_NETWORK_ALLOW"
+            ],
+            "request_id": "req-v4h-e-fn-dsa-final",
+            "schema_version": "shield.verdict.v2",
+            "signature_bundle": {
+              "policy_version": "policy.v1",
+              "schema_version": "shield.signature_bundle.v1",
+              "signatures": [
+                {
+                  "algorithm": "classical-ed25519",
+                  "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+                  "key_id": "test-shield_component_dqsn-classical-ed25519-v1",
+                  "key_version": 1,
+                  "signature": "67278c8f1518cfc9edcaf35985e91b7e31afee5fe50c7463d187d2944d3ed1b0",
+                  "signed_payload_hash": "b1048ce076acad36842fdccff9b8ac16e098462d01591ce204a070efaf005fd2",
+                  "standard_profile": "rfc8032-ed25519-v1"
+                },
+                {
+                  "algorithm": "ml-dsa",
+                  "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+                  "key_id": "test-shield_component_dqsn-ml-dsa-v1",
+                  "key_version": 1,
+                  "signature": "e266eda93ce638e46f6545e560d129aea4672d2539fad8ceab267ed58e784936",
+                  "signed_payload_hash": "b1048ce076acad36842fdccff9b8ac16e098462d01591ce204a070efaf005fd2",
+                  "standard_profile": "fips204-ml-dsa-65-v1"
+                },
+                {
+                  "algorithm": "fn-dsa",
+                  "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+                  "key_id": "test-shield_component_dqsn-fn-dsa-v1",
+                  "key_version": 1,
+                  "signature": "0f45f2513df56402b99f933485afd888d81ca24d6206f5fb301a445628a3b752",
+                  "signed_payload_hash": "b1048ce076acad36842fdccff9b8ac16e098462d01591ce204a070efaf005fd2",
+                  "standard_profile": "fips206-draft-falcon1024-v1"
+                }
+              ]
+            },
+            "signature_policy": "policy.v1",
+            "signed_payload_hash": "b1048ce076acad36842fdccff9b8ac16e098462d01591ce204a070efaf005fd2"
+          },
+          {
+            "canonicalization_profile": "shield-v4-canon.v1",
+            "component_id": "guardian_wallet",
+            "context_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "contract_version": 4,
+            "decision": "ALLOW",
+            "evidence_families": [
+              "wallet_context"
+            ],
+            "evidence_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "fail_closed": true,
+            "freshness_nonce": "nonce-guardian_wallet",
+            "key_registry_version": 1,
+            "metadata": {
+              "integration_harness": "shield-v4.8h-final",
+              "source": "guardian_wallet"
+            },
+            "not_after": "2026-06-21T00:05:00Z",
+            "not_before": "2026-06-21T00:00:00Z",
+            "reason_ids": [
+              "GW_OK_HEALTHY_ALLOW"
+            ],
+            "request_id": "req-v4h-e-fn-dsa-final",
+            "schema_version": "shield.verdict.v2",
+            "signature_bundle": {
+              "policy_version": "policy.v1",
+              "schema_version": "shield.signature_bundle.v1",
+              "signatures": [
+                {
+                  "algorithm": "classical-ed25519",
+                  "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+                  "key_id": "test-shield_component_guardian_wallet-classical-ed25519-v1",
+                  "key_version": 1,
+                  "signature": "42f4284a5e53adbaf04c6339a962ef7e0bbc7e76041a427115ef9cfbcb078bb3",
+                  "signed_payload_hash": "e89fc84db71f9753cb82c76870f33dce4b1efce84c69ca99657add873a5ab26d",
+                  "standard_profile": "rfc8032-ed25519-v1"
+                },
+                {
+                  "algorithm": "ml-dsa",
+                  "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+                  "key_id": "test-shield_component_guardian_wallet-ml-dsa-v1",
+                  "key_version": 1,
+                  "signature": "55a01e3018d843f9cc87867400788e49de0a8c90a7b2bf4b939d7d93677dbc20",
+                  "signed_payload_hash": "e89fc84db71f9753cb82c76870f33dce4b1efce84c69ca99657add873a5ab26d",
+                  "standard_profile": "fips204-ml-dsa-65-v1"
+                },
+                {
+                  "algorithm": "fn-dsa",
+                  "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+                  "key_id": "test-shield_component_guardian_wallet-fn-dsa-v1",
+                  "key_version": 1,
+                  "signature": "6af22d6241d44aebd5addfcf1d6606e30db25cfe3f95719d8c5504ce992c68c9",
+                  "signed_payload_hash": "e89fc84db71f9753cb82c76870f33dce4b1efce84c69ca99657add873a5ab26d",
+                  "standard_profile": "fips206-draft-falcon1024-v1"
+                }
+              ]
+            },
+            "signature_policy": "policy.v1",
+            "signed_payload_hash": "e89fc84db71f9753cb82c76870f33dce4b1efce84c69ca99657add873a5ab26d"
+          },
+          {
+            "canonicalization_profile": "shield-v4-canon.v1",
+            "component_id": "qwg",
+            "context_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "contract_version": 4,
+            "decision": "ALLOW",
+            "evidence_families": [
+              "wallet_posture"
+            ],
+            "evidence_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "fail_closed": true,
+            "freshness_nonce": "nonce-qwg",
+            "key_registry_version": 1,
+            "metadata": {
+              "integration_harness": "shield-v4.8h-final",
+              "source": "qwg"
+            },
+            "not_after": "2026-06-21T00:05:00Z",
+            "not_before": "2026-06-21T00:00:00Z",
+            "reason_ids": [
+              "QWG_OK_POSTURE_ALLOW"
+            ],
+            "request_id": "req-v4h-e-fn-dsa-final",
+            "schema_version": "shield.verdict.v2",
+            "signature_bundle": {
+              "policy_version": "policy.v1",
+              "schema_version": "shield.signature_bundle.v1",
+              "signatures": [
+                {
+                  "algorithm": "classical-ed25519",
+                  "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+                  "key_id": "test-shield_component_qwg-classical-ed25519-v1",
+                  "key_version": 1,
+                  "signature": "86d9c67efeead7e049ed5758dbbbf1e02023a7ef85f12306656e93c49185281c",
+                  "signed_payload_hash": "9fbeedb013ddbc7ef91d7a401e7341554a8594de40f6bc38b27dd29844576967",
+                  "standard_profile": "rfc8032-ed25519-v1"
+                },
+                {
+                  "algorithm": "ml-dsa",
+                  "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+                  "key_id": "test-shield_component_qwg-ml-dsa-v1",
+                  "key_version": 1,
+                  "signature": "d24ab6096f1dc926918058bba710121f3e5e637131aa3f588072527d005b6654",
+                  "signed_payload_hash": "9fbeedb013ddbc7ef91d7a401e7341554a8594de40f6bc38b27dd29844576967",
+                  "standard_profile": "fips204-ml-dsa-65-v1"
+                },
+                {
+                  "algorithm": "fn-dsa",
+                  "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+                  "key_id": "test-shield_component_qwg-fn-dsa-v1",
+                  "key_version": 1,
+                  "signature": "a6a98312f044148590085b5468c1e873d0ca03264acd08a393753fad3ecb0069",
+                  "signed_payload_hash": "9fbeedb013ddbc7ef91d7a401e7341554a8594de40f6bc38b27dd29844576967",
+                  "standard_profile": "fips206-draft-falcon1024-v1"
+                }
+              ]
+            },
+            "signature_policy": "policy.v1",
+            "signed_payload_hash": "9fbeedb013ddbc7ef91d7a401e7341554a8594de40f6bc38b27dd29844576967"
+          },
+          {
+            "canonicalization_profile": "shield-v4-canon.v1",
+            "component_id": "sentinel_ai",
+            "context_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "contract_version": 4,
+            "decision": "ALLOW",
+            "evidence_families": [
+              "telemetry"
+            ],
+            "evidence_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "fail_closed": true,
+            "freshness_nonce": "nonce-sentinel_ai",
+            "key_registry_version": 1,
+            "metadata": {
+              "integration_harness": "shield-v4.8h-final",
+              "source": "sentinel_ai"
+            },
+            "not_after": "2026-06-21T00:05:00Z",
+            "not_before": "2026-06-21T00:00:00Z",
+            "reason_ids": [
+              "SNTL_OK_TELEMETRY_ALLOW"
+            ],
+            "request_id": "req-v4h-e-fn-dsa-final",
+            "schema_version": "shield.verdict.v2",
+            "signature_bundle": {
+              "policy_version": "policy.v1",
+              "schema_version": "shield.signature_bundle.v1",
+              "signatures": [
+                {
+                  "algorithm": "classical-ed25519",
+                  "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+                  "key_id": "test-shield_component_sentinel_ai-classical-ed25519-v1",
+                  "key_version": 1,
+                  "signature": "5efec4e5789a6b144ce892a05970e07d9ab7d86fd39d2f472f2b4831d7a55a8f",
+                  "signed_payload_hash": "057abd7c4e163da1f14c572e6601130059c393fe1c76e4341e835b317437e600",
+                  "standard_profile": "rfc8032-ed25519-v1"
+                },
+                {
+                  "algorithm": "ml-dsa",
+                  "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+                  "key_id": "test-shield_component_sentinel_ai-ml-dsa-v1",
+                  "key_version": 1,
+                  "signature": "e54c596d23e2365bd5d2a932627d4675689904f0e1cd613a73cb1d5460bccb4a",
+                  "signed_payload_hash": "057abd7c4e163da1f14c572e6601130059c393fe1c76e4341e835b317437e600",
+                  "standard_profile": "fips204-ml-dsa-65-v1"
+                },
+                {
+                  "algorithm": "fn-dsa",
+                  "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+                  "key_id": "test-shield_component_sentinel_ai-fn-dsa-v1",
+                  "key_version": 1,
+                  "signature": "10abaac0188d821f993c90f0e73eeed16b2d7666270aa6f1b6ffcec1c7da72fd",
+                  "signed_payload_hash": "057abd7c4e163da1f14c572e6601130059c393fe1c76e4341e835b317437e600",
+                  "standard_profile": "fips206-draft-falcon1024-v1"
+                }
+              ]
+            },
+            "signature_policy": "policy.v1",
+            "signed_payload_hash": "057abd7c4e163da1f14c572e6601130059c393fe1c76e4341e835b317437e600"
+          }
+        ],
+        "context_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "contract_version": 4,
+        "dominant_reason_ids": [
+          "ORCH_OK_ALL_COMPONENTS_ALLOW"
+        ],
+        "fail_closed": true,
+        "final_outcome": "ALLOW",
+        "freshness_nonce": "nonce-final-fn-dsa",
+        "key_registry_version": 1,
+        "not_after": "2026-06-21T00:05:00Z",
+        "not_before": "2026-06-21T00:00:00Z",
+        "request_id": "req-v4h-e-fn-dsa-final",
+        "schema_version": "shield.receipt.v2",
+        "signature_policy": "policy.v1"
+      },
+      "unsigned_payload_sha256": "0bfa04a330270d41db352861971742ebeb901a9f1e51612cdd91b5405cc26378"
+    }
+  ],
+  "receipt": {
+    "adamantineos_handoff": {
+      "handoff_allowed": true,
+      "handoff_reason": "ORCH_OK_ALL_COMPONENTS_ALLOW"
+    },
+    "canonicalization_profile": "shield-v4-canon.v1",
+    "component_signature_results": [
+      {
+        "component_id": "adn",
+        "component_role": "shield_component_adn",
+        "signature_policy": "policy.v1",
+        "verified": true,
+        "verified_algorithms": [
+          "classical-ed25519",
+          "ml-dsa",
+          "fn-dsa"
+        ],
+        "verified_standard_profiles": [
+          "rfc8032-ed25519-v1",
+          "fips204-ml-dsa-65-v1",
+          "fips206-draft-falcon1024-v1"
+        ]
+      },
+      {
+        "component_id": "dqsn",
+        "component_role": "shield_component_dqsn",
+        "signature_policy": "policy.v1",
+        "verified": true,
+        "verified_algorithms": [
+          "classical-ed25519",
+          "ml-dsa",
+          "fn-dsa"
+        ],
+        "verified_standard_profiles": [
+          "rfc8032-ed25519-v1",
+          "fips204-ml-dsa-65-v1",
+          "fips206-draft-falcon1024-v1"
+        ]
+      },
+      {
+        "component_id": "guardian_wallet",
+        "component_role": "shield_component_guardian_wallet",
+        "signature_policy": "policy.v1",
+        "verified": true,
+        "verified_algorithms": [
+          "classical-ed25519",
+          "ml-dsa",
+          "fn-dsa"
+        ],
+        "verified_standard_profiles": [
+          "rfc8032-ed25519-v1",
+          "fips204-ml-dsa-65-v1",
+          "fips206-draft-falcon1024-v1"
+        ]
+      },
+      {
+        "component_id": "qwg",
+        "component_role": "shield_component_qwg",
+        "signature_policy": "policy.v1",
+        "verified": true,
+        "verified_algorithms": [
+          "classical-ed25519",
+          "ml-dsa",
+          "fn-dsa"
+        ],
+        "verified_standard_profiles": [
+          "rfc8032-ed25519-v1",
+          "fips204-ml-dsa-65-v1",
+          "fips206-draft-falcon1024-v1"
+        ]
+      },
+      {
+        "component_id": "sentinel_ai",
+        "component_role": "shield_component_sentinel_ai",
+        "signature_policy": "policy.v1",
+        "verified": true,
+        "verified_algorithms": [
+          "classical-ed25519",
+          "ml-dsa",
+          "fn-dsa"
+        ],
+        "verified_standard_profiles": [
+          "rfc8032-ed25519-v1",
+          "fips204-ml-dsa-65-v1",
+          "fips206-draft-falcon1024-v1"
+        ]
+      }
+    ],
+    "component_verdicts": [
+      {
+        "canonicalization_profile": "shield-v4-canon.v1",
+        "component_id": "adn",
+        "context_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "contract_version": 4,
+        "decision": "ALLOW",
+        "evidence_families": [
+          "defense_signal"
+        ],
+        "evidence_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "fail_closed": true,
+        "freshness_nonce": "nonce-adn",
+        "key_registry_version": 1,
+        "metadata": {
+          "integration_harness": "shield-v4.8h-final",
+          "source": "adn"
+        },
+        "not_after": "2026-06-21T00:05:00Z",
+        "not_before": "2026-06-21T00:00:00Z",
+        "reason_ids": [
+          "ADN_OK_COORDINATION_ALLOW"
+        ],
+        "request_id": "req-v4h-e-fn-dsa-final",
+        "schema_version": "shield.verdict.v2",
+        "signature_bundle": {
+          "policy_version": "policy.v1",
+          "schema_version": "shield.signature_bundle.v1",
+          "signatures": [
+            {
+              "algorithm": "classical-ed25519",
+              "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+              "key_id": "test-shield_component_adn-classical-ed25519-v1",
+              "key_version": 1,
+              "signature": "2d3a8f16809fb5e1de8acff948be28d37f66422725e275b7d4276d0cd73241c3",
+              "signed_payload_hash": "156df5f6d3936a4344ec10ba50c6f02eb9c0e42d657a41b743d4d7fcba13761f",
+              "standard_profile": "rfc8032-ed25519-v1"
+            },
+            {
+              "algorithm": "ml-dsa",
+              "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+              "key_id": "test-shield_component_adn-ml-dsa-v1",
+              "key_version": 1,
+              "signature": "044c24c508a01fab7bb66d54df33040c9bab8767a76971b12454f43d80ff7ca6",
+              "signed_payload_hash": "156df5f6d3936a4344ec10ba50c6f02eb9c0e42d657a41b743d4d7fcba13761f",
+              "standard_profile": "fips204-ml-dsa-65-v1"
+            },
+            {
+              "algorithm": "fn-dsa",
+              "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+              "key_id": "test-shield_component_adn-fn-dsa-v1",
+              "key_version": 1,
+              "signature": "46530d1cabb578185b8cbcd4bd72490307fb11037b23cf9d82c03618cb6f0393",
+              "signed_payload_hash": "156df5f6d3936a4344ec10ba50c6f02eb9c0e42d657a41b743d4d7fcba13761f",
+              "standard_profile": "fips206-draft-falcon1024-v1"
+            }
+          ]
+        },
+        "signature_policy": "policy.v1",
+        "signed_payload_hash": "156df5f6d3936a4344ec10ba50c6f02eb9c0e42d657a41b743d4d7fcba13761f"
+      },
+      {
+        "canonicalization_profile": "shield-v4-canon.v1",
+        "component_id": "dqsn",
+        "context_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "contract_version": 4,
+        "decision": "ALLOW",
+        "evidence_families": [
+          "network_observation"
+        ],
+        "evidence_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "fail_closed": true,
+        "freshness_nonce": "nonce-dqsn",
+        "key_registry_version": 1,
+        "metadata": {
+          "integration_harness": "shield-v4.8h-final",
+          "source": "dqsn"
+        },
+        "not_after": "2026-06-21T00:05:00Z",
+        "not_before": "2026-06-21T00:00:00Z",
+        "reason_ids": [
+          "DQSN_OK_NETWORK_ALLOW"
+        ],
+        "request_id": "req-v4h-e-fn-dsa-final",
+        "schema_version": "shield.verdict.v2",
+        "signature_bundle": {
+          "policy_version": "policy.v1",
+          "schema_version": "shield.signature_bundle.v1",
+          "signatures": [
+            {
+              "algorithm": "classical-ed25519",
+              "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+              "key_id": "test-shield_component_dqsn-classical-ed25519-v1",
+              "key_version": 1,
+              "signature": "67278c8f1518cfc9edcaf35985e91b7e31afee5fe50c7463d187d2944d3ed1b0",
+              "signed_payload_hash": "b1048ce076acad36842fdccff9b8ac16e098462d01591ce204a070efaf005fd2",
+              "standard_profile": "rfc8032-ed25519-v1"
+            },
+            {
+              "algorithm": "ml-dsa",
+              "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+              "key_id": "test-shield_component_dqsn-ml-dsa-v1",
+              "key_version": 1,
+              "signature": "e266eda93ce638e46f6545e560d129aea4672d2539fad8ceab267ed58e784936",
+              "signed_payload_hash": "b1048ce076acad36842fdccff9b8ac16e098462d01591ce204a070efaf005fd2",
+              "standard_profile": "fips204-ml-dsa-65-v1"
+            },
+            {
+              "algorithm": "fn-dsa",
+              "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+              "key_id": "test-shield_component_dqsn-fn-dsa-v1",
+              "key_version": 1,
+              "signature": "0f45f2513df56402b99f933485afd888d81ca24d6206f5fb301a445628a3b752",
+              "signed_payload_hash": "b1048ce076acad36842fdccff9b8ac16e098462d01591ce204a070efaf005fd2",
+              "standard_profile": "fips206-draft-falcon1024-v1"
+            }
+          ]
+        },
+        "signature_policy": "policy.v1",
+        "signed_payload_hash": "b1048ce076acad36842fdccff9b8ac16e098462d01591ce204a070efaf005fd2"
+      },
+      {
+        "canonicalization_profile": "shield-v4-canon.v1",
+        "component_id": "guardian_wallet",
+        "context_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "contract_version": 4,
+        "decision": "ALLOW",
+        "evidence_families": [
+          "wallet_context"
+        ],
+        "evidence_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "fail_closed": true,
+        "freshness_nonce": "nonce-guardian_wallet",
+        "key_registry_version": 1,
+        "metadata": {
+          "integration_harness": "shield-v4.8h-final",
+          "source": "guardian_wallet"
+        },
+        "not_after": "2026-06-21T00:05:00Z",
+        "not_before": "2026-06-21T00:00:00Z",
+        "reason_ids": [
+          "GW_OK_HEALTHY_ALLOW"
+        ],
+        "request_id": "req-v4h-e-fn-dsa-final",
+        "schema_version": "shield.verdict.v2",
+        "signature_bundle": {
+          "policy_version": "policy.v1",
+          "schema_version": "shield.signature_bundle.v1",
+          "signatures": [
+            {
+              "algorithm": "classical-ed25519",
+              "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+              "key_id": "test-shield_component_guardian_wallet-classical-ed25519-v1",
+              "key_version": 1,
+              "signature": "42f4284a5e53adbaf04c6339a962ef7e0bbc7e76041a427115ef9cfbcb078bb3",
+              "signed_payload_hash": "e89fc84db71f9753cb82c76870f33dce4b1efce84c69ca99657add873a5ab26d",
+              "standard_profile": "rfc8032-ed25519-v1"
+            },
+            {
+              "algorithm": "ml-dsa",
+              "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+              "key_id": "test-shield_component_guardian_wallet-ml-dsa-v1",
+              "key_version": 1,
+              "signature": "55a01e3018d843f9cc87867400788e49de0a8c90a7b2bf4b939d7d93677dbc20",
+              "signed_payload_hash": "e89fc84db71f9753cb82c76870f33dce4b1efce84c69ca99657add873a5ab26d",
+              "standard_profile": "fips204-ml-dsa-65-v1"
+            },
+            {
+              "algorithm": "fn-dsa",
+              "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+              "key_id": "test-shield_component_guardian_wallet-fn-dsa-v1",
+              "key_version": 1,
+              "signature": "6af22d6241d44aebd5addfcf1d6606e30db25cfe3f95719d8c5504ce992c68c9",
+              "signed_payload_hash": "e89fc84db71f9753cb82c76870f33dce4b1efce84c69ca99657add873a5ab26d",
+              "standard_profile": "fips206-draft-falcon1024-v1"
+            }
+          ]
+        },
+        "signature_policy": "policy.v1",
+        "signed_payload_hash": "e89fc84db71f9753cb82c76870f33dce4b1efce84c69ca99657add873a5ab26d"
+      },
+      {
+        "canonicalization_profile": "shield-v4-canon.v1",
+        "component_id": "qwg",
+        "context_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "contract_version": 4,
+        "decision": "ALLOW",
+        "evidence_families": [
+          "wallet_posture"
+        ],
+        "evidence_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "fail_closed": true,
+        "freshness_nonce": "nonce-qwg",
+        "key_registry_version": 1,
+        "metadata": {
+          "integration_harness": "shield-v4.8h-final",
+          "source": "qwg"
+        },
+        "not_after": "2026-06-21T00:05:00Z",
+        "not_before": "2026-06-21T00:00:00Z",
+        "reason_ids": [
+          "QWG_OK_POSTURE_ALLOW"
+        ],
+        "request_id": "req-v4h-e-fn-dsa-final",
+        "schema_version": "shield.verdict.v2",
+        "signature_bundle": {
+          "policy_version": "policy.v1",
+          "schema_version": "shield.signature_bundle.v1",
+          "signatures": [
+            {
+              "algorithm": "classical-ed25519",
+              "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+              "key_id": "test-shield_component_qwg-classical-ed25519-v1",
+              "key_version": 1,
+              "signature": "86d9c67efeead7e049ed5758dbbbf1e02023a7ef85f12306656e93c49185281c",
+              "signed_payload_hash": "9fbeedb013ddbc7ef91d7a401e7341554a8594de40f6bc38b27dd29844576967",
+              "standard_profile": "rfc8032-ed25519-v1"
+            },
+            {
+              "algorithm": "ml-dsa",
+              "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+              "key_id": "test-shield_component_qwg-ml-dsa-v1",
+              "key_version": 1,
+              "signature": "d24ab6096f1dc926918058bba710121f3e5e637131aa3f588072527d005b6654",
+              "signed_payload_hash": "9fbeedb013ddbc7ef91d7a401e7341554a8594de40f6bc38b27dd29844576967",
+              "standard_profile": "fips204-ml-dsa-65-v1"
+            },
+            {
+              "algorithm": "fn-dsa",
+              "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+              "key_id": "test-shield_component_qwg-fn-dsa-v1",
+              "key_version": 1,
+              "signature": "a6a98312f044148590085b5468c1e873d0ca03264acd08a393753fad3ecb0069",
+              "signed_payload_hash": "9fbeedb013ddbc7ef91d7a401e7341554a8594de40f6bc38b27dd29844576967",
+              "standard_profile": "fips206-draft-falcon1024-v1"
+            }
+          ]
+        },
+        "signature_policy": "policy.v1",
+        "signed_payload_hash": "9fbeedb013ddbc7ef91d7a401e7341554a8594de40f6bc38b27dd29844576967"
+      },
+      {
+        "canonicalization_profile": "shield-v4-canon.v1",
+        "component_id": "sentinel_ai",
+        "context_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "contract_version": 4,
+        "decision": "ALLOW",
+        "evidence_families": [
+          "telemetry"
+        ],
+        "evidence_hash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "fail_closed": true,
+        "freshness_nonce": "nonce-sentinel_ai",
+        "key_registry_version": 1,
+        "metadata": {
+          "integration_harness": "shield-v4.8h-final",
+          "source": "sentinel_ai"
+        },
+        "not_after": "2026-06-21T00:05:00Z",
+        "not_before": "2026-06-21T00:00:00Z",
+        "reason_ids": [
+          "SNTL_OK_TELEMETRY_ALLOW"
+        ],
+        "request_id": "req-v4h-e-fn-dsa-final",
+        "schema_version": "shield.verdict.v2",
+        "signature_bundle": {
+          "policy_version": "policy.v1",
+          "schema_version": "shield.signature_bundle.v1",
+          "signatures": [
+            {
+              "algorithm": "classical-ed25519",
+              "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+              "key_id": "test-shield_component_sentinel_ai-classical-ed25519-v1",
+              "key_version": 1,
+              "signature": "5efec4e5789a6b144ce892a05970e07d9ab7d86fd39d2f472f2b4831d7a55a8f",
+              "signed_payload_hash": "057abd7c4e163da1f14c572e6601130059c393fe1c76e4341e835b317437e600",
+              "standard_profile": "rfc8032-ed25519-v1"
+            },
+            {
+              "algorithm": "ml-dsa",
+              "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+              "key_id": "test-shield_component_sentinel_ai-ml-dsa-v1",
+              "key_version": 1,
+              "signature": "e54c596d23e2365bd5d2a932627d4675689904f0e1cd613a73cb1d5460bccb4a",
+              "signed_payload_hash": "057abd7c4e163da1f14c572e6601130059c393fe1c76e4341e835b317437e600",
+              "standard_profile": "fips204-ml-dsa-65-v1"
+            },
+            {
+              "algorithm": "fn-dsa",
+              "domain_tag": "DGB-SHIELD-V4-COMPONENT-VERDICT:shield.verdict.v2:policy.v1",
+              "key_id": "test-shield_component_sentinel_ai-fn-dsa-v1",
+              "key_version": 1,
+              "signature": "10abaac0188d821f993c90f0e73eeed16b2d7666270aa6f1b6ffcec1c7da72fd",
+              "signed_payload_hash": "057abd7c4e163da1f14c572e6601130059c393fe1c76e4341e835b317437e600",
+              "standard_profile": "fips206-draft-falcon1024-v1"
+            }
+          ]
+        },
+        "signature_policy": "policy.v1",
+        "signed_payload_hash": "057abd7c4e163da1f14c572e6601130059c393fe1c76e4341e835b317437e600"
+      }
+    ],
+    "context_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "contract_version": 4,
+    "dominant_reason_ids": [
+      "ORCH_OK_ALL_COMPONENTS_ALLOW"
+    ],
+    "fail_closed": true,
+    "final_outcome": "ALLOW",
+    "freshness_nonce": "nonce-final-fn-dsa",
+    "key_registry_version": 1,
+    "not_after": "2026-06-21T00:05:00Z",
+    "not_before": "2026-06-21T00:00:00Z",
+    "receipt_hash": "0bfa04a330270d41db352861971742ebeb901a9f1e51612cdd91b5405cc26378",
+    "request_id": "req-v4h-e-fn-dsa-final",
+    "schema_version": "shield.receipt.v2",
+    "signature_bundle": {
+      "policy_version": "policy.v1",
+      "schema_version": "shield.signature_bundle.v1",
+      "signatures": [
+        {
+          "algorithm": "classical-ed25519",
+          "domain_tag": "DGB-SHIELD-V4-ORCH-RECEIPT:shield.receipt.v2:policy.v1",
+          "key_id": "test-shield_orchestrator-classical-ed25519-v1",
+          "key_version": 1,
+          "signature": "9d15dac60b0fdba8d2f822d22529d2229304a4c579f2d94834a8f4a7ae7b3d2e",
+          "signed_payload_hash": "9c66e9607bd58f9b41f6e885b49e44f1566bd46b5b734fa8365444d80548f026",
+          "standard_profile": "rfc8032-ed25519-v1"
+        },
+        {
+          "algorithm": "ml-dsa",
+          "domain_tag": "DGB-SHIELD-V4-ORCH-RECEIPT:shield.receipt.v2:policy.v1",
+          "key_id": "test-shield_orchestrator-ml-dsa-v1",
+          "key_version": 1,
+          "signature": "b64bb4da50596e4b14b3acb19c66a360a61c9157ab11a970ec36641addfa8cb2",
+          "signed_payload_hash": "9c66e9607bd58f9b41f6e885b49e44f1566bd46b5b734fa8365444d80548f026",
+          "standard_profile": "fips204-ml-dsa-65-v1"
+        },
+        {
+          "algorithm": "fn-dsa",
+          "domain_tag": "DGB-SHIELD-V4-ORCH-RECEIPT:shield.receipt.v2:policy.v1",
+          "key_id": "test-shield_orchestrator-fn-dsa-v1",
+          "key_version": 1,
+          "signature": "c28e04bad9d9bcbd729c448ee30eef4836208d588e255b9bd85d007dda3ac904",
+          "signed_payload_hash": "9c66e9607bd58f9b41f6e885b49e44f1566bd46b5b734fa8365444d80548f026",
+          "standard_profile": "fips206-draft-falcon1024-v1"
+        }
+      ]
+    },
+    "signature_policy": "policy.v1",
+    "signed_payload_hash": "9c66e9607bd58f9b41f6e885b49e44f1566bd46b5b734fa8365444d80548f026"
+  },
+  "schema_version": "shield.external_verifier_contract.v1",
+  "signature_policy": "policy.v1",
+  "verifier_controlled_test_registry": {
+    "entries": [
+      {
+        "algorithm": "classical-ed25519",
+        "key_id": "test-shield_component_adn-classical-ed25519-v1",
+        "key_version": 1,
+        "not_after": "2030-01-01T00:00:00Z",
+        "not_before": "2026-01-01T00:00:00Z",
+        "public_key": "TEST-ONLY-PUBLIC-shield_component_adn-classical-ed25519-v1",
+        "role": "shield_component_adn",
+        "status": "active"
+      },
+      {
+        "algorithm": "ml-dsa",
+        "key_id": "test-shield_component_adn-ml-dsa-v1",
+        "key_version": 1,
+        "not_after": "2030-01-01T00:00:00Z",
+        "not_before": "2026-01-01T00:00:00Z",
+        "public_key": "TEST-ONLY-PUBLIC-shield_component_adn-ml-dsa-v1",
+        "role": "shield_component_adn",
+        "status": "active"
+      },
+      {
+        "algorithm": "fn-dsa",
+        "key_id": "test-shield_component_adn-fn-dsa-v1",
+        "key_version": 1,
+        "not_after": "2030-01-01T00:00:00Z",
+        "not_before": "2026-01-01T00:00:00Z",
+        "public_key": "TEST-ONLY-PUBLIC-shield_component_adn-fn-dsa-v1",
+        "role": "shield_component_adn",
+        "status": "active"
+      },
+      {
+        "algorithm": "classical-ed25519",
+        "key_id": "test-shield_component_dqsn-classical-ed25519-v1",
+        "key_version": 1,
+        "not_after": "2030-01-01T00:00:00Z",
+        "not_before": "2026-01-01T00:00:00Z",
+        "public_key": "TEST-ONLY-PUBLIC-shield_component_dqsn-classical-ed25519-v1",
+        "role": "shield_component_dqsn",
+        "status": "active"
+      },
+      {
+        "algorithm": "ml-dsa",
+        "key_id": "test-shield_component_dqsn-ml-dsa-v1",
+        "key_version": 1,
+        "not_after": "2030-01-01T00:00:00Z",
+        "not_before": "2026-01-01T00:00:00Z",
+        "public_key": "TEST-ONLY-PUBLIC-shield_component_dqsn-ml-dsa-v1",
+        "role": "shield_component_dqsn",
+        "status": "active"
+      },
+      {
+        "algorithm": "fn-dsa",
+        "key_id": "test-shield_component_dqsn-fn-dsa-v1",
+        "key_version": 1,
+        "not_after": "2030-01-01T00:00:00Z",
+        "not_before": "2026-01-01T00:00:00Z",
+        "public_key": "TEST-ONLY-PUBLIC-shield_component_dqsn-fn-dsa-v1",
+        "role": "shield_component_dqsn",
+        "status": "active"
+      },
+      {
+        "algorithm": "classical-ed25519",
+        "key_id": "test-shield_component_guardian_wallet-classical-ed25519-v1",
+        "key_version": 1,
+        "not_after": "2030-01-01T00:00:00Z",
+        "not_before": "2026-01-01T00:00:00Z",
+        "public_key": "TEST-ONLY-PUBLIC-shield_component_guardian_wallet-classical-ed25519-v1",
+        "role": "shield_component_guardian_wallet",
+        "status": "active"
+      },
+      {
+        "algorithm": "ml-dsa",
+        "key_id": "test-shield_component_guardian_wallet-ml-dsa-v1",
+        "key_version": 1,
+        "not_after": "2030-01-01T00:00:00Z",
+        "not_before": "2026-01-01T00:00:00Z",
+        "public_key": "TEST-ONLY-PUBLIC-shield_component_guardian_wallet-ml-dsa-v1",
+        "role": "shield_component_guardian_wallet",
+        "status": "active"
+      },
+      {
+        "algorithm": "fn-dsa",
+        "key_id": "test-shield_component_guardian_wallet-fn-dsa-v1",
+        "key_version": 1,
+        "not_after": "2030-01-01T00:00:00Z",
+        "not_before": "2026-01-01T00:00:00Z",
+        "public_key": "TEST-ONLY-PUBLIC-shield_component_guardian_wallet-fn-dsa-v1",
+        "role": "shield_component_guardian_wallet",
+        "status": "active"
+      },
+      {
+        "algorithm": "classical-ed25519",
+        "key_id": "test-shield_component_qwg-classical-ed25519-v1",
+        "key_version": 1,
+        "not_after": "2030-01-01T00:00:00Z",
+        "not_before": "2026-01-01T00:00:00Z",
+        "public_key": "TEST-ONLY-PUBLIC-shield_component_qwg-classical-ed25519-v1",
+        "role": "shield_component_qwg",
+        "status": "active"
+      },
+      {
+        "algorithm": "ml-dsa",
+        "key_id": "test-shield_component_qwg-ml-dsa-v1",
+        "key_version": 1,
+        "not_after": "2030-01-01T00:00:00Z",
+        "not_before": "2026-01-01T00:00:00Z",
+        "public_key": "TEST-ONLY-PUBLIC-shield_component_qwg-ml-dsa-v1",
+        "role": "shield_component_qwg",
+        "status": "active"
+      },
+      {
+        "algorithm": "fn-dsa",
+        "key_id": "test-shield_component_qwg-fn-dsa-v1",
+        "key_version": 1,
+        "not_after": "2030-01-01T00:00:00Z",
+        "not_before": "2026-01-01T00:00:00Z",
+        "public_key": "TEST-ONLY-PUBLIC-shield_component_qwg-fn-dsa-v1",
+        "role": "shield_component_qwg",
+        "status": "active"
+      },
+      {
+        "algorithm": "classical-ed25519",
+        "key_id": "test-shield_component_sentinel_ai-classical-ed25519-v1",
+        "key_version": 1,
+        "not_after": "2030-01-01T00:00:00Z",
+        "not_before": "2026-01-01T00:00:00Z",
+        "public_key": "TEST-ONLY-PUBLIC-shield_component_sentinel_ai-classical-ed25519-v1",
+        "role": "shield_component_sentinel_ai",
+        "status": "active"
+      },
+      {
+        "algorithm": "ml-dsa",
+        "key_id": "test-shield_component_sentinel_ai-ml-dsa-v1",
+        "key_version": 1,
+        "not_after": "2030-01-01T00:00:00Z",
+        "not_before": "2026-01-01T00:00:00Z",
+        "public_key": "TEST-ONLY-PUBLIC-shield_component_sentinel_ai-ml-dsa-v1",
+        "role": "shield_component_sentinel_ai",
+        "status": "active"
+      },
+      {
+        "algorithm": "fn-dsa",
+        "key_id": "test-shield_component_sentinel_ai-fn-dsa-v1",
+        "key_version": 1,
+        "not_after": "2030-01-01T00:00:00Z",
+        "not_before": "2026-01-01T00:00:00Z",
+        "public_key": "TEST-ONLY-PUBLIC-shield_component_sentinel_ai-fn-dsa-v1",
+        "role": "shield_component_sentinel_ai",
+        "status": "active"
+      },
+      {
+        "algorithm": "classical-ed25519",
+        "key_id": "test-shield_orchestrator-classical-ed25519-v1",
+        "key_version": 1,
+        "not_after": "2030-01-01T00:00:00Z",
+        "not_before": "2026-01-01T00:00:00Z",
+        "public_key": "TEST-ONLY-PUBLIC-shield_orchestrator-classical-ed25519-v1",
+        "role": "shield_orchestrator",
+        "status": "active"
+      },
+      {
+        "algorithm": "ml-dsa",
+        "key_id": "test-shield_orchestrator-ml-dsa-v1",
+        "key_version": 1,
+        "not_after": "2030-01-01T00:00:00Z",
+        "not_before": "2026-01-01T00:00:00Z",
+        "public_key": "TEST-ONLY-PUBLIC-shield_orchestrator-ml-dsa-v1",
+        "role": "shield_orchestrator",
+        "status": "active"
+      },
+      {
+        "algorithm": "fn-dsa",
+        "key_id": "test-shield_orchestrator-fn-dsa-v1",
+        "key_version": 1,
+        "not_after": "2030-01-01T00:00:00Z",
+        "not_before": "2026-01-01T00:00:00Z",
+        "public_key": "TEST-ONLY-PUBLIC-shield_orchestrator-fn-dsa-v1",
+        "role": "shield_orchestrator",
+        "status": "active"
+      }
+    ],
+    "registry_version": 1,
+    "schema_version": "shield.key_registry.v1"
+  },
+  "warning": "TEST-ONLY deterministic signatures and public test material. This vector is not live cryptographic proof and grants no execution authority."
+}
