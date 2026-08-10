@@ -1,0 +1,20 @@
+{
+  "author_attribution": "DarekDGB",
+  "contract_version": 1,
+  "manifest_policy": "This manifest hashes the normative contract, KAT index, and shared fixture. It deliberately excludes itself to prevent a cyclic hash dependency.",
+  "normative_files": [
+    {
+      "path": "docs/v4/SHIELD_V4_EXTERNAL_VERIFICATION_CONTRACT_V1.md",
+      "sha256": "7119b3ee26d3aad8fb6040d349734dfdeca0251cdce743f47516282374098bea"
+    },
+    {
+      "path": "docs/v4/SHIELD_V4_KAT_VECTORS.md",
+      "sha256": "c39080f077dec9ae599d5cba3a518274446f2efd8975ab14dc3d79bfcf58067a"
+    },
+    {
+      "path": "tests/fixtures/v4/external_verifier_contract_v1_kat.json",
+      "sha256": "308b9aadd993cf07665a125c4294d8e22cbe3f747419e346e104f127093e951f"
+    }
+  ],
+  "schema_version": "shield.external_verification_package.v1"
+}
