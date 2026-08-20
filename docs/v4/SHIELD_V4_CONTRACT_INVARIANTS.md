@@ -353,26 +353,23 @@ Rollback must fail closed unless a future explicit, versioned, tested governance
 
 ## V4-INV-020 — Verification Observability
 
-Verification must produce non-secret audit evidence suitable for incident response.
+Release integrations requiring durable evidence must use the audited v4
+verification boundary defined by `SHIELD_V4_VERIFICATION_AUDIT_V1.md`.
 
-Allowed audit fields:
+The audit contract is an exact tagged union. It uses domain-separated hashes
+of request and key identifiers, immutable canonical record bytes, an atomic
+append-only batch, and an exact durable acknowledgement. Successful evidence
+must not leave the boundary before the durable acknowledgement passes.
 
-- `request_id`
-- `context_hash`
-- `policy_version`
-- `key_id`
-- `key_version`
-- `algorithm`
-- pass / fail result
-- fail-closed reason identifier
+Receipt-controlled verification failures must be recorded without weakening
+fail-closed behavior. Audit sink failure is
+`ShieldV4AuditSinkError("V4_AUDIT_SINK_FAILURE")` and must withhold any result.
 
-Forbidden audit output:
-
-- private keys
-- wallet seeds
-- recovery phrases
-- production secret material
-- sensitive payload secrets
+Raw identifiers, secrets, keys, signatures, payloads, metadata, nonces,
+exception text, unnecessary personal data, and authority fields are forbidden.
+Audit evidence never grants signing, approval, broadcast, or execution
+authority. Mutable replay consumption remains at the AdamantineOS execution
+boundary.
 
 ## V4-INV-021 — Performance / DoS Envelope
 
