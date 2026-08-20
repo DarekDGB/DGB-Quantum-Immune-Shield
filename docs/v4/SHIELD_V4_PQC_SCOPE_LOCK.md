@@ -220,18 +220,22 @@ Rollback must never silently re-open a v3 bypass.
 
 ### Verification Observability / Audit Trail
 
-Verification should produce a non-secret audit trail containing:
+Durable verification evidence is governed by
+`SHIELD_V4_VERIFICATION_AUDIT_V1.md` and schema
+`shield.verification_audit.v1`.
 
-- `request_id`
-- `context_hash`
-- `key_id`
-- `key_version`
-- `algorithm`
-- `policy_version`
-- pass / fail result
-- fail-closed reason identifier
+The exact tagged union distinguishes preflight, signature, and terminal
+artifact events. Request and key identifiers are NFC-normalized and stored only
+as domain-separated SHA-256 hashes. Records are bounded canonical UTF-8 bytes
+delivered as one atomic append-only batch. A verification result is unavailable
+until the sink returns the exact durable acknowledgement bound to the batch
+hash and record count.
 
-Private keys, seed material, signatures secrets, and sensitive payload secrets must never be logged.
+Private keys, seed material, recovery material, raw request or key identifiers,
+public keys, signatures, payloads, metadata, nonces, exception text,
+unnecessary personal data, and authority fields must never be logged. Audit
+sink failure is fail closed. Audit records cannot grant approval, signing,
+broadcast, or execution authority.
 
 ### Performance / DoS Envelope
 
