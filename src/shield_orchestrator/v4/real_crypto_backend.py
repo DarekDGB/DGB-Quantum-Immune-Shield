@@ -11,6 +11,7 @@ from shield_orchestrator.v4.crypto_algorithms import (
     require_supported_standard_profile as _policy_require_supported_standard_profile,
 )
 from shield_orchestrator.v4.key_registry import KeyRegistryEntry
+from shield_orchestrator.v4.work_budget import MAX_TEXT_FIELD_BYTES
 
 REAL_CRYPTO_SIGNATURE_INPUT_PREFIX = "DGB-SHIELD-V4-REAL-CRYPTO-SIGNATURE-INPUT"
 REAL_SIGNATURE_ENCODING_PREFIX = "b64u:"
@@ -91,10 +92,6 @@ def _require_supported_algorithm(value: Any) -> str:
     if algorithm not in SIGNATURE_POLICY_V1.allowed_algorithms:
         raise ShieldV4RealCryptoBackendError("unsupported Shield v4 signature algorithm")
     return algorithm
-
-
-
-
 def _require_supported_standard_profile(*, algorithm: str, standard_profile: str) -> str:
     try:
         return _policy_require_supported_standard_profile(
@@ -149,13 +146,36 @@ def encode_binary_signature_material(raw: bytes, *, field: str = "signature") ->
 
     if not isinstance(raw, bytes) or not raw:
         raise ShieldV4RealCryptoBackendError(f"{field} bytes must be non-empty")
+    maximum_raw_bytes = ((MAX_TEXT_FIELD_BYTES - len(REAL_SIGNATURE_ENCODING_PREFIX)) * 3) // 4
+    if len(raw) > maximum_raw_bytes:
+        raise ShieldV4RealCryptoBackendError(f"{field} b64u encoding exceeds byte limit")
     encoded = base64.urlsafe_b64encode(raw).decode("ascii").rstrip("=")
-    return f"{REAL_SIGNATURE_ENCODING_PREFIX}{encoded}"
+    output = f"{REAL_SIGNATURE_ENCODING_PREFIX}{encoded}"
+    if len(output) > MAX_TEXT_FIELD_BYTES:  # pragma: no cover - defensive arithmetic lock.
+        raise ShieldV4RealCryptoBackendError(f"{field} b64u encoding exceeds byte limit")
+    return output
+
+
+def _require_bounded_encoded_text(encoded: Any, *, field: str) -> str:
+    if type(encoded) is not str or not encoded:
+        raise ShieldV4RealCryptoBackendError(f"{field} must be non-empty string")
+    if len(encoded) > MAX_TEXT_FIELD_BYTES:
+        raise ShieldV4RealCryptoBackendError(f"{field} b64u encoding exceeds byte limit")
+    try:
+        encoded_bytes = encoded.encode("utf-8")
+    except UnicodeEncodeError:
+        raise ShieldV4RealCryptoBackendError(
+            f"{field} b64u encoding must be valid UTF-8"
+        ) from None
+    if len(encoded_bytes) > MAX_TEXT_FIELD_BYTES:
+        raise ShieldV4RealCryptoBackendError(f"{field} b64u encoding exceeds byte limit")
+    return encoded
 
 
 def decode_binary_signature_material(encoded: Any, *, field: str = "signature") -> bytes:
     """Decode an explicit ``b64u:`` signature/key encoding into bytes."""
 
+    encoded = _require_bounded_encoded_text(encoded, field=field)
     clean = _require_non_empty_str(encoded, field=field)
     if not clean.startswith(REAL_SIGNATURE_ENCODING_PREFIX):
         raise ShieldV4RealCryptoBackendError(f"{field} must use b64u encoding")
@@ -265,8 +285,8 @@ def build_signature_entry_with_real_backend(
             message=message,
         ),
     )
+    decode_binary_signature_material(signature, field="signature")
     clean_signature = _require_non_empty_str(signature, field="signature")
-    decode_binary_signature_material(clean_signature, field="signature")
     return {
         "algorithm": clean_algorithm,
         "standard_profile": clean_profile,
@@ -290,7 +310,11 @@ def verify_signature_entry_with_real_backend(
         raise ShieldV4RealCryptoBackendError("signature entry must be dict")
     if set(entry.keys()) != _SIGNATURE_ENTRY_FIELDS:
         raise ShieldV4RealCryptoBackendError("signature entry fields must match required schema")
+    _require_bounded_encoded_text(entry.get("signature"), field="signature")
+    _require_bounded_encoded_text(key.public_key, field="public_key")
     reject_test_only_key_material(key)
+    decode_binary_signature_material(entry.get("signature"), field="signature")
+    decode_binary_signature_material(key.public_key, field="public_key")
     algorithm = _require_supported_algorithm(entry.get("algorithm"))
     standard_profile = _require_supported_standard_profile(
         algorithm=algorithm,
@@ -301,7 +325,6 @@ def verify_signature_entry_with_real_backend(
     if (key.algorithm, key.key_id, key.key_version) != (algorithm, key_id, key_version):
         raise ShieldV4RealCryptoBackendError("signature entry does not match registry key")
     public_key = _require_non_empty_str(key.public_key, field="public_key")
-    decode_binary_signature_material(public_key, field="public_key")
     _require_backend_supports_algorithm(backend, algorithm)
     message = build_real_crypto_signature_input(
         algorithm=algorithm,
@@ -312,7 +335,6 @@ def verify_signature_entry_with_real_backend(
         key_version=key_version,
     )
     signature = _require_non_empty_str(entry.get("signature"), field="signature")
-    decode_binary_signature_material(signature, field="signature")
     verified = _call_backend_operation(
         "verify",
         lambda: backend.verify_signature(
