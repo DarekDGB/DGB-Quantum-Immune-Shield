@@ -1,0 +1,107 @@
+name: Shield v4 Performance and DoS Envelope
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/shield-v4-performance-dos.yml"
+      - "docs/v4/SHIELD_V4_CONTRACT_INVARIANTS.md"
+      - "docs/v4/SHIELD_V4_PERFORMANCE_DOS_ENVELOPE_V1.md"
+      - "docs/v4/SHIELD_V4_PQC_SCOPE_LOCK.md"
+      - "docs/v4/SHIELD_V4_THREAT_MODEL.md"
+      - "docs/v4/SHIELD_V4_VERIFICATION_AUDIT_V1.md"
+      - "pyproject.toml"
+      - "scripts/benchmark_v410c_verification.py"
+      - "src/shield_orchestrator/v4/**"
+      - "tests/test_v410c_performance_dos_envelope.py"
+  pull_request:
+    paths:
+      - ".github/workflows/shield-v4-performance-dos.yml"
+      - "docs/v4/SHIELD_V4_CONTRACT_INVARIANTS.md"
+      - "docs/v4/SHIELD_V4_PERFORMANCE_DOS_ENVELOPE_V1.md"
+      - "docs/v4/SHIELD_V4_PQC_SCOPE_LOCK.md"
+      - "docs/v4/SHIELD_V4_THREAT_MODEL.md"
+      - "docs/v4/SHIELD_V4_VERIFICATION_AUDIT_V1.md"
+      - "pyproject.toml"
+      - "scripts/benchmark_v410c_verification.py"
+      - "src/shield_orchestrator/v4/**"
+      - "tests/test_v410c_performance_dos_envelope.py"
+
+permissions:
+  contents: read
+
+jobs:
+  bounded-verification:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      PYTHONHASHSEED: "0"
+      TZ: UTC
+      LC_ALL: C.UTF-8
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Set up pinned Python
+        uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
+        with:
+          python-version: "3.11.15"
+          cache: pip
+
+      - name: Install test dependencies
+        run: |
+          python -m pip install \
+            pip==25.2 \
+            setuptools==80.9.0 \
+            wheel==0.45.1 \
+            pytest==8.4.1 \
+            pytest-cov==6.2.1
+          python -m pip install --no-build-isolation --no-deps -e .
+
+      - name: Assert pinned benchmark environment
+        run: |
+          python - <<'PY'
+          import os
+          import platform
+          from importlib.metadata import version
+
+          expected = {
+              "python": "3.11.15",
+              "pythonhashseed": "0",
+              "tz": "UTC",
+              "lc_all": "C.UTF-8",
+          }
+          actual = {
+              "python": platform.python_version(),
+              "pythonhashseed": os.environ.get("PYTHONHASHSEED"),
+              "tz": os.environ.get("TZ"),
+              "lc_all": os.environ.get("LC_ALL"),
+          }
+          if actual != expected:
+              raise SystemExit(f"benchmark environment mismatch: {actual!r}")
+          expected_packages = {
+              "pip": "25.2",
+              "setuptools": "80.9.0",
+              "wheel": "0.45.1",
+              "pytest": "8.4.1",
+              "pytest-cov": "6.2.1",
+          }
+          actual_packages = {
+              package: version(package) for package in expected_packages
+          }
+          if actual_packages != expected_packages:
+              raise SystemExit(
+                  f"benchmark package mismatch: {actual_packages!r}"
+              )
+          print({"environment": actual, "packages": actual_packages})
+          PY
+
+      - name: Run V4.10-C work-budget contract tests
+        run: |
+          python -m pytest --override-ini addopts='' \
+            tests/test_v410c_performance_dos_envelope.py -q
+
+      - name: Run pinned verification benchmark
+        run: |
+          python scripts/benchmark_v410c_verification.py
