@@ -259,15 +259,33 @@ Controls:
 
 ### Verification DoS
 
-Threat: attackers flood the verifier with expensive malformed signature payloads.
+Threat: attackers use oversized or cyclic JSON graphs, canonicalization escape
+expansion, signature multiplication, registry growth, hostile container
+subclasses, oversized encoded material, or malformed late bundles to trigger
+unbounded validation or PQC work.
 
 Controls:
 
-- reject malformed input before cryptographic verification.
-- validate schema, field count, canonical shape, hashes, key status, and policy before signature work.
-- reject noncanonical signature-bundle order before signature work.
-- bound signature count and bundle size.
-- define per-request verification work budget before release.
+- accept only a bounded acyclic graph of exact built-in JSON types;
+- count depth, nodes, every scalar, and every object key before copying an
+  over-budget graph;
+- enforce separate text, encoded-field, canonical-bundle, canonical-receipt,
+  signed-integer, bundle, signature, registry, total-callback, and PQC-callback
+  ceilings;
+- prepare all six bundles and resolve every key role, status, and time window
+  before signed-payload canonicalization, hashing, or backend work;
+- reject noncanonical or duplicate signature entries before backend work;
+- run complete global classical, ML-DSA, and optional FN-DSA waves under a
+  shared counter that increments immediately before each actual callback;
+- reuse cached verifier results so existing validators cannot duplicate crypto;
+- record a cheap failure as one failed preflight event with zero backend calls;
+- gate release evidence with the pinned benchmark in
+  `SHIELD_V4_PERFORMANCE_DOS_ENVELOPE_V1.md` and the separate real-OQS proof.
+
+Residual risk: hosted-runner CPU performance and native crypto-provider latency
+remain platform-controlled. The structural p95 gate excludes crypto latency;
+the hard callback ceilings bound amplification, and the two-node OQS workflow
+proves the live ML-DSA and Falcon-1024 paths without skips.
 
 ### Real Backend Proof Over-Claim
 
