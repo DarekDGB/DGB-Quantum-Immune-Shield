@@ -327,21 +327,27 @@ Test keys must be marked TEST-ONLY and must never be production keys.
 
 ## V4-INV-018 — Verification Work Order
 
-Verification must reject cheap failures before expensive signature work.
+The release-facing audited verifier must reject cheap failures before signed
+payload canonicalization, hashing, or cryptographic callbacks.
 
-Registry structure and version loading may occur before bundle verification.
-Across receipt and signature-bundle verification, the required relative order is:
+Across all five component bundles and the one receipt bundle, the required
+relative order is:
 
-1. schema type and field set checks
-2. required field validation
-3. canonicalization validation
-4. hash validation
-5. signature policy and canonical bundle-order validation
-6. per-signature key selection, role, status, and validity-window validation
-7. signature verification
-8. final handoff / AdamantineOS policy evaluation
+1. bounded exact-JSON graph snapshot and scalar accounting;
+2. exact schema types, field sets, bundle counts, entry shapes, and text limits;
+3. contract, schema, policy, canonical algorithm order, role, profile,
+   freshness, registry floor, key identity, key status, key window, and artifact
+   window checks for all six bundles;
+4. canonical signature-bundle and receipt byte limits;
+5. independent receipt and component signed-hash construction and comparison;
+6. global classical callback wave for all six artifacts;
+7. global ML-DSA callback wave for all six artifacts;
+8. optional global FN-DSA callback wave;
+9. cached envelope validation and final handoff / AdamantineOS policy evaluation.
 
-Malformed payloads must not reach expensive PQC verification.
+Any pre-crypto failure produces one failed preflight audit event and zero
+backend callbacks. Existing validators must consume cached callback results and
+must not repeat backend work.
 
 ## V4-INV-019 — Dual-Stack Governance
 
@@ -373,15 +379,18 @@ boundary.
 
 ## V4-INV-021 — Performance / DoS Envelope
 
-Before release, v4 must define:
+The release-facing audited verifier implements the normative envelope in
+`SHIELD_V4_PERFORMANCE_DOS_ENVELOPE_V1.md`.
 
-- maximum signature bundle size
-- maximum number of signatures evaluated per artifact
-- maximum component verdict count
-- maximum key-registry entries considered per verification
-- bounded per-request verification work budget
+The frozen ceilings are 131072 canonical receipt bytes, 131072 cumulative
+UTF-8 scalar and object-key bytes, 8192 UTF-8 bytes per string or encoded field,
+32768 canonical bytes per signature bundle, depth 16, 4096 nodes, signed 64-bit
+integers, exactly five component bundles and one receipt bundle, two or three
+unique canonical signatures per bundle, 18 total backend attempts, 12 combined
+ML-DSA/FN-DSA attempts, and 64 loaded trusted-registry entries.
 
-Input that exceeds the envelope fails closed before cryptographic verification.
+Input that exceeds a size or count envelope fails as `V4_CONTRACT_INVALID`
+before cryptographic verification.
 
 ## V4-INV-022 — Negative-First Lock
 
@@ -406,6 +415,17 @@ No v4 release is locked until negative tests prove fail-closed behavior for:
 - optional FN-DSA inserted before or between required signatures
 - metadata authority injection
 - v3 downgrade where v4 is required
+
+## V4-INV-023 — Complete Six-Bundle Plan
+
+No backend callback may run until all six signature bundles and every referenced
+trusted key have passed cheap preflight. Required-only evidence performs exactly
+12 callbacks: six classical followed by six ML-DSA. If every bundle carries
+optional FN-DSA, it performs exactly 18 callbacks, with six FN-DSA callbacks
+last. A required-wave failure stops all later waves.
+
+The shared total and PQC counters increment immediately before an actual
+backend callback. Backend exceptions and non-Boolean results fail closed.
 
 ## Final Invariant
 
