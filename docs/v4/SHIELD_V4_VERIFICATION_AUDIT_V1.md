@@ -1,6 +1,6 @@
 # Shield v4 Verification Audit Contract v1
 
-Status: V4.10-B normative contract  
+Status: V4.10-C normative contract  
 Schema: `shield.verification_audit.v1`  
 Verifier: `shield_orchestrator.v4`  
 Author attribution: DarekDGB
@@ -56,27 +56,34 @@ Malformed trusted arguments are programmer errors and can fail before an audit
 batch exists. Receipt-controlled preflight and verification failures must be
 audited and fail closed.
 
-The wrapper recursively copies the full untrusted receipt graph behind the
-preflight exception barrier. Only exact built-in JSON object, array, string,
-Boolean, integer, and null types enter verification; subclasses, floats, and
-other objects are rejected as a sanitized contract failure.
+The wrapper snapshots the untrusted receipt graph behind the preflight
+exception barrier and the limits in
+`SHIELD_V4_PERFORMANCE_DOS_ENVELOPE_V1.md`. Only exact built-in JSON object,
+array, string, Boolean, signed 64-bit integer, and null types enter
+verification; subclasses, floats, cycles, excess depth or nodes, oversized
+strings, and other objects are rejected as a sanitized contract failure. The
+cumulative scalar and object-key byte counter stops before copying or
+canonicalizing an over-budget graph.
 
 The outer receipt must match `expected_request_id`. Component request IDs are
 not required to equal the outer request ID. Each validated component event
 hashes that component's own signed request ID.
 
-Before component cryptography, the wrapper validates the exact outer field
-shape and independently recomputes both the receipt hash and domain-separated
-signed-payload hash. It never promotes a received hash into an artifact event
-until that value matches the independently computed hash. A failure at this
-boundary remains a single failed preflight event using only the trusted
-transport hash.
+Before signed-payload canonicalization, hashing, or component cryptography, the
+wrapper validates the exact outer and component field shapes, requires exactly
+five unique component bundles and one outer bundle, and completes policy,
+profile, role, freshness, registry, key identity, key status, public-key, and
+key/artifact-window resolution for all six bundles. A failure at this boundary
+remains one failed preflight event using only the trusted transport hash and
+causes zero backend callbacks.
 
-The same preflight validates that the five component identities are complete
-and unique, binds every component to the expected context and registry, and
-independently recomputes every component signed-payload hash. The artifact map
-is constructed only after those checks, so an untrusted duplicate identifier
-cannot overwrite another component's audit attribution.
+After that complete cheap plan, the wrapper enforces canonical bundle and
+receipt byte ceilings and independently recomputes the receipt hash, outer
+domain-separated signed-payload hash, and every component signed-payload hash.
+It never promotes a received hash into an artifact event until that value
+matches the independently computed hash. The artifact map is constructed only
+after those checks, so an untrusted duplicate identifier cannot overwrite
+another component's audit attribution.
 
 ## Privacy-safe identifier hashes
 
@@ -276,11 +283,19 @@ Audit records must not contain:
 
 ## Fail-closed lifecycle
 
-The wrapper verifies registry floor and expected outer request binding, verifies
-the exact outer schema, policy, receipt hash, and signed-payload hash before
-component cryptography; verifies all five component envelopes; cross-checks
-actual component summaries against the signed receipt summaries; and verifies
-the outer receipt. Events remain buffered until one atomic append. Success is
-returned only after an exact durable acknowledgement. Verification rejection
-is returned only after its failure batch is durably acknowledged. Audit failure
-always wins and remains fail closed.
+The wrapper verifies the bounded snapshot, registry floor, expected outer
+request binding, exact schemas, all six bundles, and every referenced trusted
+key before canonicalization, signed-hash construction, or backend callbacks.
+It then verifies canonical byte budgets and independently computed hashes.
+
+Actual backend attempts are recorded in their true global execution order: all
+six classical attempts, all six ML-DSA attempts, then optional FN-DSA attempts.
+The shared total/PQC work counter increments immediately before each callback.
+A callback exception or non-Boolean result is sanitized and fails closed.
+Existing component and receipt validators consume cached successful attempts;
+they do not repeat backend work.
+
+Events remain buffered until one atomic append. Success is returned only after
+an exact durable acknowledgement. Verification rejection is returned only
+after its failure batch is durably acknowledged. Audit failure always wins and
+remains fail closed.
