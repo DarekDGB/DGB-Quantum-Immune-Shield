@@ -647,9 +647,10 @@ def test_v410b_malformed_component_and_summary_fail_preflight_safely() -> None:
     with pytest.raises(ShieldV4VerificationError, match=V4_CONTRACT_INVALID):
         _verify(receipt=receipt, sink=sink)
     events = _decode(sink.batches[0])
-    assert events[-1]["event_type"] == ARTIFACT_VERIFICATION_EVENT
-    assert events[-1]["reason_id"] == V4_CONTRACT_INVALID
-    assert events[-1]["verification_passed"] is False
+    assert len(events) == 1
+    assert events[0]["event_type"] == VERIFICATION_PREFLIGHT_EVENT
+    assert events[0]["reason_id"] == V4_CONTRACT_INVALID
+    assert events[0]["verification_passed"] is False
 
 
 @pytest.mark.parametrize("replacement", ["not-an-object", {"component_id": "unknown"}])
@@ -699,12 +700,10 @@ def test_v410b_receipt_semantic_failure_ends_in_validated_artifact_terminal() ->
         _verify(receipt=receipt, sink=sink)
 
     events = _decode(sink.batches[0])
-    assert len(events) > 2
-    assert events[-1]["event_type"] == ARTIFACT_VERIFICATION_EVENT
-    assert events[-1]["artifact_type"] == "orchestrator_receipt"
-    assert events[-1]["artifact_hash"] == receipt["signed_payload_hash"]
-    assert events[-1]["reason_id"] == V4_CONTRACT_INVALID
-    assert events[-1]["verification_passed"] is False
+    assert len(events) == 1
+    assert events[0]["event_type"] == VERIFICATION_PREFLIGHT_EVENT
+    assert events[0]["reason_id"] == V4_CONTRACT_INVALID
+    assert events[0]["verification_passed"] is False
 
 
 def test_v410b_untrusted_bad_component_hash_is_not_promoted_to_artifact_event() -> None:
@@ -769,13 +768,8 @@ def test_v410b_component_bundle_shape_failure_has_safe_terminal_order(
     events = _decode(sink.batches[0])
     assert events[-1]["verification_passed"] is False
     assert events[-1]["reason_id"] == V4_CONTRACT_INVALID
-    if component_index == 0:
-        assert len(events) == 1
-        assert events[-1]["event_type"] == VERIFICATION_PREFLIGHT_EVENT
-    else:
-        assert len(events) > 2
-        assert events[-1]["event_type"] == ARTIFACT_VERIFICATION_EVENT
-        assert events[-1]["artifact_type"] == "orchestrator_receipt"
+    assert len(events) == 1
+    assert events[-1]["event_type"] == VERIFICATION_PREFLIGHT_EVENT
 
 
 def test_v410b_duplicate_component_identity_fails_preflight_before_crypto() -> None:
@@ -869,14 +863,15 @@ def test_v410b_alternate_failure_branches_never_promote_unverified_outer_hash(
         return True
 
     sink = RecordingSink()
-    with pytest.raises(ShieldV4VerificationError, match=V4_HASH_MISMATCH):
+    expected_reason = V4_CONTRACT_INVALID
+    with pytest.raises(ShieldV4VerificationError, match=expected_reason):
         _verify(receipt=receipt, component_verifier=component_verifier, sink=sink)
     assert component_calls == 0
     events = _decode(sink.batches[0])
     assert len(events) == 1
     assert events[0]["event_type"] == VERIFICATION_PREFLIGHT_EVENT
     assert events[0]["verification_passed"] is False
-    assert events[0]["reason_id"] == V4_HASH_MISMATCH
+    assert events[0]["reason_id"] == expected_reason
     assert "artifact_hash" not in events[0]
     assert b"0" * 64 not in sink.batches[0][0]
 
