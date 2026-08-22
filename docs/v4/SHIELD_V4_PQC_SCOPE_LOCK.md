@@ -239,18 +239,30 @@ broadcast, or execution authority.
 
 ### Performance / DoS Envelope
 
-Verification must reject malformed input before expensive cryptographic verification.
+The V4.10-C bounded verifier contract is normative in
+`SHIELD_V4_PERFORMANCE_DOS_ENVELOPE_V1.md`.
 
-Validation order must be:
+The release-facing audited wrapper first snapshots the receipt behind a bounded
+exact-JSON gate. It completes exact fields, counts, profiles, roles, freshness,
+registry and all-key status/window resolution across exactly five component
+bundles and one outer receipt bundle before signed-payload canonicalization,
+hash construction, or any backend callback.
 
-1. structural schema checks
-2. required field checks
-3. canonicalization checks
-4. hash checks
-5. key-registry checks
-6. signature verification
+Canonical receipt bytes, cumulative scalar and key bytes, individual text and
+encoded fields, canonical bundle bytes, depth, nodes, integer width, bundle and
+entry counts, registry entries, total callbacks, and PQC callbacks all have
+frozen ceilings. Over-budget input fails as `V4_CONTRACT_INVALID`.
 
-A bounded per-request verification work budget must be defined before release.
+Backend attempts run globally as six classical callbacks, six ML-DSA callbacks,
+then optional FN-DSA callbacks. Required-only evidence performs exactly 12
+attempts. Evidence with FN-DSA in all six bundles performs exactly 18 attempts,
+of which 12 are PQC. Existing validators consume cached attempts.
+
+The dedicated pinned Ubuntu 24.04 / CPython 3.11.15 workflow measures 20
+warmups and 200 samples. Required-only audited verification must have p95 at or
+below 50 ms; oversize rejection must have p95 at or below 20 ms. Crypto provider
+latency is excluded from this benchmark and remains covered by call ceilings and
+the separate two-node real-OQS proof.
 
 ## Build Order Lock
 
