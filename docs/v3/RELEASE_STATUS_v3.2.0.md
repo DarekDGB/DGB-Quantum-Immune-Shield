@@ -1,72 +1,55 @@
-# Shield Orchestrator — Shield v3.2.0 Release Status
+# Shield Orchestrator v3.2.0 Historical Release Status
 
 Author attribution: DarekDGB
 
 ## Status
 
-Shield v3.2.0 is the manifest / verdict / receipt lock release.
+Shield v3.2.0 is the historical manifest, verdict, and receipt-lock release.
+The immutable `v3.2.0` tag exists at commit
+`5290124cd0d4938543f588d48bcd47fe0ba035ca`.
 
-This repository is ready for the `v3.2.0` Shield-side tag only after:
+The original release gate required green GitHub Actions, the committed
+coverage target, aligned manifest and registry documents, the test matrix and
+proof pack, a final fresh-ZIP audit, authorized bypass review, and no unresolved
+critical or high finding. Those gates completed before the tag. They are not a
+pending v4 release claim.
 
-- GitHub Actions are green
-- coverage gate remains satisfied
-- v3.2.0 manifest docs are present
-- reason ID registry is present
-- evidence-family registry is present
-- test matrix is present
-- proof pack is present
-- docs match tests
-- final fresh ZIP audit is complete
-- authorized Red Team / bypass review is complete
-- no unresolved critical or high findings remain
+## Historical release scope
 
-## Release Scope
+The release locked:
 
-This release locks the Shield v3.2.0 integration boundary for this component.
+- deterministic manifest discipline;
+- stable reason-ID and evidence-family registries;
+- the canonical v3 receipt boundary;
+- fail-closed validation expectations; and
+- Orchestrator-first AdamantineOS handoff language.
 
-It includes:
+## Authority boundary
 
-- deterministic manifest discipline
-- stable reason ID registry
-- stable evidence-family registry
-- canonical receipt boundary lock
-- fail-closed validation expectations
-- Orchestrator-first AdamantineOS handoff language
+The v3 component does not sign transactions, broadcast, hold wallet keys,
+modify DigiByte consensus, expand authority, override AdamantineOS, or approve
+execution directly.
 
-## Authority Boundary
+Component output is evidence only. AdamantineOS consumes Shield through the
+deterministic Orchestrator receipt. Shield `ALLOW` is not final signing or
+execution authority.
 
-This component does not sign, broadcast, hold keys, modify DigiByte consensus, expand authority, override the Shield Orchestrator, or approve AdamantineOS execution directly.
+## Historical Red Team and bypass review
 
-Component output is evidence only.
+The completed review covered component bypass, unknown registry values,
+duplicate and missing evidence, context mismatch, receipt tampering, AI
+authority bypass, governance approval reuse, replay and freshness boundaries,
+and documentation-versus-test alignment.
 
-AdamantineOS must consume Shield only through the deterministic Shield Orchestrator receipt.
+The recorded result was no unresolved critical or high finding for v3.2.0
+tagging.
 
-Shield `ALLOW` is not final AdamantineOS signing or execution authority.
+## AdamantineOS release-line boundary
 
-## Red Team / Bypass Review
+AdamantineOS was not tagged as part of Shield v3.2.0 and remains on an
+independent release line. Historical AdamantineOS version text is not reused as
+current status here.
 
-Final review scope included:
-
-- component bypass
-- unknown registry values
-- duplicate / missing evidence
-- context-hash mismatch
-- receipt tampering where applicable
-- AI authority bypass
-- governance approval reuse at current scope
-- replay / freshness boundary at current Shield scope
-- docs-vs-tests alignment
-
-Result: no unresolved critical or high findings remain for Shield v3.2.0 tagging.
-
-## AdamantineOS Tag Boundary
-
-AdamantineOS is not tagged as part of Shield v3.2.0.
-
-AdamantineOS remains on its own release line:
-
-```text
-v2.2.0 — WSQK v2 Quantum-Aware Upgrade
-```
-
-AdamantineOS must not be tagged until Shield v3 is fully integrated into AdamantineOS and the Adamantine release checklist passes.
+The parallel Shield v4 candidate and any AdamantineOS release decision remain
+separate controlled processes. This historical document does not authorize a
+v4 tag or an AdamantineOS tag.
