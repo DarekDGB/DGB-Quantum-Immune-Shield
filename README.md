@@ -1,306 +1,179 @@
-# 🧭 DigiByte Quantum Shield Orchestrator v3.2.0
+# DigiByte Quantum Shield Orchestrator 4.0.0 Candidate
 
 ![CI](https://github.com/DarekDGB/DGB-Quantum-Shield-Orchestrator/actions/workflows/ci.yml/badge.svg)
 ![Coverage 100%](https://img.shields.io/badge/coverage-100%25-brightgreen)
 ![License](https://img.shields.io/github/license/DarekDGB/DGB-Quantum-Shield-Orchestrator)
 ![Python](https://img.shields.io/badge/python-3.11%2B-blue)
-![Status](https://img.shields.io/badge/status-RECEIPT--BOUNDARY--LOCKED-critical)
+![Status](https://img.shields.io/badge/status-CONTROLLED--PRE--RELEASE-orange)
 
-**Shield Receipt Boundary • Deterministic Aggregation • Fail-Closed Orchestration**  
-**Architecture & Implementation by @DarekDGB — MIT Licensed**
+Author attribution: **DarekDGB**
 
----
+Distribution version: `4.0.0`
+Candidate tag: `v4.0.0`
+Release status: **controlled pre-release; not released and not tagged**
 
-## Purpose
+The DigiByte Quantum Shield Orchestrator is the deterministic aggregation,
+cryptographic-evidence verification, and signed-receipt boundary for Shield.
+It verifies component evidence, produces the one Shield receipt that
+AdamantineOS may consume, and fails closed when evidence is invalid,
+incomplete, stale, replayed, downgraded, or outside the bounded verification
+contract.
 
-**DigiByte Quantum Shield Orchestrator v3.2.0** is the deterministic aggregation and receipt boundary for the **DigiByte Quantum Shield**.
+## Authority boundary
 
-The Orchestrator consumes validated Shield component verdicts, aggregates them deterministically, and produces the single Shield receipt that AdamantineOS may consume.
+Shield evidence is not execution authority.
 
-The Orchestrator is responsible for:
+The Orchestrator does not:
 
-- deterministic Shield component coordination
-- strict component verdict validation
-- stable reason ID handling
-- evidence-family discipline
-- canonical context hashing
-- fail-closed aggregation
-- AdamantineOS handoff through one deterministic receipt
+- sign or broadcast transactions;
+- hold, derive, or access wallet private keys;
+- modify DigiByte consensus;
+- grant final wallet approval;
+- bypass local wallet policy; or
+- override AdamantineOS.
 
-The Orchestrator does **not**:
+AdamantineOS remains the final fail-closed policy and execution boundary. A
+Shield `ALLOW` result means only that verified evidence may continue to those
+independent checks.
 
-- sign transactions
-- broadcast transactions
-- hold, derive, or access private keys
-- modify DigiByte consensus
-- bypass AdamantineOS checks
-- create autonomous execution approval
+## Current Shield v4 surface
 
----
+The parallel v4 contract preserves the historical v3 compatibility surface
+and adds:
 
-## Position in the DigiByte Quantum Shield
+- canonical signed component verdicts and Orchestrator receipts;
+- role-separated, versioned verifier-controlled key registries;
+- required classical Ed25519 and ML-DSA verification;
+- optional FN-DSA/Falcon-1024 draft-profile evidence;
+- canonical signature-bundle ordering and no-rescue policy;
+- freshness, context, request, registry-floor, replay, and denylist checks;
+- an external verification contract with shared Known-Answer Test vectors;
+- guarded real-liboqs ML-DSA and Falcon-1024 evidence;
+- privacy-safe append-only verification audit records with durable
+  acknowledgement; and
+- a bounded six-bundle verification plan with callback and input ceilings.
 
-```text
-┌───────────────────────────────────────────────┐
-│              AdamantineOS                     │
-│   Consumes only Shield Orchestrator receipt   │
-└───────────────────────────────────────────────┘
-                       ▲
-                       │ deterministic receipt only
-┌───────────────────────────────────────────────┐
-│          Shield Orchestrator v3.2             │
-│   Final Shield aggregation + receipt boundary │
-└───────────────────────────────────────────────┘
-                       ▲
-                       │ component verdict evidence
-┌───────────────────────────────────────────────┐
-│ Guardian Wallet │ QWG │ ADN │ DQSN │ Sentinel │
-│      Shield components produce evidence       │
-└───────────────────────────────────────────────┘
-```
-
-AdamantineOS must not consume raw Shield component outputs directly.
-
-Only the deterministic Shield Orchestrator receipt is valid for Shield-to-AdamantineOS handoff.
-
----
-
-## Core Mission
-
-### Deterministic Aggregation
-
-The Orchestrator must produce the same output for the same valid input.
-
-Aggregation must not depend on:
-
-- timestamps
-- randomness
-- network state
-- file-system state
-- runtime environment
-- dictionary iteration order
-- hidden mutable state
-
-### Fail-Closed Receipt Boundary
-
-The Orchestrator must reject unsafe handoff conditions, including:
-
-- missing component verdict data
-- malformed component verdict data
-- unknown component identity
-- unknown reason IDs
-- unknown evidence families
-- duplicate or conflicting authority claims
-- mismatched context hashes
-- unsupported contract versions
-- non-canonical or unserialisable input
-- any ambiguity affecting authority, determinism, or auditability
-
-### One Shield Receipt
-
-For v3.2.0, the Orchestrator is the Shield stack’s single deterministic receipt boundary.
-
-Component outputs are evidence.
-
-The Orchestrator receipt is the Shield handoff artifact.
-
-AdamantineOS still performs its own checks after receiving a Shield `ALLOW`.
-
-A Shield `ALLOW` is **not** final signing or execution approval.
-
----
-
-## v3.2.0 Receipt Lock
-
-The v3.2.0 upgrade adds the manifest, verdict, and receipt integration boundary required before AdamantineOS integration.
-
-The Orchestrator receipt lock enforces:
-
-- component verdict validation
-- canonical receipt construction
-- deterministic receipt hashing
-- explicit `ALLOW`, `ESCALATE`, or `DENY` outcome mapping
-- stable reason ID propagation
-- evidence-family validation
-- fail-closed malformed receipt rejection
-- AdamantineOS handoff discipline
-
-See:
-
-- `docs/v3/MANIFEST.md`
-- `docs/v3/REASON_IDS.md`
-- `docs/v3/EVIDENCE_FAMILIES.md`
-- `docs/v3/TEST_MATRIX.md`
-- `docs/v3/PROOF_PACK.md`
-- `docs/v3/ADAMANTINEOS_HANDOFF.md`
-
----
-
-## Step 8.3 Hardening Status
-
-Step 8.3 closes the audit finding that the Orchestrator receipt path could rely on OK-returning bridge stubs instead of real component verdict input.
-
-The Orchestrator handoff path now requires explicit component input under:
+The frozen `policy.v1` order is:
 
 ```text
-payload.component_inputs
+classical-ed25519
+ml-dsa
+fn-dsa                    optional and last only
 ```
 
-Those component inputs are converted into strict Shield v3.2 component verdicts and then assembled into the single AdamantineOS handoff receipt.
+The required strict-AND paths are `classical-ed25519 + ml-dsa`. Optional
+`fn-dsa` may be absent. If present, it must use
+`fips206-draft-falcon1024-v1`, must verify, and cannot replace or rescue either
+required path. This is draft FN-DSA/Falcon-1024 evidence, not final FIPS 206
+proof.
 
-If component input is missing, unavailable, malformed, or contains authority-bypass fields, the Orchestrator fails closed and records the affected component as an `ERROR` verdict.
+## Verification order and bounded work
 
-For AdamantineOS handoff, integrators must pass the intended AdamantineOS context hash into the Orchestrator request payload. The resulting Shield receipt remains evidence only. AdamantineOS still performs its own deterministic checks and final local policy gates.
+The release-facing audited verifier accepts a bounded exact-JSON graph and
+completes cheap structural, schema, policy, role, profile, freshness, registry,
+and key checks for all five component bundles plus the outer receipt bundle
+before cryptographic callbacks.
 
-This hardening does **not** add signing authority, broadcasting authority, private-key custody, consensus authority, or autonomous execution approval.
+After complete preflight, callbacks run in global waves:
 
----
+1. classical Ed25519 for all six artifacts;
+2. ML-DSA for all six artifacts; and
+3. optional FN-DSA for applicable artifacts.
 
-## Step 9.1 Legacy Pipeline Lock
+Required-only evidence performs exactly 12 callbacks. Fully optional evidence
+performs at most 18 callbacks. A pre-crypto failure performs zero callbacks and
+emits one sanitized failed-preflight audit event.
 
-The legacy `FullShieldPipeline.process_event()` and `BaseLayer.process()` paths are disabled.
+The durable audit boundary withholds every success or rejection result until
+the append-only sink returns the exact acknowledgement for the complete batch.
+Audit failure remains fail closed.
 
-They are retained only as loud-failing compatibility shells so older imports do not silently receive fake Shield protection. They must not be used by wallet integrations, AdamantineOS integrations, or any production caller.
+## Proof boundaries
 
-The only supported Shield handoff path for v3.2 is:
+Different workflows prove different properties:
 
-```python
-from shield_orchestrator.v3.orchestrate import orchestrate
-```
+- `CI` runs the committed full suite on Python 3.11 and 3.13 with 100 percent
+  statement coverage;
+- `Shield Live Integration` runs the exact cross-repository integration nodes
+  with a no-skip JUnit guard;
+- `Shield v4 Performance and DoS Envelope` runs exact Python 3.11.15,
+  pinned software, 20 warmups, 200 samples, focused work-budget tests, and
+  p95 limits; and
+- `Shield v4 Real OQS ML-DSA and Falcon-1024 Proof` runs the exact two native
+  liboqs nodes with a no-skip JUnit guard.
 
-Callers must provide explicit `payload.component_inputs`. Missing or invalid component input fails closed into a v3.2 receipt outcome, never into an unconditional all-pass result.
+Standard CI and deterministic KATs do not by themselves prove that native
+liboqs executed. Native test evidence does not prove production key custody,
+HSM operation, final FIPS 206 conformance, or release authorization.
 
+## V4 documentation
 
----
+- Contract invariants:
+  `docs/v4/SHIELD_V4_CONTRACT_INVARIANTS.md`
+- Canonicalization:
+  `docs/v4/SHIELD_V4_CANONICALIZATION_SPEC.md`
+- Threat model:
+  `docs/v4/SHIELD_V4_THREAT_MODEL.md`
+- Test matrix:
+  `docs/v4/SHIELD_V4_TEST_MATRIX.md`
+- External verification contract:
+  `docs/v4/SHIELD_V4_EXTERNAL_VERIFICATION_CONTRACT_V1.md`
+- External package manifest:
+  `docs/v4/SHIELD_V4_EXTERNAL_VERIFICATION_PACKAGE_V1.json`
+- KAT index:
+  `docs/v4/SHIELD_V4_KAT_VECTORS.md`
+- Real-crypto backend:
+  `docs/v4/SHIELD_V4_REAL_CRYPTO_BACKEND.md`
+- Verification audit:
+  `docs/v4/SHIELD_V4_VERIFICATION_AUDIT_V1.md`
+- Performance and DoS envelope:
+  `docs/v4/SHIELD_V4_PERFORMANCE_DOS_ENVELOPE_V1.md`
+- Proof pack:
+  `docs/v4/SHIELD_V4_PROOF_PACK.md`
+- Release status:
+  `docs/v4/SHIELD_V4_RELEASE_STATUS_v4.0.0.md`
+- PQC scope lock:
+  `docs/v4/SHIELD_V4_PQC_SCOPE_LOCK.md`
+- Q-ID alignment:
+  `docs/v4/SHIELD_V4_QID_CRYPTO_ALIGNMENT.md`
 
-## Repository Layout
+Tests and normative contract documents define truth. A public claim must not
+exceed the evidence recorded in the proof pack and release status.
+
+## V3 compatibility and history
+
+The immutable `v3.2.0` tag and its documentation remain historical release
+evidence. The v3 contract, verdict, and receipt identities remain unchanged.
+The top-level distribution version bump does not reinterpret or rewrite v3
+artifacts.
+
+New integrations should use the v4 evidence surface only when their controlled
+deployment has satisfied the applicable V4.10 gates. Historical v3 behavior
+must not be silently accepted where a verifier requires v4.
+
+## Development
+
+Install the test dependencies and run the committed suite:
 
 ```text
-DGB-Quantum-Shield-Orchestrator/
-├─ README.md
-├─ LICENSE
-├─ CHANGELOG.md
-├─ SECURITY.md
-├─ docs/
-│  └─ v3/
-│     ├─ ADAMANTINEOS_HANDOFF.md
-│     ├─ API.md
-│     ├─ ARCHITECTURE.md
-│     ├─ CONTRACT.md
-│     ├─ EVIDENCE_FAMILIES.md
-│     ├─ INDEX.md
-│     ├─ MANIFEST.md
-│     ├─ PROOF_PACK.md
-│     ├─ REASON_IDS.md
-│     └─ TEST_MATRIX.md
-├─ tests/
-│  └─ test_v3_2_orchestrator_receipt_lock.py
-└─ src/
-   └─ shield_orchestrator/
-      ├─ bridges/
-      ├─ v3/
-      │  ├─ canonical_json.py
-      │  ├─ context_hash.py
-      │  ├─ orchestrate.py
-      │  └─ contracts/
-      │     ├─ envelope.py
-      │     ├─ reason_ids.py
-      │     ├─ version.py
-      │     └─ v3_2_receipt.py
-      ├─ config.py
-      ├─ context.py
-      ├─ errors.py
-      └─ pipeline.py
+python -m pip install -e ".[test]"
+pytest
 ```
 
----
+The default suite intentionally skips opt-in native-OQS and complete
+cross-repository live nodes unless their dedicated environments are enabled.
+The guarded workflows must collect the exact required nodes and reject every
+skip.
 
-## Tests & Security Guarantees
+## Release governance
 
-Security and regression tests enforce:
-
-- deterministic orchestration
-- fail-closed behavior
-- strict component identity validation
-- stable reason IDs
-- stable evidence families
-- canonical receipt construction
-- receipt hash determinism
-- malformed receipt rejection
-- duplicate verdict rejection
-- AdamantineOS handoff boundary assumptions
-- no component-level bypass as final authority
-
-Tests define truth.
-
-No release is locked unless CI proves the contract surface.
-
----
-
-## v3.2.0 Status
-
-The Orchestrator is aligned with the Shield v3.2.0 integration-boundary track:
-
-- package metadata set to `3.2.0`
-- manifest / reason ID / evidence-family docs are present
-- AdamantineOS handoff documentation is present
-- v3.2.0 receipt lock tests are present
-- deterministic receipt behavior is preserved
-- no consensus authority is added
-- no signing, broadcasting, key custody, or hidden execution authority is added
-- AdamantineOS must consume Shield through the Orchestrator receipt only
-
-Do **not** tag v3.2.0 until the final roadmap checklist, fresh ZIP audit, CI proof, and Red Team report are complete.
-
----
-
-## Shield v3 Invariants
-
-The Orchestrator follows the Shield v3 baseline invariants:
-
-- **Deny-by-default** — anything not explicitly allowed is rejected.
-- **Fail-closed** — invalid, ambiguous, partial, or unsafe input is rejected.
-- **Deterministic execution** — same valid input must produce the same output.
-- **No silent fallback** — failures must surface as explicit reasoned rejections.
-- **Component evidence only** — raw component verdicts do not approve execution.
-- **Single receipt boundary** — AdamantineOS receives Shield state only through the deterministic Orchestrator receipt.
-- **Human / AdamantineOS final authority remains outside Shield** — Shield `ALLOW` is not final signing approval.
-
-Any violation of these invariants is a security defect.
-
----
-
-## Documentation
-
-- Index: `docs/v3/INDEX.md`
-- API: `docs/v3/API.md`
-- Architecture: `docs/v3/ARCHITECTURE.md`
-- Contract: `docs/v3/CONTRACT.md`
-- Manifest: `docs/v3/MANIFEST.md`
-- AdamantineOS handoff: `docs/v3/ADAMANTINEOS_HANDOFF.md`
-- Reason IDs: `docs/v3/REASON_IDS.md`
-- Evidence Families: `docs/v3/EVIDENCE_FAMILIES.md`
-- Test Matrix: `docs/v3/TEST_MATRIX.md`
-- Proof Pack: `docs/v3/PROOF_PACK.md`
-
----
-
-## Contribution Policy
-
-Rules:
-
-- No consensus-touching behavior.
-- No signing or broadcasting behavior.
-- No private-key custody behavior.
-- No AdamantineOS direct execution approval.
-- Deterministic receipt behavior only.
-- Tests required for contract changes.
-- No bypass of the Shield Orchestrator receipt boundary.
-- No weakening of the 100% coverage gate.
-
----
+`4.0.0` is the aligned distribution candidate and `v4.0.0` is only the
+candidate tag name. No release decision has been authorized, and no v4 tag may
+be created or moved until the controlled V4.10 release gates are complete and
+DarekDGB explicitly approves the release action.
 
 ## License
 
-MIT License  
-© 2025 **DarekDGB**
+MIT License. See `LICENSE` and `THIRD_PARTY_NOTICES.md`.
+
+Copyright 2025 DarekDGB
