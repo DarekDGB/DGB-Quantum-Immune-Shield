@@ -1,281 +1,169 @@
-# Security Policy — DigiByte Quantum Shield Orchestrator
+# Security Policy - DigiByte Quantum Shield Orchestrator
 
-**Repository:** DGB-Quantum-Shield-Orchestrator  
-**Component:** Shield Orchestrator v3.2 — Deterministic Receipt Boundary  
-**Maintainer:** DarekDGB  
-**License:** MIT
+Repository: `DGB-Quantum-Shield-Orchestrator`
+Maintainer: DarekDGB
+License: MIT
 
-This document defines the security policy and disclosure process for the DigiByte Quantum Shield Orchestrator, with a focus on the **Shield v3.2.0 receipt boundary**.
+## Supported surfaces
 
----
-
-## Supported Versions
-
-Only the current Shield v3 Orchestrator surface is supported and security-maintained for new Shield work.
-
-| Component | Status |
+| Surface | Status |
 |---|---|
-| Orchestrator v3.2.0 | ✅ Supported — current receipt-boundary hardening surface |
-| Orchestrator v3.1.0 | ✅ Previous foundation-hardening baseline |
-| Older archived behavior | ❌ Unsupported |
+| Distribution `4.0.0` / candidate `v4.0.0` | Controlled pre-release; security-maintained; not released or tagged |
+| Shield v3.2.0 compatibility surface | Historical immutable release; compatibility-maintained |
+| Older archived behavior | Unsupported unless an issue affects the maintained surfaces |
 
-Legacy documentation may remain in the repository for historical reference, but it is **non-authoritative** for v3.2.0 security behavior.
+The v4 distribution version does not change frozen v3 protocol or schema
+identities. Historical material remains non-authoritative for the v4 security
+surface.
 
----
+## Security model
 
-## Security Model
-
-The Shield Orchestrator is a **deterministic, fail-closed aggregation and receipt boundary**.
-
-Security is enforced through:
-
-- strict component verdict validation
-- deterministic aggregation
-- stable reason codes
-- stable evidence families
-- canonical context hashing
-- canonical receipt hashing
-- fail-closed behavior
-- no hidden authority
-- tests for receipt construction and validation
-
-The Orchestrator is **consensus-neutral**.
+The Orchestrator is a deterministic, fail-closed evidence-verification,
+aggregation, and signed-receipt boundary.
 
 It does not:
 
-- alter DigiByte consensus rules
-- sign transactions
-- broadcast transactions
-- hold, derive, or access private keys
-- perform final AdamantineOS execution approval
+- alter DigiByte consensus;
+- sign or broadcast transactions;
+- hold, derive, or access wallet private keys;
+- grant final wallet approval;
+- override local policy; or
+- override AdamantineOS.
+
+AdamantineOS remains the final fail-closed policy and execution boundary.
+Shield `ALLOW` is verified evidence that may continue to downstream checks,
+not execution authority.
+
+## Non-negotiable v4 controls
+
+### Exact contracts and canonicalization
+
+V4 verdict, receipt, signature-bundle, key-registry, canonicalization, and
+policy identifiers are versioned and fail closed on mismatch. Signed JSON is
+UTF-8, NFC-normalized, type-restricted, and canonically serialized. Duplicate
+keys, unsupported fields, ambiguous numbers, and non-canonical evidence are
+rejected.
 
-The Orchestrator produces the Shield receipt only.
+### Required and optional algorithms
 
-AdamantineOS remains responsible for its own final checks and execution rules.
+`policy.v1` requires both:
 
----
+```text
+classical-ed25519
+ml-dsa
+```
+
+Optional `fn-dsa` may be present only last and only under
+`fips206-draft-falcon1024-v1`. Optional evidence may be absent. Present but
+invalid optional evidence is fatal. FN-DSA cannot replace or rescue a missing
+or failed required path. The draft Falcon-1024 profile is not final FIPS 206
+proof.
 
-## Non-Negotiable Design Invariants
+### Role, registry, and time binding
 
-### 1. Fail-Closed by Default
+Every signature binds algorithm, profile, key ID, key version, role, domain,
+and signed payload hash. The verifier controls the trusted registry and minimum
+registry floor. Unknown, revoked, expired, wrong-role, out-of-window, replayed,
+or downgraded evidence fails closed.
 
-Any invalid, ambiguous, incomplete, unsafe, or malformed input must produce an explicit rejection path.
+### Durable verification audit
 
-Expected fail-closed behavior includes:
+Release-facing integrations that require audit evidence must use the audited
+v4 verification boundary. It produces privacy-safe canonical records, hashes
+request and key identifiers under separate domains, forbids secrets and raw
+identifiers, and appends one ordered batch.
 
-- deterministic reject outcome
-- explicit reason code
-- no silent fallback
-- no implicit allow
-- no authority escalation
+No success or rejection result leaves that boundary until the sink returns the
+exact durable acknowledgement. Missing, malformed, false, mismatched, hostile,
+or exceptional acknowledgement fails closed as `V4_AUDIT_SINK_FAILURE`.
 
-### 2. Determinism
+### Performance and denial-of-service limits
 
-The same valid input must always produce the same receipt.
+The audited boundary snapshots only bounded exact built-in JSON types. It caps
+graph depth, node count, scalar bytes, single strings, bundle bytes, receipt
+bytes, registry entries, signature counts, and backend callbacks.
 
-Contract behavior must not depend on:
+All five component bundles and the outer receipt bundle complete cheap
+preflight before signed-payload hashing or backend work. Required callbacks run
+in a six-artifact classical wave followed by a six-artifact ML-DSA wave.
+Optional FN-DSA runs last. Pre-crypto failures perform zero callbacks.
 
-- timestamps
-- randomness
-- environment state
-- network state
-- file-system state
-- dictionary iteration order
-- runtime-dependent side effects
+## Evidence boundaries
 
-Canonical hashes must be reproducible.
+Security claims must distinguish:
 
-### 3. Single Receipt Authority
+- standard CI and deterministic test-double coverage;
+- shared Known-Answer Test and external-contract conformance;
+- complete cross-repository live integration;
+- pinned structural performance and rejection cost; and
+- guarded native liboqs ML-DSA/Falcon execution.
 
-The Orchestrator may:
+Standard CI does not prove native OQS execution. Native OQS tests use test
+keys and test backends; they do not prove production key custody, HSM
+assurance, provider hardening, or final FIPS 206 conformance.
 
-- consume component verdict evidence
-- validate component identity and contract version
-- aggregate component evidence
-- produce deterministic Shield receipts
-- hand one Shield receipt to AdamantineOS
+## Required negative behavior
 
-The Orchestrator must never:
+The maintained v4 surface must reject:
 
-- treat raw component output as final execution approval
-- allow component-level bypass into AdamantineOS
-- execute cryptographic signing
-- modify consensus behavior
-- override AdamantineOS final checks
-- create hidden authority through fallback behavior
+- missing or invalid required signatures;
+- reordered, duplicated, unknown, or unsupported algorithm entries;
+- optional FN-DSA inserted before or between required paths;
+- required-path rescue attempts;
+- role, key, profile, policy, domain, context, or request mismatch;
+- stale, future, replayed, denied, revoked, or registry-rollback evidence;
+- signature splicing and hash mismatch;
+- metadata or handoff authority injection;
+- v3 evidence where trusted policy requires v4;
+- hostile JSON containers, subclasses, cycles, overcounts, and oversized
+  encoded fields; and
+- audit sink failure or diagnostic leakage.
 
-### 4. No Silent Fallbacks
+Tests and normative contract documents define truth.
 
-All error paths must be explicit, deterministic, and test-covered.
+## Known pre-release residuals
 
-A fallback that changes authority, weakens validation, or allows execution is a security defect.
+- The real-OQS workflow fetches liboqs and liboqs-python from floating default
+  branches rather than immutable commits.
+- Standard, live-integration, and real-OQS workflows retain mutable major
+  action tags in existing workflow definitions.
+- Live-integration component checkouts are not pinned to immutable commits.
+- Standard CI enforces statement coverage, not branch coverage.
+- Current live workflows create transient JUnit reports but do not upload every
+  report as a retained artifact.
+- The pinned performance gate measures deterministic verifier overhead with
+  no-op callbacks and excludes provider cryptographic latency.
+- The FN-DSA/Falcon-1024 profile is draft evidence only.
 
----
+These residuals are disclosed release inputs. They must not be hidden by a
+public claim.
 
-## v3.2.0 Security Boundary
+## Reporting a vulnerability
 
-The v3.2.0 boundary locks the Orchestrator into the Shield manifest / verdict / receipt upgrade path.
+Do not disclose a suspected security issue publicly first.
 
-Component verdicts are **evidence only**.
+Use a private GitHub security advisory when available, or contact the
+maintainer through the GitHub profile `@DarekDGB`.
 
-The Orchestrator receipt is the only valid Shield handoff artifact for AdamantineOS.
+Include:
 
-AdamantineOS must not consume raw component outputs directly as final signing, execution, or approval authority.
+- affected commit or tag;
+- clear reproduction steps;
+- expected and actual behavior;
+- security impact; and
+- whether the issue affects v3 compatibility, v4 evidence, or both.
 
-A Shield `ALLOW` result only permits AdamantineOS to continue its own checks.
+## Release governance
 
-It is **not** final signing or execution approval.
+Distribution `4.0.0` is a controlled candidate. No `v4.0.0` release tag may be
+created or moved before the complete V4.10 release decision and explicit
+DarekDGB authorization. Repository metadata and green CI do not themselves
+authorize a release.
 
----
+## Final security rule
 
-## Fail-Closed Requirements
+Reject any change that weakens deterministic canonicalization, fail-closed
+behavior, required signature policy, role separation, durable audit,
+work-budget ceilings, or the evidence-only authority boundary.
 
-The following conditions must reject deterministically:
-
-- missing required receipt data
-- malformed receipt data
-- missing component verdict data
-- malformed component verdict data
-- unknown component identity
-- duplicated component verdicts
-- duplicated authority claims
-- unknown reason IDs
-- unknown evidence families
-- mismatched component identity
-- mismatched contract version
-- mismatched context hash
-- unsafe or unserialisable input
-- non-canonical verdict data
-- non-canonical receipt data
-- ambiguity affecting authority, determinism, or auditability
-
----
-
-## Security Testing
-
-Security guarantees are enforced through tests covering:
-
-- fail-closed behavior
-- deterministic orchestration behavior
-- unsupported contract versions
-- reason-code stability
-- evidence-family validation
-- component verdict validation
-- canonical receipt construction
-- canonical receipt hash stability
-- malformed receipt rejection
-- duplicate component verdict rejection
-- AdamantineOS handoff boundary assumptions
-- regression protection against behavior drift
-
-Security-sensitive changes must include tests.
-
-Tests define truth.
-
-Documentation must never claim behavior that tests do not enforce.
-
----
-
-## Release Requirements
-
-No Orchestrator v3.2.0 release should be tagged unless all of the following are true:
-
-- roadmap checklist is complete
-- tests pass locally or in CI
-- coverage gate remains at 100%
-- manifest files are present and aligned
-- reason IDs are documented and tested
-- evidence families are documented and tested
-- receipt boundary tests pass
-- AdamantineOS handoff boundary is respected
-- final fresh ZIP audit is complete
-- Red Team report is complete
-- no docs-vs-tests mismatch remains
-
----
-
-## Reporting a Vulnerability
-
-If you believe you have found a security issue:
-
-1. Do **not** disclose it publicly first.
-2. Open a private security advisory through GitHub if available.
-3. Alternatively, contact the maintainer through the GitHub profile: **@DarekDGB**.
-
-Please include:
-
-- clear description of the issue
-- steps to reproduce, if applicable
-- expected behavior
-- actual behavior
-- affected commit hash or tag
-- potential security impact
-
-Coordinated disclosure is strongly encouraged.
-
----
-
-## In Scope
-
-Security issues in scope include:
-
-- Orchestrator receipt construction behavior
-- determinism violations
-- fail-closed bypasses
-- reason ID ambiguity
-- evidence-family ambiguity
-- manifest/verdict/receipt mismatch
-- context hash mismatch
-- component verdict bypass risk
-- AdamantineOS raw-output bypass risk
-- CI or test coverage gaps affecting security
-
----
-
-## Out of Scope
-
-The following are out of scope unless they create a direct security defect:
-
-- DigiByte consensus vulnerabilities
-- mining-layer issues
-- wallet UI preferences
-- performance tuning
-- cosmetic documentation changes
-- non-security refactors
-- unsupported archived behavior
-
----
-
-## Security Updates
-
-Security fixes may:
-
-- tighten validation
-- improve fail-closed behavior
-- add negative tests
-- update documentation
-- clarify reason IDs or evidence families
-- strengthen receipt validation
-
-Breaking changes to security semantics require:
-
-- documentation updates
-- explicit version notes
-- regression tests
-- coverage proof
-
----
-
-## Disclaimer
-
-This software is provided **as-is**, without warranty of any kind.
-
-Use at your own risk.
-
----
-
-## Final Security Rule
-
-Any change that weakens determinism, fail-closed behavior, explicit authority boundaries, component-evidence-only behavior, or the single Orchestrator receipt model must be rejected.
-
-© 2025 DarekDGB
+Copyright 2025 DarekDGB
