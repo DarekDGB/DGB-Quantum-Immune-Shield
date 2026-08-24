@@ -1,199 +1,126 @@
 # Contributing to DGB Quantum Shield Orchestrator
 
-The **DigiByte Quantum Shield Orchestrator** is the **v3 coordination layer**
-of the DigiByte Quantum Shield.
+Maintainer: DarekDGB
 
-This repository is responsible for:
-- deterministically invoking Shield Contract v3 components
-- enforcing strict evaluation order
-- synthesizing a single, fail-closed security envelope
-- forwarding results to Adaptive Core as a **read-only sink**
+The repository contains two intentionally separate contract surfaces:
 
-It does **not** implement security logic itself.
+- the frozen Shield v3 compatibility surface; and
+- the parallel Shield v4 cryptographic-evidence and receipt surface.
 
-Contributions must preserve this role:
-**orchestration, coordination, and contract enforcement only.**
+Tests and normative contract documents are authoritative. Contributions must
+describe implemented behavior, preserve version boundaries, and remain
+fail closed.
 
----
+## Repository role
 
-## 🧭 Scope of This Repository
+The Orchestrator may:
 
-This project coordinates the following **external Shield v3 components**:
+- validate versioned Shield component evidence;
+- coordinate deterministic component order;
+- verify v4 signature bundles under verifier-controlled trust;
+- aggregate evidence into one Shield receipt;
+- produce privacy-safe verification audit evidence; and
+- enforce bounded verification work.
 
-- Sentinel (v3) — signal emission
-- DQSN (v3) — network aggregation
-- ADN (v3) — defensive state signaling
-- Guardian Wallet (v3) — wallet-level enforcement
-- QWG (v3) — cryptographic / PQC guardrails
-- Adaptive Core (v3) — read-only intelligence & reporting
+The Orchestrator must not:
 
-These components live in **their own repositories**.
-This project only connects them via **explicit, deterministic bridges**.
+- sign or broadcast transactions;
+- hold, derive, or access wallet private keys;
+- modify DigiByte consensus;
+- move component-specific security policy into this repository;
+- treat AI output or metadata as authority;
+- grant final approval; or
+- override AdamantineOS.
 
----
+AdamantineOS remains the final fail-closed policy and execution boundary.
 
-## ✅ What Contributions Are Welcome
+## Welcome contributions
 
-### ✔️ 1. Bridge Improvements
-Improvements to adapters under:
+### Contract and validation hardening
 
-```
-src/shield_orchestrator/bridges/
-```
+Changes may tighten exact field shapes, canonicalization, role binding,
+freshness, replay, registry, signature-policy, audit, or work-budget checks.
+Every behavioral change requires focused positive and negative tests.
 
-Examples:
-- clearer v3 contract usage
-- stricter input validation
-- better trace or context propagation
-- safer error handling (always fail-closed)
+### Bridge and compatibility maintenance
 
-Bridges must:
-- never make allow / deny decisions
-- never modify global state
-- never escalate authority
+Bridge changes must preserve explicit contracts and must not silently alter the
+frozen v3 surface. A v3 compatibility repair must not weaken v4-required mode.
 
----
+### Testing and evidence
 
-### ✔️ 2. Orchestration & Contract Logic
-Enhancements to:
+Useful test contributions include:
 
-```
-src/shield_orchestrator/v3/
-```
+- negative-first contract matrices;
+- canonicalization and cross-domain replay cases;
+- signature order, duplicate, splice, and no-rescue cases;
+- role, registry, revocation, freshness, replay, and denylist cases;
+- durable-audit acknowledgement and privacy failures;
+- graph, byte, registry, bundle, and callback budget boundaries; and
+- guarded live-backend or cross-repository evidence.
 
-Examples:
-- stricter request validation
-- clearer trace semantics
-- improved determinism guarantees
-- additional fail-closed reason mappings
+### Documentation
 
-All changes must respect:
-- deny-by-default behavior
-- deterministic execution
-- contract version discipline
+Documentation must state what code and tests prove now. Historical v3 material
+must remain clearly classified. V4 documents belong under `docs/v4/`; legacy
+material belongs under `docs/legacy/`.
 
----
+Do not publish a final release, production-key, final FIPS 206, transaction
+authority, or consensus claim that the evidence does not prove.
 
-### ✔️ 3. Testing & Verification
-Improvements to:
+## V4 contract requirements
 
-```
-tests/
-```
+Changes to the v4 evidence surface must preserve:
 
-Examples:
-- negative-first tests
-- missing-component scenarios
-- hashing and serialization failures
-- determinism regression tests
+- exact `shield-v4-canon.v1` canonicalization;
+- required `classical-ed25519 + ml-dsa` verification;
+- optional `fn-dsa` last only under the allowed draft Falcon-1024 profile;
+- no optional rescue of a required failure;
+- canonical received signature order;
+- role, key, profile, policy, domain, context, request, and freshness binding;
+- verifier-controlled registry and rollback floor;
+- complete six-bundle cheap preflight before backend work;
+- total and PQC callback ceilings;
+- privacy-safe append-only audit records;
+- exact durable acknowledgement before result release; and
+- evidence-only authority boundaries.
 
-Tests are **authoritative**:
-if behavior is not test-covered, it is not considered stable.
+If a proposal cannot preserve an invariant, stop and version the contract
+explicitly before implementation.
 
----
+## Required gates
 
-### ✔️ 4. Documentation
-Updates to:
-- README.md
-- SECURITY.md
-- docs/ (v3 only)
+Every pull request must keep standard CI and the committed 100 percent
+statement-coverage gate green.
 
-Docs must describe **what exists today**, not speculative future systems.
+Run additional gates when relevant:
 
-Legacy or historical material belongs in `docs/legacy/`.
+- `Shield Live Integration` for cross-repository behavior;
+- `Shield v4 Performance and DoS Envelope` for verifier, work-budget,
+  performance asset, or package metadata changes; and
+- `Shield v4 Real OQS ML-DSA and Falcon-1024 Proof` for real-backend,
+  algorithm, profile, key-registry, or package metadata changes.
 
----
+Guarded workflows must collect the exact required nodes and reject every skip,
+failure, or error. Deterministic tests do not substitute for native-OQS proof.
 
-## ❌ What Will NOT Be Accepted
+## Pull request expectations
 
-### 🚫 1. Moving Layer Logic Into the Orchestrator
-This repository must **never** implement or duplicate:
+A change should:
 
-- Sentinel analytics
-- DQSN aggregation logic
-- ADN defense logic
-- QWG cryptographic checks
-- Guardian Wallet UX or policy logic
-- Adaptive Core learning or decision-making
+- state intent and exact scope;
+- identify changed contracts and authority boundaries;
+- include tests for every behavioral claim;
+- preserve repository structure and attribution;
+- avoid generated caches, coverage data, editable metadata, native build
+  products, and secrets; and
+- avoid unrelated formatting or release-history drift.
 
-Those belong to their respective repositories.
+Only DarekDGB may authorize repository changes, releases, or tag movement.
 
----
+## License
 
-### 🚫 2. Policy or Authority Escalation
-The orchestrator must **not**:
-- introduce implicit allow paths
-- override downstream components
-- auto-upgrade or self-modify behavior
-- make autonomous security decisions
+By contributing, you agree that your contribution is licensed under the MIT
+License.
 
-All outcomes must remain **fail-closed** unless explicitly extended by versioned design.
-
----
-
-### 🚫 3. Consensus or Protocol Changes
-This project must **never**:
-- alter DigiByte consensus rules
-- modify block, mempool, or validation logic
-- act as governance or validator software
-
-It is strictly **coordination-layer software**.
-
----
-
-### 🚫 4. Non-Deterministic Behavior
-Rejected changes include:
-- time-based logic
-- randomness
-- order-dependent execution
-- hidden configuration toggles
-
-Determinism is a core invariant.
-
----
-
-## 🧱 Design Principles (Non-Negotiable)
-
-1. **Deny-by-Default**  
-   Any ambiguity or failure results in `DENY`.
-
-2. **Deterministic Execution**  
-   Same input → same output → same hash.
-
-3. **Explicit Contracts**  
-   Interfaces are versioned, documented, and test-locked.
-
-4. **No Hidden Authority**  
-   No backdoors, overrides, or escape hatches.
-
-5. **Separation of Concerns**  
-   Orchestration here, logic elsewhere.
-
-6. **Auditability**  
-   All behavior must be explainable via trace output.
-
----
-
-## 🔄 Pull Request Expectations
-
-A good PR must:
-- clearly describe intent and scope
-- reference relevant v3 docs or contracts
-- include tests for any behavioral change
-- preserve folder structure and contracts
-- avoid speculative or future-facing logic
-
-The maintainer (**@DarekDGB**) reviews:
-- architectural fit
-- security invariants
-- contract discipline
-
-CI must be green for review.
-
----
-
-## 📝 License
-
-By contributing, you agree that your contributions are licensed under the MIT License.
-
-© 2025 **DarekDGB**
+Copyright 2025 DarekDGB
